@@ -15,6 +15,7 @@ class AboutViewController: UIViewController {
         view.backgroundColor = .white
 
         let aboutLabel = UILabel()
+        
         aboutLabel.text = "Mood fluctuations can disrupt students' concentration, engagement, and motivation, affecting their academic performance. To counter this, MoodMaster, a personalized mood management app, offers emotional support features to help stabilize the user's emotional state, leading to more effective learning."
         aboutLabel.numberOfLines = 0
         aboutLabel.textAlignment = .justified
