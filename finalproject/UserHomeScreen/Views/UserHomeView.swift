@@ -6,7 +6,7 @@
 
 import UIKit
 
-class OptionView: UIView {
+class UserHomeView : UIView {
 
     var homeButton: UIButton!
     var profileButton: UIButton!
