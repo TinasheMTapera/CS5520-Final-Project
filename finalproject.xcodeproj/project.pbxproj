@@ -31,6 +31,9 @@
 		DD2BEC9D2B1872AE001F55CE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DD2BEC9C2B1872AE001F55CE /* FirebaseAuth */; };
 		DD2BEC9F2B1895EE001F55CE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DD2BEC9E2B1895EE001F55CE /* FirebaseFirestore */; };
 		DD2BECA12B1895EE001F55CE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD2BECA02B1895EE001F55CE /* FirebaseFirestoreSwift */; };
+		DD2BECA32B189761001F55CE /* LoginFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECA22B189761001F55CE /* LoginFirebaseManager.swift */; };
+		DD2BECA52B18AE01001F55CE /* RegistrationFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECA42B18AE01001F55CE /* RegistrationFirebaseManager.swift */; };
+		DD2BECA72B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECA62B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift */; };
 		DD7E913A2B18232A00BFEB12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */; };
 		DD7E913C2B18234800BFEB12 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913B2B18234800BFEB12 /* FirebaseAnalytics */; };
 		DD7E913E2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913D2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -58,6 +61,9 @@
 		DD2BEC942B187060001F55CE /* ProgressSpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerViewController.swift; sourceTree = "<group>"; };
 		DD2BEC972B1870B2001F55CE /* ProgressSpinnerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerDelegate.swift; sourceTree = "<group>"; };
 		DD2BEC992B1870CC001F55CE /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		DD2BECA22B189761001F55CE /* LoginFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFirebaseManager.swift; sourceTree = "<group>"; };
+		DD2BECA42B18AE01001F55CE /* RegistrationFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFirebaseManager.swift; sourceTree = "<group>"; };
+		DD2BECA62B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +133,7 @@
 			children = (
 				DD2BEC912B186FB1001F55CE /* Views */,
 				28F50EF52B0A448B00D59A40 /* ViewController.swift */,
+				DD2BECA22B189761001F55CE /* LoginFirebaseManager.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -136,6 +143,8 @@
 			children = (
 				DD2BEC922B186FC0001F55CE /* Views */,
 				28F50F1E2B0A54C800D59A40 /* RegistrationViewController.swift */,
+				DD2BECA42B18AE01001F55CE /* RegistrationFirebaseManager.swift */,
+				DD2BECA62B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift */,
 			);
 			path = RegistrationScreen;
 			sourceTree = "<group>";
@@ -294,12 +303,15 @@
 				28F50EF62B0A448B00D59A40 /* ViewController.swift in Sources */,
 				28F50F1D2B0A53D800D59A40 /* RegistrationView.swift in Sources */,
 				28F50F282B0C3CB400D59A40 /* AboutView.swift in Sources */,
+				DD2BECA32B189761001F55CE /* LoginFirebaseManager.swift in Sources */,
 				28F50F1A2B0A489400D59A40 /* LoginView.swift in Sources */,
 				28F50F252B0AA48500D59A40 /* UserHomeViewController.swift in Sources */,
 				DD2BEC982B1870B2001F55CE /* ProgressSpinnerDelegate.swift in Sources */,
 				DD2BEC952B187060001F55CE /* ProgressSpinnerViewController.swift in Sources */,
 				28F50EF22B0A448B00D59A40 /* AppDelegate.swift in Sources */,
 				28F50F2A2B0C3D6D00D59A40 /* AboutViewController.swift in Sources */,
+				DD2BECA72B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift in Sources */,
+				DD2BECA52B18AE01001F55CE /* RegistrationFirebaseManager.swift in Sources */,
 				28F50EF42B0A448B00D59A40 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

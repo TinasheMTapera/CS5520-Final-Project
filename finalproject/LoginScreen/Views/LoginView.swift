@@ -31,6 +31,7 @@ class LoginView: UIView {
         let textField = UITextField()
         textField.placeholder = "Email"
         textField.borderStyle = .roundedRect
+        textField.keyboardType = .emailAddress
         return textField
     }()
     

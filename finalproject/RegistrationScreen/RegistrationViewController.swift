@@ -53,8 +53,7 @@ class RegistrationViewController: UIViewController {
                                     if let uwReenterPassword = reenteredPasswordInput {
                                         if !uwReenterPassword.isEmpty {
                                             if(validatePassword(uwPassword, uwReenterPassword)){
-//                                                registerNewAccount(uwName, uwEmail, uwPassword)
-                                                print("newUserAccount registration")
+                                                registerNewAccount(uwName, uwEmail, uwPassword)
                                             }
                                             else {
                                                 showErrorAlert(message: "Passwords do not match")

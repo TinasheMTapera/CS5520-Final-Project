@@ -11,8 +11,15 @@ import FirebaseAuth
 class ViewController: UIViewController {
     
     let loginView = LoginView()
+    let userHomeView = UserHomeView()
+    
     var handleAuth: AuthStateDidChangeListenerHandle?
     var currentUser: FirebaseAuth.User?
+    
+    
+    override func loadView() {
+        view = loginView
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -27,7 +34,9 @@ class ViewController: UIViewController {
                 
                 //user not signed in functionality
                 
-                self.showLoginScreen()
+                self.view = self.loginView
+//                self.showLoginScreen()
+//                self.loadView()
 //                self.currentUser = nil
 //                self.navigationController?.pushViewController(self.loginController, animated: true)
 //                self.loginView.loginButton.isEnabled  = true
@@ -44,8 +53,12 @@ class ViewController: UIViewController {
                 
                 //user signed in functionality
                 
+                self.currentUser = user
                 self.showUserHomeScreen()
-//                self.currentUser = user
+//                let userHomeController = UserHomeViewController()
+//                userHomeController.currentUser = user
+//                self.view = self.userHomeView
+//                self.navigationController?.pushViewController(userHomeController, animated: true)
 //                self.view = self.userHomeView
 //                self.fetchUserMessagesAtLogin()
 //                self.userMessageView.messageLabel.text = "Welcome \(user?.displayName ?? "Anonymous")!"
@@ -56,57 +69,62 @@ class ViewController: UIViewController {
         }
     }
     
-    func showLoginScreen() {
-        
-        view = loginView
-    }
-    
     func showUserHomeScreen() {
-        let userHomeController = UserHomeViewController()
-        navigationController?.setViewControllers([userHomeController], animated: true)
+        
+        if let viewControllers = navigationController?.viewControllers {
+                for viewController in viewControllers {
+                    if viewController is UserHomeViewController {
+                        navigationController?.viewControllers.removeAll(where: { $0 is UserHomeViewController })
+                        break
+                    }
+                }
+            }
+
+            // Push a new instance of UserHomeViewController
+            let userHomeController = UserHomeViewController()
+            userHomeController.currentUser = self.currentUser
+            navigationController?.pushViewController(userHomeController, animated: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Set up action for the register button in MainView
-        loginView.registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         
+        loginView.registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         loginView.loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
 
     @objc private func registerButtonTapped() {
+        
         // Instantiate RegistrationViewController
-        print("Register button tapped")
-
-        // Check if navigationController exists and the stack is not empty
-        guard let navigationController = navigationController, !navigationController.viewControllers.isEmpty else {
-            print("Navigation controller is nil or stack is empty")
-            return
-        }
-        let registrationVC = RegistrationViewController()
-
-        // Push RegistrationViewController to the navigation stack
-        navigationController.pushViewController(registrationVC, animated: true)
+        print("New user registration")
+        let registrationController = RegistrationViewController()
+        navigationController?.pushViewController(registrationController, animated: true)
     }
     
     @objc private func loginButtonTapped() {
-        // Instantiate OptionViewController
-        print("Login button tapped")
-
-        // Check if navigationController exists
-        guard let navigationController = navigationController else {
-            print("Navigation controller is nil")
-            return
+        
+        print("User trying to login")
+        
+        if let email = loginView.emailTextField.text,
+           let password = loginView.passwordTextField.text {
+            if !email.isEmpty && !password.isEmpty {
+                loginView.emailTextField.text = ""
+                loginView.passwordTextField.text = ""
+                signInToFirebase(email: email, password: password)
+            }
+            else {
+                showErrorAlert(message: "Please enter valid credentials")
+            }
         }
-
-        // Pop the current view controller from the navigation stack
-        navigationController.popViewController(animated: true)
-
-        // Instantiate and push OptionViewController to the navigation stack
-        let optionVC = UserHomeViewController()
-        navigationController.pushViewController(optionVC, animated: true)
     }
+    
+    func showErrorAlert(message: String) {
+        
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
+    }
+
 
 }
 

@@ -85,6 +85,7 @@ class RegistrationView: UIView {
         emailTextField = UITextField()
         emailTextField.placeholder = "Enter your email"
         emailTextField.borderStyle = .roundedRect
+        emailTextField.keyboardType = .emailAddress
         
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(emailTextField)

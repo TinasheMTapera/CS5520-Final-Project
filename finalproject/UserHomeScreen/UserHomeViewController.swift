@@ -19,6 +19,8 @@ class UserHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(currentUser?.displayName)
+        
         title = "Welcome \(currentUser?.displayName ?? "Anonymous")!"
         
         navigationController?.navigationBar.prefersLargeTitles = true
