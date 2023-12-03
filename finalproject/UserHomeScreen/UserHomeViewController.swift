@@ -88,7 +88,8 @@ class UserHomeViewController: UIViewController {
         logoutAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {(_) in
             do {
                 try Auth.auth().signOut()
-                self.navigationController?.popToRootViewController(animated: true)
+                let loginController = ViewController()
+                self.navigationController?.setViewControllers([loginController], animated: true)
             }
             catch {
                 print("Error while signing out")

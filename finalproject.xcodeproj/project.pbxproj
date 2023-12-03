@@ -34,6 +34,7 @@
 		DD2BECA32B189761001F55CE /* LoginFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECA22B189761001F55CE /* LoginFirebaseManager.swift */; };
 		DD2BECA52B18AE01001F55CE /* RegistrationFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECA42B18AE01001F55CE /* RegistrationFirebaseManager.swift */; };
 		DD2BECA72B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECA62B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift */; };
+		DD2BECA92B1C55C7001F55CE /* MoodCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECA82B1C55C6001F55CE /* MoodCategories.swift */; };
 		DD7E913A2B18232A00BFEB12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */; };
 		DD7E913C2B18234800BFEB12 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913B2B18234800BFEB12 /* FirebaseAnalytics */; };
 		DD7E913E2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913D2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -64,6 +65,7 @@
 		DD2BECA22B189761001F55CE /* LoginFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFirebaseManager.swift; sourceTree = "<group>"; };
 		DD2BECA42B18AE01001F55CE /* RegistrationFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFirebaseManager.swift; sourceTree = "<group>"; };
 		DD2BECA62B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProgressIndicatorManager.swift; sourceTree = "<group>"; };
+		DD2BECA82B1C55C6001F55CE /* MoodCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCategories.swift; sourceTree = "<group>"; };
 		DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				28F50EFC2B0A448C00D59A40 /* LaunchScreen.storyboard */,
 				28F50EFF2B0A448C00D59A40 /* Info.plist */,
 				DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */,
+				DD2BECA82B1C55C6001F55CE /* MoodCategories.swift */,
 			);
 			path = finalproject;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				DD2BEC952B187060001F55CE /* ProgressSpinnerViewController.swift in Sources */,
 				28F50EF22B0A448B00D59A40 /* AppDelegate.swift in Sources */,
 				28F50F2A2B0C3D6D00D59A40 /* AboutViewController.swift in Sources */,
+				DD2BECA92B1C55C7001F55CE /* MoodCategories.swift in Sources */,
 				DD2BECA72B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift in Sources */,
 				DD2BECA52B18AE01001F55CE /* RegistrationFirebaseManager.swift in Sources */,
 				28F50EF42B0A448B00D59A40 /* SceneDelegate.swift in Sources */,
