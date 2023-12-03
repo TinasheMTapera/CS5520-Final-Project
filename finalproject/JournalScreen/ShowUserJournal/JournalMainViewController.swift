@@ -18,6 +18,8 @@ class JournalMainViewController: UIViewController {
     var currentUser: FirebaseAuth.User?
     let database = Firestore.firestore()
     
+    var newJournalViewController: NewJournalViewController?
+    
     override func loadView() {
         view = journalView
     }

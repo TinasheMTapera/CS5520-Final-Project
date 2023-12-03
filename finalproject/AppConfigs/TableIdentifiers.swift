@@ -9,6 +9,5 @@ import Foundation
 
 class TableIdentifiers {
     
-    
-    
+    static let tableViewJournals = "tableViewJournals"
 }

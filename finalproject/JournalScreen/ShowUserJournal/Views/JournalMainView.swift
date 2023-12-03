@@ -17,6 +17,8 @@ class JournalMainView: UIView {
         self.backgroundColor = AppColors.backgroundColor
         
         setupTableViewJournals()
+        
+        initConstraints()
     }
     
     func setupTableViewJournals() {

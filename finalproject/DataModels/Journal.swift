@@ -20,3 +20,9 @@ class Journal {
     }
     
 }
+
+enum JournalAction {
+    case create
+    case edit(journalID: String)
+}
+

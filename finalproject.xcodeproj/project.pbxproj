@@ -49,6 +49,8 @@
 		DD2BECCA2B1C9225001F55CE /* NewJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECC92B1C9225001F55CE /* NewJournalViewController.swift */; };
 		DD2BECCE2B1C9674001F55CE /* UserHomeViewNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECCD2B1C9674001F55CE /* UserHomeViewNavigationManager.swift */; };
 		DD2BECD02B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECCF2B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift */; };
+		DD2BECD22B1CABE5001F55CE /* FirebaseConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD12B1CABE5001F55CE /* FirebaseConfigs.swift */; };
+		DD2BECD42B1CC7AC001F55CE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD32B1CC7AC001F55CE /* UIImageExtension.swift */; };
 		DD7E913A2B18232A00BFEB12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */; };
 		DD7E913C2B18234800BFEB12 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913B2B18234800BFEB12 /* FirebaseAnalytics */; };
 		DD7E913E2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913D2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -94,6 +96,8 @@
 		DD2BECC92B1C9225001F55CE /* NewJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalViewController.swift; sourceTree = "<group>"; };
 		DD2BECCD2B1C9674001F55CE /* UserHomeViewNavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewNavigationManager.swift; sourceTree = "<group>"; };
 		DD2BECCF2B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalViewFirebaseManager.swift; sourceTree = "<group>"; };
+		DD2BECD12B1CABE5001F55CE /* FirebaseConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConfigs.swift; sourceTree = "<group>"; };
+		DD2BECD32B1CC7AC001F55CE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -291,6 +295,8 @@
 			children = (
 				DD2BEC992B1870CC001F55CE /* AppColors.swift */,
 				DD2BECBD2B1C8AEA001F55CE /* TableIdentifiers.swift */,
+				DD2BECD12B1CABE5001F55CE /* FirebaseConfigs.swift */,
+				DD2BECD32B1CC7AC001F55CE /* UIImageExtension.swift */,
 			);
 			path = AppConfigs;
 			sourceTree = "<group>";
@@ -434,11 +440,13 @@
 				DD2BECBE2B1C8AEA001F55CE /* TableIdentifiers.swift in Sources */,
 				DD2BECAC2B1C6C2C001F55CE /* StoriesMainViewController.swift in Sources */,
 				DD2BECC02B1C8B7B001F55CE /* JournalTableViewCell.swift in Sources */,
+				DD2BECD22B1CABE5001F55CE /* FirebaseConfigs.swift in Sources */,
 				DD2BECCE2B1C9674001F55CE /* UserHomeViewNavigationManager.swift in Sources */,
 				DD2BECC42B1C8C47001F55CE /* Journal.swift in Sources */,
 				DD2BECC22B1C8BE6001F55CE /* JournalMainViewTableManager.swift in Sources */,
 				28F50EF22B0A448B00D59A40 /* AppDelegate.swift in Sources */,
 				28F50F2A2B0C3D6D00D59A40 /* AboutViewController.swift in Sources */,
+				DD2BECD42B1CC7AC001F55CE /* UIImageExtension.swift in Sources */,
 				DD2BECC62B1C8DD6001F55CE /* JournalMainViewFirebaseManager.swift in Sources */,
 				DD2BECAE2B1C6C3D001F55CE /* JournalMainViewController.swift in Sources */,
 				DD2BECA92B1C55C7001F55CE /* MoodCategories.swift in Sources */,
