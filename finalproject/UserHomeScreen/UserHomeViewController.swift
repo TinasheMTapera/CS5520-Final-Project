@@ -41,9 +41,7 @@ class UserHomeViewController: UIViewController {
         )
         
         navigationItem.leftBarButtonItem = menuButton
-        
-        let navLogo = NavLogo()
-        navLogo.setupLogoInNavBar(in: self.navigationItem)
+        self.setupLogoInNavBar(in: self.navigationItem)
     }
     
     
@@ -74,7 +72,7 @@ class UserHomeViewController: UIViewController {
             popoverController.barButtonItem = navigationItem.leftBarButtonItem
         }
         
-        present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func profileButtonTapped() {

@@ -1,5 +1,5 @@
 //
-//  NavLogo.swift
+//  UserHomeViewNavigationManager.swift
 //  finalproject
 //
 //  Created by Diya on 12/3/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class NavLogo {
+extension UserHomeViewController {
     
     func setupLogoInNavBar(in navigationItem: UINavigationItem) {
         

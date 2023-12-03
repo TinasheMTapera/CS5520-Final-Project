@@ -35,22 +35,22 @@ extension UserHomeViewController {
     
     @objc private func readSomethingButtonTouchDown() {
         // Handle touch down event (highlight the button)
-        userHomeView.readSomethingButton.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.8)
+        userHomeView.readSomethingButton.backgroundColor = AppColors.greenButton
     }
     
     @objc private func readSomethingButtonTouchUpInside() {
         // Handle touch up inside event (revert to normal state)
-        userHomeView.readSomethingButton.backgroundColor = AppColors.buttonColor
+        userHomeView.readSomethingButton.backgroundColor = AppColors.blueButton
     }
     
     @objc private func journalButtonTouchDown() {
         // Handle touch down event (highlight the button)
-        userHomeView.journalButton.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.8)
+        userHomeView.journalButton.backgroundColor = AppColors.greenButton
     }
     
     @objc private func journalButtonTouchUpInside() {
         // Handle touch up inside event (revert to normal state)
-        userHomeView.journalButton.backgroundColor = UIColor.systemBlue
+        userHomeView.journalButton.backgroundColor = AppColors.blueButton
     }
     
     @objc private func readSomethingButtonTapped() {
@@ -66,6 +66,7 @@ extension UserHomeViewController {
         // Handle the action for the "Journal" button
         
         let journalController = JournalMainViewController()
+        journalController.currentUser = self.currentUser
         navigationController?.pushViewController(journalController, animated: true)
     }
     

@@ -39,8 +39,16 @@
 		DD2BECAE2B1C6C3D001F55CE /* JournalMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECAD2B1C6C3D001F55CE /* JournalMainViewController.swift */; };
 		DD2BECB02B1C6C54001F55CE /* StoriesMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECAF2B1C6C54001F55CE /* StoriesMainView.swift */; };
 		DD2BECB22B1C6C66001F55CE /* JournalMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECB12B1C6C66001F55CE /* JournalMainView.swift */; };
-		DD2BECB82B1C8152001F55CE /* NavLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECB72B1C8152001F55CE /* NavLogo.swift */; };
 		DD2BECBB2B1C8509001F55CE /* UserHomeViewButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECBA2B1C8509001F55CE /* UserHomeViewButtonManager.swift */; };
+		DD2BECBE2B1C8AEA001F55CE /* TableIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECBD2B1C8AEA001F55CE /* TableIdentifiers.swift */; };
+		DD2BECC02B1C8B7B001F55CE /* JournalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECBF2B1C8B7B001F55CE /* JournalTableViewCell.swift */; };
+		DD2BECC22B1C8BE6001F55CE /* JournalMainViewTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECC12B1C8BE6001F55CE /* JournalMainViewTableManager.swift */; };
+		DD2BECC42B1C8C47001F55CE /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECC32B1C8C47001F55CE /* Journal.swift */; };
+		DD2BECC62B1C8DD6001F55CE /* JournalMainViewFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECC52B1C8DD6001F55CE /* JournalMainViewFirebaseManager.swift */; };
+		DD2BECC82B1C920B001F55CE /* NewJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECC72B1C920B001F55CE /* NewJournalView.swift */; };
+		DD2BECCA2B1C9225001F55CE /* NewJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECC92B1C9225001F55CE /* NewJournalViewController.swift */; };
+		DD2BECCE2B1C9674001F55CE /* UserHomeViewNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECCD2B1C9674001F55CE /* UserHomeViewNavigationManager.swift */; };
+		DD2BECD02B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECCF2B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift */; };
 		DD7E913A2B18232A00BFEB12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */; };
 		DD7E913C2B18234800BFEB12 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913B2B18234800BFEB12 /* FirebaseAnalytics */; };
 		DD7E913E2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913D2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -76,8 +84,16 @@
 		DD2BECAD2B1C6C3D001F55CE /* JournalMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMainViewController.swift; sourceTree = "<group>"; };
 		DD2BECAF2B1C6C54001F55CE /* StoriesMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesMainView.swift; sourceTree = "<group>"; };
 		DD2BECB12B1C6C66001F55CE /* JournalMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMainView.swift; sourceTree = "<group>"; };
-		DD2BECB72B1C8152001F55CE /* NavLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavLogo.swift; sourceTree = "<group>"; };
 		DD2BECBA2B1C8509001F55CE /* UserHomeViewButtonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewButtonManager.swift; sourceTree = "<group>"; };
+		DD2BECBD2B1C8AEA001F55CE /* TableIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableIdentifiers.swift; sourceTree = "<group>"; };
+		DD2BECBF2B1C8B7B001F55CE /* JournalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewCell.swift; sourceTree = "<group>"; };
+		DD2BECC12B1C8BE6001F55CE /* JournalMainViewTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMainViewTableManager.swift; sourceTree = "<group>"; };
+		DD2BECC32B1C8C47001F55CE /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		DD2BECC52B1C8DD6001F55CE /* JournalMainViewFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMainViewFirebaseManager.swift; sourceTree = "<group>"; };
+		DD2BECC72B1C920B001F55CE /* NewJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalView.swift; sourceTree = "<group>"; };
+		DD2BECC92B1C9225001F55CE /* NewJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalViewController.swift; sourceTree = "<group>"; };
+		DD2BECCD2B1C9674001F55CE /* UserHomeViewNavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewNavigationManager.swift; sourceTree = "<group>"; };
+		DD2BECCF2B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalViewFirebaseManager.swift; sourceTree = "<group>"; };
 		DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +188,7 @@
 				DD2BEC932B187026001F55CE /* Views */,
 				28F50F242B0AA48500D59A40 /* UserHomeViewController.swift */,
 				DD2BECBA2B1C8509001F55CE /* UserHomeViewButtonManager.swift */,
+				DD2BECCD2B1C9674001F55CE /* UserHomeViewNavigationManager.swift */,
 			);
 			path = UserHomeScreen;
 			sourceTree = "<group>";
@@ -229,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				DD2BECA82B1C55C6001F55CE /* MoodCategories.swift */,
+				DD2BECC32B1C8C47001F55CE /* Journal.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -236,8 +254,8 @@
 		DD2BECB32B1C6C6B001F55CE /* JournalScreen */ = {
 			isa = PBXGroup;
 			children = (
-				DD2BECAD2B1C6C3D001F55CE /* JournalMainViewController.swift */,
-				DD2BECB62B1C7C12001F55CE /* Views */,
+				DD2BECBC2B1C8A4D001F55CE /* ShowUserJournal */,
+				DD2BECCB2B1C92D3001F55CE /* CreateNewJournal */,
 			);
 			path = JournalScreen;
 			sourceTree = "<group>";
@@ -245,8 +263,8 @@
 		DD2BECB42B1C6C7A001F55CE /* StoryScreen */ = {
 			isa = PBXGroup;
 			children = (
-				DD2BECAB2B1C6C2C001F55CE /* StoriesMainViewController.swift */,
 				DD2BECB52B1C7C09001F55CE /* Views */,
+				DD2BECAB2B1C6C2C001F55CE /* StoriesMainViewController.swift */,
 			);
 			path = StoryScreen;
 			sourceTree = "<group>";
@@ -263,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				DD2BECB12B1C6C66001F55CE /* JournalMainView.swift */,
+				DD2BECBF2B1C8B7B001F55CE /* JournalTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,9 +290,38 @@
 			isa = PBXGroup;
 			children = (
 				DD2BEC992B1870CC001F55CE /* AppColors.swift */,
-				DD2BECB72B1C8152001F55CE /* NavLogo.swift */,
+				DD2BECBD2B1C8AEA001F55CE /* TableIdentifiers.swift */,
 			);
 			path = AppConfigs;
+			sourceTree = "<group>";
+		};
+		DD2BECBC2B1C8A4D001F55CE /* ShowUserJournal */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECB62B1C7C12001F55CE /* Views */,
+				DD2BECAD2B1C6C3D001F55CE /* JournalMainViewController.swift */,
+				DD2BECC12B1C8BE6001F55CE /* JournalMainViewTableManager.swift */,
+				DD2BECC52B1C8DD6001F55CE /* JournalMainViewFirebaseManager.swift */,
+			);
+			path = ShowUserJournal;
+			sourceTree = "<group>";
+		};
+		DD2BECCB2B1C92D3001F55CE /* CreateNewJournal */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECCC2B1C92E1001F55CE /* Views */,
+				DD2BECC92B1C9225001F55CE /* NewJournalViewController.swift */,
+				DD2BECCF2B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift */,
+			);
+			path = CreateNewJournal;
+			sourceTree = "<group>";
+		};
+		DD2BECCC2B1C92E1001F55CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECC72B1C920B001F55CE /* NewJournalView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,7 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD2BECB82B1C8152001F55CE /* NavLogo.swift in Sources */,
+				DD2BECCA2B1C9225001F55CE /* NewJournalViewController.swift in Sources */,
 				28F50F232B0AA38500D59A40 /* UserHomeView.swift in Sources */,
 				DD2BECB02B1C6C54001F55CE /* StoriesMainView.swift in Sources */,
 				DD2BEC9A2B1870CC001F55CE /* AppColors.swift in Sources */,
@@ -378,12 +426,20 @@
 				DD2BECA32B189761001F55CE /* LoginFirebaseManager.swift in Sources */,
 				28F50F1A2B0A489400D59A40 /* LoginView.swift in Sources */,
 				28F50F252B0AA48500D59A40 /* UserHomeViewController.swift in Sources */,
+				DD2BECC82B1C920B001F55CE /* NewJournalView.swift in Sources */,
+				DD2BECD02B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift in Sources */,
 				DD2BEC982B1870B2001F55CE /* ProgressSpinnerDelegate.swift in Sources */,
 				DD2BECB22B1C6C66001F55CE /* JournalMainView.swift in Sources */,
 				DD2BEC952B187060001F55CE /* ProgressSpinnerViewController.swift in Sources */,
+				DD2BECBE2B1C8AEA001F55CE /* TableIdentifiers.swift in Sources */,
 				DD2BECAC2B1C6C2C001F55CE /* StoriesMainViewController.swift in Sources */,
+				DD2BECC02B1C8B7B001F55CE /* JournalTableViewCell.swift in Sources */,
+				DD2BECCE2B1C9674001F55CE /* UserHomeViewNavigationManager.swift in Sources */,
+				DD2BECC42B1C8C47001F55CE /* Journal.swift in Sources */,
+				DD2BECC22B1C8BE6001F55CE /* JournalMainViewTableManager.swift in Sources */,
 				28F50EF22B0A448B00D59A40 /* AppDelegate.swift in Sources */,
 				28F50F2A2B0C3D6D00D59A40 /* AboutViewController.swift in Sources */,
+				DD2BECC62B1C8DD6001F55CE /* JournalMainViewFirebaseManager.swift in Sources */,
 				DD2BECAE2B1C6C3D001F55CE /* JournalMainViewController.swift in Sources */,
 				DD2BECA92B1C55C7001F55CE /* MoodCategories.swift in Sources */,
 				DD2BECA72B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift in Sources */,

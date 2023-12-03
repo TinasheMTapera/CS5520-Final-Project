@@ -79,7 +79,7 @@ class LoginView: UIView {
         loginButton.setTitle("Login", for: .normal)
         loginButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         loginButton.setTitleColor(.white, for: .normal)
-        loginButton.backgroundColor = .systemBlue
+        loginButton.backgroundColor = AppColors.blueButton
         loginButton.layer.cornerRadius = 8
         
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -102,7 +102,7 @@ class LoginView: UIView {
         registerButton.setTitle("Register", for: .normal)
         registerButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         registerButton.setTitleColor(.black, for: .normal)
-        registerButton.backgroundColor = .systemGreen
+        registerButton.backgroundColor = AppColors.greenButton
         registerButton.layer.cornerRadius = 8
         
         registerButton.translatesAutoresizingMaskIntoConstraints = false
