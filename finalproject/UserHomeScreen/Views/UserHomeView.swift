@@ -7,101 +7,85 @@
 import UIKit
 
 class UserHomeView : UIView {
-
-    var homeButton: UIButton!
-    var profileButton: UIButton!
-    var aboutButton: UIButton!
-
-    var centerImageView: UIImageView!
+    
+    var textLabel: UILabel!
     var readSomethingButton: UIButton!
     var journalButton: UIButton!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.backgroundColor = AppColors.backgroundColor
 
-        setupHomeButton()
-        setupProfileButton()
-        setupAboutButton()
+        setupTextLabel()
         setupReadSomethingButton()
         setupJournalButton()
 
         initConstraints()
+    }
+
+    func setupTextLabel() {
+        textLabel = UILabel()
+        textLabel.text = "How do you wish to handle your mood today?"
+        textLabel.font = .boldSystemFont(ofSize: 16)
         
-        aboutButton.isUserInteractionEnabled = true
-
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textLabel)
     }
-
-    func setupHomeButton() {
-        homeButton = UIButton(type: .system)
-        homeButton.setImage(UIImage(systemName: "house"), for: .normal)
-        homeButton.tintColor = .black
-        homeButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(homeButton)
-    }
-
-    func setupProfileButton() {
-        profileButton = UIButton(type: .system)
-        profileButton.setImage(UIImage(systemName: "person"), for: .normal)
-        profileButton.tintColor = .black
-        profileButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(profileButton)
-    }
-
-    func setupAboutButton() {
-        aboutButton = UIButton(type: .system)
-        aboutButton.setImage(UIImage(systemName: "info.circle"), for: .normal)
-        aboutButton.tintColor = .black
-        aboutButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(aboutButton)
-    }
-
+    
     func setupReadSomethingButton() {
         readSomethingButton = UIButton(type: .system)
         readSomethingButton.setTitle("Read Something", for: .normal)
+        
         readSomethingButton.setTitleColor(.white, for: .normal)
-        readSomethingButton.backgroundColor = .systemBlue
-        readSomethingButton.layer.cornerRadius = 15
+        readSomethingButton.backgroundColor = AppColors.buttonColor
+            readSomethingButton.layer.cornerRadius = 15
+            readSomethingButton.layer.shadowColor = UIColor.darkGray.cgColor
+            readSomethingButton.layer.shadowOpacity = 0.5
+            readSomethingButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+            readSomethingButton.layer.shadowRadius = 4
+            readSomethingButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
         readSomethingButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(readSomethingButton)
     }
-
+    
     func setupJournalButton() {
         journalButton = UIButton(type: .system)
-        journalButton.setTitle("Journal", for: .normal)
+        journalButton.setTitle("Journal my thoughts", for: .normal)
+        
         journalButton.setTitleColor(.white, for: .normal)
-        journalButton.backgroundColor = .systemBlue
-        journalButton.layer.cornerRadius = 15
+        journalButton.backgroundColor = AppColors.buttonColor
+            journalButton.layer.cornerRadius = 15
+            journalButton.layer.shadowColor = UIColor.darkGray.cgColor
+            journalButton.layer.shadowOpacity = 0.5
+            journalButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+            journalButton.layer.shadowRadius = 4
+            journalButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        
         journalButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(journalButton)
     }
-
+    
+    
     func initConstraints() {
-        self.backgroundColor = UIColor(red: 135/255, green: 206/255, blue: 250/255, alpha: 1.0)
 
         NSLayoutConstraint.activate([
-            homeButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            homeButton.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: 60),
+            
+            textLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 80),
+            textLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30),
+            
+            readSomethingButton.topAnchor.constraint(equalTo: textLabel.topAnchor, constant: 100),
+            readSomethingButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            readSomethingButton.widthAnchor.constraint(equalToConstant: 200),
+            readSomethingButton.heightAnchor.constraint(equalToConstant: 70),
 
-            profileButton.leadingAnchor.constraint(equalTo: homeButton.trailingAnchor, constant: 16),
-            profileButton.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: 60),
-
-            aboutButton.leadingAnchor.constraint(equalTo: profileButton.trailingAnchor, constant: 16),
-            aboutButton.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: 60),
-
-            readSomethingButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 60),
-            readSomethingButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 100),
-            readSomethingButton.widthAnchor.constraint(equalToConstant: 250),
-
-            journalButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 60),
             journalButton.topAnchor.constraint(equalTo: readSomethingButton.bottomAnchor, constant: 100),
-            journalButton.widthAnchor.constraint(equalToConstant: 250)
+            journalButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            journalButton.widthAnchor.constraint(equalToConstant: 200),
+            journalButton.heightAnchor.constraint(equalToConstant: 70),
         ])
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        // Set background color in the layoutSubviews() method
-        self.backgroundColor = UIColor(red: 135/255, green: 206/255, blue: 250/255, alpha: 1.0)
     }
 
     required init?(coder: NSCoder) {

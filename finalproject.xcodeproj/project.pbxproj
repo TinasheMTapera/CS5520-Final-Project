@@ -35,6 +35,12 @@
 		DD2BECA52B18AE01001F55CE /* RegistrationFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECA42B18AE01001F55CE /* RegistrationFirebaseManager.swift */; };
 		DD2BECA72B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECA62B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift */; };
 		DD2BECA92B1C55C7001F55CE /* MoodCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECA82B1C55C6001F55CE /* MoodCategories.swift */; };
+		DD2BECAC2B1C6C2C001F55CE /* StoriesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECAB2B1C6C2C001F55CE /* StoriesMainViewController.swift */; };
+		DD2BECAE2B1C6C3D001F55CE /* JournalMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECAD2B1C6C3D001F55CE /* JournalMainViewController.swift */; };
+		DD2BECB02B1C6C54001F55CE /* StoriesMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECAF2B1C6C54001F55CE /* StoriesMainView.swift */; };
+		DD2BECB22B1C6C66001F55CE /* JournalMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECB12B1C6C66001F55CE /* JournalMainView.swift */; };
+		DD2BECB82B1C8152001F55CE /* NavLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECB72B1C8152001F55CE /* NavLogo.swift */; };
+		DD2BECBB2B1C8509001F55CE /* UserHomeViewButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECBA2B1C8509001F55CE /* UserHomeViewButtonManager.swift */; };
 		DD7E913A2B18232A00BFEB12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */; };
 		DD7E913C2B18234800BFEB12 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913B2B18234800BFEB12 /* FirebaseAnalytics */; };
 		DD7E913E2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913D2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -66,6 +72,12 @@
 		DD2BECA42B18AE01001F55CE /* RegistrationFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFirebaseManager.swift; sourceTree = "<group>"; };
 		DD2BECA62B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		DD2BECA82B1C55C6001F55CE /* MoodCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCategories.swift; sourceTree = "<group>"; };
+		DD2BECAB2B1C6C2C001F55CE /* StoriesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesMainViewController.swift; sourceTree = "<group>"; };
+		DD2BECAD2B1C6C3D001F55CE /* JournalMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMainViewController.swift; sourceTree = "<group>"; };
+		DD2BECAF2B1C6C54001F55CE /* StoriesMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesMainView.swift; sourceTree = "<group>"; };
+		DD2BECB12B1C6C66001F55CE /* JournalMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMainView.swift; sourceTree = "<group>"; };
+		DD2BECB72B1C8152001F55CE /* NavLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavLogo.swift; sourceTree = "<group>"; };
+		DD2BECBA2B1C8509001F55CE /* UserHomeViewButtonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewButtonManager.swift; sourceTree = "<group>"; };
 		DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,12 +125,15 @@
 		28F50EF02B0A448B00D59A40 /* finalproject */ = {
 			isa = PBXGroup;
 			children = (
-				DD2BEC992B1870CC001F55CE /* AppColors.swift */,
+				DD2BECAA2B1C6BE9001F55CE /* DataModels */,
+				DD2BECB92B1C829C001F55CE /* AppConfigs */,
 				DD2BEC962B1870A1001F55CE /* ProgressIndicator */,
 				28F50F262B0C3C9D00D59A40 /* AboutScreen */,
-				28F50F212B0AA36200D59A40 /* UserHomeScreen */,
-				28F50F1B2B0A537B00D59A40 /* RegistrationScreen */,
 				28F50F182B0A485A00D59A40 /* LoginScreen */,
+				28F50F1B2B0A537B00D59A40 /* RegistrationScreen */,
+				28F50F212B0AA36200D59A40 /* UserHomeScreen */,
+				DD2BECB42B1C6C7A001F55CE /* StoryScreen */,
+				DD2BECB32B1C6C6B001F55CE /* JournalScreen */,
 				28F50EF12B0A448B00D59A40 /* AppDelegate.swift */,
 				28F50EF32B0A448B00D59A40 /* SceneDelegate.swift */,
 				28F50EF72B0A448B00D59A40 /* Main.storyboard */,
@@ -126,7 +141,6 @@
 				28F50EFC2B0A448C00D59A40 /* LaunchScreen.storyboard */,
 				28F50EFF2B0A448C00D59A40 /* Info.plist */,
 				DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */,
-				DD2BECA82B1C55C6001F55CE /* MoodCategories.swift */,
 			);
 			path = finalproject;
 			sourceTree = "<group>";
@@ -157,6 +171,7 @@
 			children = (
 				DD2BEC932B187026001F55CE /* Views */,
 				28F50F242B0AA48500D59A40 /* UserHomeViewController.swift */,
+				DD2BECBA2B1C8509001F55CE /* UserHomeViewButtonManager.swift */,
 			);
 			path = UserHomeScreen;
 			sourceTree = "<group>";
@@ -208,6 +223,57 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD2BECAA2B1C6BE9001F55CE /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECA82B1C55C6001F55CE /* MoodCategories.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		DD2BECB32B1C6C6B001F55CE /* JournalScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECAD2B1C6C3D001F55CE /* JournalMainViewController.swift */,
+				DD2BECB62B1C7C12001F55CE /* Views */,
+			);
+			path = JournalScreen;
+			sourceTree = "<group>";
+		};
+		DD2BECB42B1C6C7A001F55CE /* StoryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECAB2B1C6C2C001F55CE /* StoriesMainViewController.swift */,
+				DD2BECB52B1C7C09001F55CE /* Views */,
+			);
+			path = StoryScreen;
+			sourceTree = "<group>";
+		};
+		DD2BECB52B1C7C09001F55CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECAF2B1C6C54001F55CE /* StoriesMainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD2BECB62B1C7C12001F55CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECB12B1C6C66001F55CE /* JournalMainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD2BECB92B1C829C001F55CE /* AppConfigs */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BEC992B1870CC001F55CE /* AppColors.swift */,
+				DD2BECB72B1C8152001F55CE /* NavLogo.swift */,
+			);
+			path = AppConfigs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,19 +366,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD2BECB82B1C8152001F55CE /* NavLogo.swift in Sources */,
 				28F50F232B0AA38500D59A40 /* UserHomeView.swift in Sources */,
+				DD2BECB02B1C6C54001F55CE /* StoriesMainView.swift in Sources */,
 				DD2BEC9A2B1870CC001F55CE /* AppColors.swift in Sources */,
 				28F50F1F2B0A54C800D59A40 /* RegistrationViewController.swift in Sources */,
 				28F50EF62B0A448B00D59A40 /* ViewController.swift in Sources */,
 				28F50F1D2B0A53D800D59A40 /* RegistrationView.swift in Sources */,
 				28F50F282B0C3CB400D59A40 /* AboutView.swift in Sources */,
+				DD2BECBB2B1C8509001F55CE /* UserHomeViewButtonManager.swift in Sources */,
 				DD2BECA32B189761001F55CE /* LoginFirebaseManager.swift in Sources */,
 				28F50F1A2B0A489400D59A40 /* LoginView.swift in Sources */,
 				28F50F252B0AA48500D59A40 /* UserHomeViewController.swift in Sources */,
 				DD2BEC982B1870B2001F55CE /* ProgressSpinnerDelegate.swift in Sources */,
+				DD2BECB22B1C6C66001F55CE /* JournalMainView.swift in Sources */,
 				DD2BEC952B187060001F55CE /* ProgressSpinnerViewController.swift in Sources */,
+				DD2BECAC2B1C6C2C001F55CE /* StoriesMainViewController.swift in Sources */,
 				28F50EF22B0A448B00D59A40 /* AppDelegate.swift in Sources */,
 				28F50F2A2B0C3D6D00D59A40 /* AboutViewController.swift in Sources */,
+				DD2BECAE2B1C6C3D001F55CE /* JournalMainViewController.swift in Sources */,
 				DD2BECA92B1C55C7001F55CE /* MoodCategories.swift in Sources */,
 				DD2BECA72B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift in Sources */,
 				DD2BECA52B18AE01001F55CE /* RegistrationFirebaseManager.swift in Sources */,

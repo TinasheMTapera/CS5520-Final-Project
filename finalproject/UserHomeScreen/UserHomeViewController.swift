@@ -4,6 +4,7 @@
 //
 //  Created by Ohida Binte Amin on 11/19/23.
 //
+
 import UIKit
 import FirebaseAuth
 
@@ -26,9 +27,8 @@ class UserHomeViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         setupNavBar()
+        setupUserHomeViewButtons()
         
-        userHomeView.readSomethingButton.addTarget(self, action: #selector(readSomethingButtonTapped), for: .touchUpInside)
-        userHomeView.journalButton.addTarget(self, action: #selector(journalButtonTapped), for: .touchUpInside)
     }
     
     func setupNavBar() {
@@ -42,15 +42,10 @@ class UserHomeViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = menuButton
         
-//        let logoutButton = UIBarButtonItem(
-//            image: UIImage(systemName: "rectangle.portrait.and.arrow.right"),
-//            style: .plain,
-//            target: self,
-//            action: #selector(attemptUserLogout)
-//        )
-//
-//        navigationItem.rightBarButtonItem = logoutButton
+        let navLogo = NavLogo()
+        navLogo.setupLogoInNavBar(in: self.navigationItem)
     }
+    
     
     @objc func menuButtonTapped() {
         print("menu button tapped")
@@ -82,6 +77,14 @@ class UserHomeViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    func profileButtonTapped() {
+        
+    }
+    
+    func aboutButtonTapped() {
+        
+    }
+    
     func attemptUserLogout() {
         
         let logoutAlert = UIAlertController(title: "Logging Out", message: "Are you sure you want to logout?", preferredStyle: .alert)
@@ -95,32 +98,10 @@ class UserHomeViewController: UIViewController {
                 print("Error while signing out")
             }
         }))
+        
         logoutAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         self.present(logoutAlert, animated: true)
     }
-
-    // Define the target actions for each button
-    @objc private func homeButtonTapped() {
-        print("Home button tapped")
-    }
-
-    @objc private func profileButtonTapped() {
-        print("Profile button tapped")
-    }
-
-    @objc private func aboutButtonTapped() {
-        print("About button tapped")
-        // Handle navigation to the about screen or any other desired action
-    }
-
-    @objc private func readSomethingButtonTapped() {
-        print("Read Something button tapped")
-        // Handle the action for the "Read Something" button
-    }
-
-    @objc private func journalButtonTapped() {
-        print("Journal button tapped")
-        // Handle the action for the "Journal" button
-    }
+   
 }
