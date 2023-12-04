@@ -27,6 +27,7 @@ class NewJournalViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+        
     }
     
     func showJournalCreationAlert(message: String) {

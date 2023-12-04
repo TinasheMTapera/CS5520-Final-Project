@@ -29,61 +29,36 @@ class UserHomeViewController: UIViewController {
         setupNavBar()
         setupUserHomeViewButtons()
         
+        userHomeView.logoutButton.addTarget(self, action: #selector(attemptUserLogout), for: .touchUpInside)
+        
     }
     
     func setupNavBar() {
         
-        let menuButton = UIBarButtonItem(
-            image: UIImage(systemName: "line.3.horizontal"),
+        let profileButton = UIBarButtonItem(
+            image: UIImage(systemName: "person.fill"),
             style: .plain,
             target: self,
-            action: #selector(menuButtonTapped)
+            action: #selector(profileButtonTapped)
         )
         
-        navigationItem.leftBarButtonItem = menuButton
+        navigationItem.leftBarButtonItem = profileButton
         self.setupLogoInNavBar(in: self.navigationItem)
     }
     
-    
-    @objc func menuButtonTapped() {
-        print("menu button tapped")
-        
-        let alertController = UIAlertController(title: "Menu", message: nil, preferredStyle: .actionSheet)
-        
-        // Add your menu options as actions
-        let viewProfileAction = UIAlertAction(title: "View Profile", style: .default) { _ in
-            self.profileButtonTapped()
-        }
-        let viewAboutAction = UIAlertAction(title: "About MoodMaster", style: .default) { _ in
-            self.aboutButtonTapped()
-        }
-        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
-            self.attemptUserLogout()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alertController.addAction(viewProfileAction)
-        alertController.addAction(viewAboutAction)
-        alertController.addAction(logoutAction)
-        alertController.addAction(cancelAction)
-        
-        // Present the UIAlertController on iPhone or show it in a popover on iPad
-        if let popoverController = alertController.popoverPresentationController {
-            popoverController.barButtonItem = navigationItem.leftBarButtonItem
-        }
-        
-        self.present(alertController, animated: true, completion: nil)
+    @objc func profileButtonTapped() {
+        print("Profile Button Tapped")
+        //push profile view
     }
     
-    func profileButtonTapped() {
-        
+    @objc func aboutButtonTapped() {
+        print("About Button Tapped")
+        //push about view
+        let aboutController = AboutScreenViewController()
+        navigationController?.pushViewController(aboutController, animated: true)
     }
     
-    func aboutButtonTapped() {
-        
-    }
-    
-    func attemptUserLogout() {
+    @objc func attemptUserLogout() {
         
         let logoutAlert = UIAlertController(title: "Logging Out", message: "Are you sure you want to logout?", preferredStyle: .alert)
         logoutAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {(_) in

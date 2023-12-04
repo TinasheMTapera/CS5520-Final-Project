@@ -12,56 +12,62 @@ extension UserHomeViewController {
     
     func setupUserHomeViewButtons() {
         
-        userHomeView.readSomethingButton.addTarget(self, action: #selector(readSomethingButtonTapped), for: .touchUpInside)
-        userHomeView.journalButton.addTarget(self, action: #selector(journalButtonTapped), for: .touchUpInside)
+        userHomeView.readStoriesButton.addTarget(self, action: #selector(readStoriesButtonTapped), for: .touchUpInside)
+        userHomeView.writeJournalButton.addTarget(self, action: #selector(writeJournalButtonTapped), for: .touchUpInside)
+        userHomeView.recordMomentsButton.addTarget(self, action: #selector(recordMomentsButtonTapped), for: .touchUpInside)
         
-        userHomeView.readSomethingButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        let transformationProperties = CGAffineTransform(scaleX: 0.8, y: 0.8)
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-            self.userHomeView.readSomethingButton.transform = CGAffineTransform.identity
+            self.userHomeView.readStoriesButton.transform = CGAffineTransform.identity
         }, completion: nil)
         
-        userHomeView.readSomethingButton.addTarget(self, action: #selector(readSomethingButtonTouchDown), for: .touchDown)
-        userHomeView.readSomethingButton.addTarget(self, action: #selector(readSomethingButtonTouchUpInside), for: .touchUpInside)
+        userHomeView.readStoriesButton.transform = transformationProperties
+        userHomeView.writeJournalButton.transform = transformationProperties
+        userHomeView.recordMomentsButton.transform = transformationProperties
         
-        userHomeView.journalButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-            self.userHomeView.journalButton.transform = CGAffineTransform.identity
-        }, completion: nil)
         
-        userHomeView.journalButton.addTarget(self, action: #selector(journalButtonTouchDown), for: .touchDown)
-        userHomeView.journalButton.addTarget(self, action: #selector(journalButtonTouchUpInside), for: .touchUpInside)
+        userHomeView.readStoriesButton.addTarget(self,
+                                                 action: #selector(buttonTouchDown(for:)),
+                                                 for: .touchDown)
+        userHomeView.readStoriesButton.addTarget(self,
+                                                 action: #selector(buttonTouchUpInside(for:)),
+                                                 for: .touchUpInside)
         
+        userHomeView.writeJournalButton.addTarget(self,
+                                                 action: #selector(buttonTouchDown(for:)),
+                                                 for: .touchDown)
+        userHomeView.writeJournalButton.addTarget(self,
+                                                 action: #selector(buttonTouchUpInside(for:)),
+                                                 for: .touchUpInside)
+        
+        userHomeView.recordMomentsButton.addTarget(self,
+                                                 action: #selector(buttonTouchDown(for:)),
+                                                 for: .touchDown)
+        userHomeView.recordMomentsButton.addTarget(self,
+                                                 action: #selector(buttonTouchUpInside(for:)),
+                                                 for: .touchUpInside)
     }
     
-    @objc private func readSomethingButtonTouchDown() {
+    @objc func buttonTouchDown(for button: UIButton) {
+        
         // Handle touch down event (highlight the button)
-        userHomeView.readSomethingButton.backgroundColor = AppColors.greenButton
+        button.backgroundColor = AppColors.greenButton
     }
     
-    @objc private func readSomethingButtonTouchUpInside() {
+    @objc func buttonTouchUpInside(for button: UIButton) {
         // Handle touch up inside event (revert to normal state)
-        userHomeView.readSomethingButton.backgroundColor = AppColors.blueButton
+        button.backgroundColor = AppColors.blueButton
     }
     
-    @objc private func journalButtonTouchDown() {
-        // Handle touch down event (highlight the button)
-        userHomeView.journalButton.backgroundColor = AppColors.greenButton
-    }
-    
-    @objc private func journalButtonTouchUpInside() {
-        // Handle touch up inside event (revert to normal state)
-        userHomeView.journalButton.backgroundColor = AppColors.blueButton
-    }
-    
-    @objc private func readSomethingButtonTapped() {
-        print("Read Something button tapped")
+    @objc func readStoriesButtonTapped() {
+        print("Read Stories button tapped")
         // Handle the action for the "Read Something" button
         
         let storiesController = StoriesMainViewController()
         navigationController?.pushViewController(storiesController, animated: true)
     }
     
-    @objc private func journalButtonTapped() {
+    @objc func writeJournalButtonTapped() {
         print("Journal button tapped")
         // Handle the action for the "Journal" button
         
@@ -70,4 +76,13 @@ extension UserHomeViewController {
         navigationController?.pushViewController(journalController, animated: true)
     }
     
+    @objc func recordMomentsButtonTapped() {
+        
+        print("Record button tapped")
+        // Handle the action for the "Journal" button
+        
+        let recordController = RecordScreenViewController()
+//        journalController.currentUser = self.currentUser
+        navigationController?.pushViewController(recordController, animated: true)
+    }
 }

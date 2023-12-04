@@ -23,8 +23,8 @@
 		28F50F1F2B0A54C800D59A40 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F50F1E2B0A54C800D59A40 /* RegistrationViewController.swift */; };
 		28F50F232B0AA38500D59A40 /* UserHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F50F222B0AA38500D59A40 /* UserHomeView.swift */; };
 		28F50F252B0AA48500D59A40 /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F50F242B0AA48500D59A40 /* UserHomeViewController.swift */; };
-		28F50F282B0C3CB400D59A40 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F50F272B0C3CB400D59A40 /* AboutView.swift */; };
-		28F50F2A2B0C3D6D00D59A40 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F50F292B0C3D6D00D59A40 /* AboutViewController.swift */; };
+		28F50F282B0C3CB400D59A40 /* AboutScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F50F272B0C3CB400D59A40 /* AboutScreenView.swift */; };
+		28F50F2A2B0C3D6D00D59A40 /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F50F292B0C3D6D00D59A40 /* AboutScreenViewController.swift */; };
 		DD2BEC952B187060001F55CE /* ProgressSpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BEC942B187060001F55CE /* ProgressSpinnerViewController.swift */; };
 		DD2BEC982B1870B2001F55CE /* ProgressSpinnerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BEC972B1870B2001F55CE /* ProgressSpinnerDelegate.swift */; };
 		DD2BEC9A2B1870CC001F55CE /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BEC992B1870CC001F55CE /* AppColors.swift */; };
@@ -51,6 +51,9 @@
 		DD2BECD02B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECCF2B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift */; };
 		DD2BECD22B1CABE5001F55CE /* FirebaseConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD12B1CABE5001F55CE /* FirebaseConfigs.swift */; };
 		DD2BECD42B1CC7AC001F55CE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD32B1CC7AC001F55CE /* UIImageExtension.swift */; };
+		DD2BECD62B1DD490001F55CE /* NewJournalViewAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD52B1DD490001F55CE /* NewJournalViewAudioManager.swift */; };
+		DD2BECD82B1DEE15001F55CE /* RecordScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD72B1DEE15001F55CE /* RecordScreenViewController.swift */; };
+		DD2BECDA2B1DEE2A001F55CE /* RecordScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD92B1DEE2A001F55CE /* RecordScreenView.swift */; };
 		DD7E913A2B18232A00BFEB12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */; };
 		DD7E913C2B18234800BFEB12 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913B2B18234800BFEB12 /* FirebaseAnalytics */; };
 		DD7E913E2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913D2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -73,8 +76,8 @@
 		28F50F1E2B0A54C800D59A40 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		28F50F222B0AA38500D59A40 /* UserHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeView.swift; sourceTree = "<group>"; };
 		28F50F242B0AA48500D59A40 /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
-		28F50F272B0C3CB400D59A40 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
-		28F50F292B0C3D6D00D59A40 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		28F50F272B0C3CB400D59A40 /* AboutScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreenView.swift; sourceTree = "<group>"; };
+		28F50F292B0C3D6D00D59A40 /* AboutScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreenViewController.swift; sourceTree = "<group>"; };
 		DD2BEC942B187060001F55CE /* ProgressSpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerViewController.swift; sourceTree = "<group>"; };
 		DD2BEC972B1870B2001F55CE /* ProgressSpinnerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerDelegate.swift; sourceTree = "<group>"; };
 		DD2BEC992B1870CC001F55CE /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -98,6 +101,9 @@
 		DD2BECCF2B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalViewFirebaseManager.swift; sourceTree = "<group>"; };
 		DD2BECD12B1CABE5001F55CE /* FirebaseConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConfigs.swift; sourceTree = "<group>"; };
 		DD2BECD32B1CC7AC001F55CE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		DD2BECD52B1DD490001F55CE /* NewJournalViewAudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalViewAudioManager.swift; sourceTree = "<group>"; };
+		DD2BECD72B1DEE15001F55CE /* RecordScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordScreenViewController.swift; sourceTree = "<group>"; };
+		DD2BECD92B1DEE2A001F55CE /* RecordScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordScreenView.swift; sourceTree = "<group>"; };
 		DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +160,7 @@
 				28F50F212B0AA36200D59A40 /* UserHomeScreen */,
 				DD2BECB42B1C6C7A001F55CE /* StoryScreen */,
 				DD2BECB32B1C6C6B001F55CE /* JournalScreen */,
+				DD2BECDB2B1DF04C001F55CE /* RecordScreen */,
 				28F50EF12B0A448B00D59A40 /* AppDelegate.swift */,
 				28F50EF32B0A448B00D59A40 /* SceneDelegate.swift */,
 				28F50EF72B0A448B00D59A40 /* Main.storyboard */,
@@ -200,8 +207,8 @@
 		28F50F262B0C3C9D00D59A40 /* AboutScreen */ = {
 			isa = PBXGroup;
 			children = (
-				28F50F272B0C3CB400D59A40 /* AboutView.swift */,
-				28F50F292B0C3D6D00D59A40 /* AboutViewController.swift */,
+				DD2BECDD2B1DF5E4001F55CE /* Views */,
+				28F50F292B0C3D6D00D59A40 /* AboutScreenViewController.swift */,
 			);
 			path = AboutScreen;
 			sourceTree = "<group>";
@@ -318,6 +325,7 @@
 				DD2BECCC2B1C92E1001F55CE /* Views */,
 				DD2BECC92B1C9225001F55CE /* NewJournalViewController.swift */,
 				DD2BECCF2B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift */,
+				DD2BECD52B1DD490001F55CE /* NewJournalViewAudioManager.swift */,
 			);
 			path = CreateNewJournal;
 			sourceTree = "<group>";
@@ -326,6 +334,31 @@
 			isa = PBXGroup;
 			children = (
 				DD2BECC72B1C920B001F55CE /* NewJournalView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD2BECDB2B1DF04C001F55CE /* RecordScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECDC2B1DF05C001F55CE /* Views */,
+				DD2BECD72B1DEE15001F55CE /* RecordScreenViewController.swift */,
+			);
+			path = RecordScreen;
+			sourceTree = "<group>";
+		};
+		DD2BECDC2B1DF05C001F55CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECD92B1DEE2A001F55CE /* RecordScreenView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD2BECDD2B1DF5E4001F55CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28F50F272B0C3CB400D59A40 /* AboutScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -423,11 +456,13 @@
 				DD2BECCA2B1C9225001F55CE /* NewJournalViewController.swift in Sources */,
 				28F50F232B0AA38500D59A40 /* UserHomeView.swift in Sources */,
 				DD2BECB02B1C6C54001F55CE /* StoriesMainView.swift in Sources */,
+				DD2BECDA2B1DEE2A001F55CE /* RecordScreenView.swift in Sources */,
+				DD2BECD82B1DEE15001F55CE /* RecordScreenViewController.swift in Sources */,
 				DD2BEC9A2B1870CC001F55CE /* AppColors.swift in Sources */,
 				28F50F1F2B0A54C800D59A40 /* RegistrationViewController.swift in Sources */,
 				28F50EF62B0A448B00D59A40 /* ViewController.swift in Sources */,
 				28F50F1D2B0A53D800D59A40 /* RegistrationView.swift in Sources */,
-				28F50F282B0C3CB400D59A40 /* AboutView.swift in Sources */,
+				28F50F282B0C3CB400D59A40 /* AboutScreenView.swift in Sources */,
 				DD2BECBB2B1C8509001F55CE /* UserHomeViewButtonManager.swift in Sources */,
 				DD2BECA32B189761001F55CE /* LoginFirebaseManager.swift in Sources */,
 				28F50F1A2B0A489400D59A40 /* LoginView.swift in Sources */,
@@ -445,11 +480,12 @@
 				DD2BECC42B1C8C47001F55CE /* Journal.swift in Sources */,
 				DD2BECC22B1C8BE6001F55CE /* JournalMainViewTableManager.swift in Sources */,
 				28F50EF22B0A448B00D59A40 /* AppDelegate.swift in Sources */,
-				28F50F2A2B0C3D6D00D59A40 /* AboutViewController.swift in Sources */,
+				28F50F2A2B0C3D6D00D59A40 /* AboutScreenViewController.swift in Sources */,
 				DD2BECD42B1CC7AC001F55CE /* UIImageExtension.swift in Sources */,
 				DD2BECC62B1C8DD6001F55CE /* JournalMainViewFirebaseManager.swift in Sources */,
 				DD2BECAE2B1C6C3D001F55CE /* JournalMainViewController.swift in Sources */,
 				DD2BECA92B1C55C7001F55CE /* MoodCategories.swift in Sources */,
+				DD2BECD62B1DD490001F55CE /* NewJournalViewAudioManager.swift in Sources */,
 				DD2BECA72B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift in Sources */,
 				DD2BECA52B18AE01001F55CE /* RegistrationFirebaseManager.swift in Sources */,
 				28F50EF42B0A448B00D59A40 /* SceneDelegate.swift in Sources */,

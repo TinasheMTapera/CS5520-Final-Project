@@ -9,8 +9,10 @@ import UIKit
 class UserHomeView : UIView {
     
     var textLabel: UILabel!
-    var readSomethingButton: UIButton!
-    var journalButton: UIButton!
+    var readStoriesButton: UIButton!
+    var writeJournalButton: UIButton!
+    var recordMomentsButton: UIButton!
+    var logoutButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,8 +20,10 @@ class UserHomeView : UIView {
         self.backgroundColor = AppColors.backgroundColor
         
         setupTextLabel()
-        setupReadSomethingButton()
-        setupJournalButton()
+        setupReadStoriesButton()
+        setupWriteJournalButton()
+        setupRecordMomentsButton()
+        setupLogoutButton()
         
         initConstraints()
     }
@@ -33,41 +37,80 @@ class UserHomeView : UIView {
         self.addSubview(textLabel)
     }
     
-    func setupReadSomethingButton() {
-        readSomethingButton = UIButton(type: .system)
-        readSomethingButton.setTitle("Read Something", for: .normal)
+    func setupReadStoriesButton() {
         
-        readSomethingButton.setTitleColor(.white, for: .normal)
-        readSomethingButton.backgroundColor = AppColors.blueButton
-        readSomethingButton.layer.cornerRadius = 15
-        readSomethingButton.layer.shadowColor = UIColor.darkGray.cgColor
-        readSomethingButton.layer.shadowOpacity = 0.5
-        readSomethingButton.layer.shadowOffset = CGSize(width: 0, height: 3)
-        readSomethingButton.layer.shadowRadius = 4
-        readSomethingButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        readStoriesButton = UIButton(type: .system)
+        readStoriesButton.setTitle("Inspirational Picks", for: .normal)
         
-        readSomethingButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(readSomethingButton)
+        readStoriesButton.setTitleColor(.white, for: .normal)
+        readStoriesButton.backgroundColor = AppColors.blueButton
+        readStoriesButton.layer.cornerRadius = 15
+        readStoriesButton.layer.shadowColor = UIColor.darkGray.cgColor
+        readStoriesButton.layer.shadowOpacity = 0.5
+        readStoriesButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        readStoriesButton.layer.shadowRadius = 4
+        readStoriesButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        readStoriesButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(readStoriesButton)
     }
     
-    func setupJournalButton() {
-        journalButton = UIButton(type: .system)
-        journalButton.setTitle("Journal my thoughts", for: .normal)
+    func setupWriteJournalButton() {
         
-        journalButton.setTitleColor(.white, for: .normal)
-        journalButton.backgroundColor = AppColors.blueButton
-        journalButton.layer.cornerRadius = 15
-        journalButton.layer.shadowColor = UIColor.darkGray.cgColor
-        journalButton.layer.shadowOpacity = 0.5
-        journalButton.layer.shadowOffset = CGSize(width: 0, height: 3)
-        journalButton.layer.shadowRadius = 4
-        journalButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        writeJournalButton = UIButton(type: .system)
+        writeJournalButton.setTitle("Express Yourself", for: .normal)
+        
+        writeJournalButton.setTitleColor(.white, for: .normal)
+        writeJournalButton.backgroundColor = AppColors.blueButton
+        writeJournalButton.layer.cornerRadius = 15
+        writeJournalButton.layer.shadowColor = UIColor.darkGray.cgColor
+        writeJournalButton.layer.shadowOpacity = 0.5
+        writeJournalButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        writeJournalButton.layer.shadowRadius = 4
+        writeJournalButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         
         
-        journalButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(journalButton)
+        writeJournalButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(writeJournalButton)
     }
     
+    func setupRecordMomentsButton() {
+        
+        recordMomentsButton = UIButton(type: .system)
+        recordMomentsButton.setTitle("Record Moments", for: .normal)
+        
+        recordMomentsButton.setTitleColor(.white, for: .normal)
+        recordMomentsButton.backgroundColor = AppColors.blueButton
+        recordMomentsButton.layer.cornerRadius = 15
+        recordMomentsButton.layer.shadowColor = UIColor.darkGray.cgColor
+        recordMomentsButton.layer.shadowOpacity = 0.5
+        recordMomentsButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        recordMomentsButton.layer.shadowRadius = 4
+        recordMomentsButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        
+        recordMomentsButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(recordMomentsButton)
+        
+    }
+    
+    func setupLogoutButton() {
+        
+        logoutButton = UIButton(type: .system)
+        logoutButton.setTitle("Logout", for: .normal)
+        
+        logoutButton.setTitleColor(.white, for: .normal)
+        logoutButton.backgroundColor = AppColors.redButton
+        logoutButton.layer.cornerRadius = 15
+        logoutButton.layer.shadowColor = UIColor.darkGray.cgColor
+        logoutButton.layer.shadowOpacity = 0.5
+        logoutButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        logoutButton.layer.shadowRadius = 4
+        logoutButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(logoutButton)
+    }
     
     func initConstraints() {
         
@@ -76,15 +119,26 @@ class UserHomeView : UIView {
             textLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 80),
             textLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30),
             
-            readSomethingButton.topAnchor.constraint(equalTo: textLabel.topAnchor, constant: 100),
-            readSomethingButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            readSomethingButton.widthAnchor.constraint(equalToConstant: 200),
-            readSomethingButton.heightAnchor.constraint(equalToConstant: 70),
+            readStoriesButton.topAnchor.constraint(equalTo: textLabel.topAnchor, constant: 80),
+            readStoriesButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            readStoriesButton.widthAnchor.constraint(equalToConstant: 200),
+            readStoriesButton.heightAnchor.constraint(equalToConstant: 70),
             
-            journalButton.topAnchor.constraint(equalTo: readSomethingButton.bottomAnchor, constant: 100),
-            journalButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            journalButton.widthAnchor.constraint(equalToConstant: 200),
-            journalButton.heightAnchor.constraint(equalToConstant: 70),
+            writeJournalButton.topAnchor.constraint(equalTo: readStoriesButton.bottomAnchor, constant: 50),
+            writeJournalButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            writeJournalButton.widthAnchor.constraint(equalToConstant: 200),
+            writeJournalButton.heightAnchor.constraint(equalToConstant: 70),
+            
+            recordMomentsButton.topAnchor.constraint(equalTo: writeJournalButton.bottomAnchor, constant: 50),
+            recordMomentsButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            recordMomentsButton.widthAnchor.constraint(equalToConstant: 200),
+            recordMomentsButton.heightAnchor.constraint(equalToConstant: 70),
+            
+            logoutButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
+            logoutButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            logoutButton.widthAnchor.constraint(equalToConstant: 220),
+            logoutButton.heightAnchor.constraint(equalToConstant: 50),
+            
         ])
     }
     

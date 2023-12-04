@@ -31,14 +31,26 @@ extension UserHomeViewController {
             appLogoImageView.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: 80)
         ])
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(aboutButtonTapped))
+
+        // Set the number of taps required
+        tapGesture.numberOfTapsRequired = 1
+
+        // Add the gesture recognizer to the custom view
+        customView.addGestureRecognizer(tapGesture)
+        
         // Create a UIBarButtonItem with the custom view
         let appLogoBarButton = UIBarButtonItem(customView: customView)
         
         // Create a flexible space item to push the logo to the right
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        navigationItem.rightBarButtonItems = [flexibleSpace, appLogoBarButton]
+        appLogoBarButton.action = #selector(aboutButtonTapped)
+
+        // Set the target of the UIBarButtonItem to self
+        appLogoBarButton.target = self
         
+        navigationItem.rightBarButtonItems = [flexibleSpace, appLogoBarButton]
     }
     
 }
