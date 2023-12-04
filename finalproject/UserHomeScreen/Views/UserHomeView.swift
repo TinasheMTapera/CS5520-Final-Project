@@ -116,7 +116,7 @@ class UserHomeView : UIView {
         
         NSLayoutConstraint.activate([
             
-            textLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 80),
+            textLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 70),
             textLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30),
             
             readStoriesButton.topAnchor.constraint(equalTo: textLabel.topAnchor, constant: 80),

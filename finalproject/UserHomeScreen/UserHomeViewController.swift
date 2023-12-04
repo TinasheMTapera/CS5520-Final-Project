@@ -22,7 +22,7 @@ class UserHomeViewController: UIViewController {
         
         print(currentUser?.displayName)
         
-        title = "Welcome \(currentUser?.displayName ?? "Anonymous")!"
+        title = "Hello \(currentUser?.displayName ?? "Anonymous")!"
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
