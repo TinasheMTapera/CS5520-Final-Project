@@ -28,7 +28,7 @@ class StoryListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        storyListView.titleLabel.text = "Pick a snippet you'd like to read today to feel \(selectedMood)"
+        storyListView.titleLabel.text = "Snippets to help you feel \(selectedMood)"
         
         storyListView.tableViewStories.delegate = self
         storyListView.tableViewStories.dataSource = self

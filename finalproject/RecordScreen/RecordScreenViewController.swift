@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import FirebaseStorage
 
 class RecordScreenViewController: UIViewController, AVAudioRecorderDelegate {
     
@@ -16,6 +17,8 @@ class RecordScreenViewController: UIViewController, AVAudioRecorderDelegate {
     var audioFileName: URL?
     var recordingSession: AVAudioSession!
     
+    var recordingList: [Recording] = []
+    
     override func loadView() {
         view = recordView
     }
@@ -23,7 +26,14 @@ class RecordScreenViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "My Audio Moments"
+        
         recordView.recordButton.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
+        
+        recordView.tableViewRecordings.delegate = self
+        recordView.tableViewRecordings.dataSource = self
+        
+        fetchRecordings()
     }
     
     @objc private func recordButtonTapped() {
@@ -100,7 +110,10 @@ class RecordScreenViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder = nil
 
         if success {
+            
             recordView.recordButton.setTitle("Tap to Re-record", for: .normal)
+            uploadRecordingToStorage()
+            
         } else {
             print("recording failed")
             recordView.recordButton.setTitle("Tap to Record", for: .normal)

@@ -44,8 +44,6 @@ extension StoryListViewController: UITableViewDelegate, UITableViewDataSource {
             storyDisplayController.storyDisplayView.contentLabel.text = snippet.content
             navigationController?.pushViewController(storyDisplayController, animated: true)
         }
-        
-        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
 }

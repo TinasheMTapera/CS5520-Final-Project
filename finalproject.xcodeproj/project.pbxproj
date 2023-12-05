@@ -68,6 +68,11 @@
 		DD2BED022B1EFA10001F55CE /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED012B1EFA10001F55CE /* StoryTableViewCell.swift */; };
 		DD2BED042B1EFC04001F55CE /* StoryListFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED032B1EFC04001F55CE /* StoryListFirebaseManager.swift */; };
 		DD2BED062B1F014D001F55CE /* StoryListTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED052B1F014D001F55CE /* StoryListTableManager.swift */; };
+		DD2BED082B1F2653001F55CE /* RecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED072B1F2653001F55CE /* RecordingTableViewCell.swift */; };
+		DD2BED0A2B1F2FA6001F55CE /* RecordScreenTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED092B1F2FA6001F55CE /* RecordScreenTableManager.swift */; };
+		DD2BED0C2B1F3662001F55CE /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED0B2B1F3662001F55CE /* Recording.swift */; };
+		DD2BED0E2B1F3C48001F55CE /* RecordingsFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED0D2B1F3C48001F55CE /* RecordingsFirebaseManager.swift */; };
+		DD2BED102B1F40F9001F55CE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DD2BED0F2B1F40F9001F55CE /* FirebaseStorage */; };
 		DD7E913A2B18232A00BFEB12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */; };
 		DD7E913C2B18234800BFEB12 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913B2B18234800BFEB12 /* FirebaseAnalytics */; };
 		DD7E913E2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913D2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -132,6 +137,10 @@
 		DD2BED012B1EFA10001F55CE /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		DD2BED032B1EFC04001F55CE /* StoryListFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListFirebaseManager.swift; sourceTree = "<group>"; };
 		DD2BED052B1F014D001F55CE /* StoryListTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableManager.swift; sourceTree = "<group>"; };
+		DD2BED072B1F2653001F55CE /* RecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTableViewCell.swift; sourceTree = "<group>"; };
+		DD2BED092B1F2FA6001F55CE /* RecordScreenTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordScreenTableManager.swift; sourceTree = "<group>"; };
+		DD2BED0B2B1F3662001F55CE /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		DD2BED0D2B1F3C48001F55CE /* RecordingsFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsFirebaseManager.swift; sourceTree = "<group>"; };
 		DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +160,7 @@
 				28F50F112B0A458D00D59A40 /* FirebaseAppCheck in Frameworks */,
 				DD2BEC9D2B1872AE001F55CE /* FirebaseAuth in Frameworks */,
 				DD7E91422B18234800BFEB12 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				DD2BED102B1F40F9001F55CE /* FirebaseStorage in Frameworks */,
 				DD7E91442B18234800BFEB12 /* FirebaseAppCheck in Frameworks */,
 				28F50F0F2B0A458D00D59A40 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
@@ -290,6 +300,7 @@
 				DD2BECE32B1E9EB6001F55CE /* UserDetails.swift */,
 				DD2BECE82B1ECA26001F55CE /* Timeframes.swift */,
 				DD2BECFF2B1EF94D001F55CE /* Snippet.swift */,
+				DD2BED0B2B1F3662001F55CE /* Recording.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -376,6 +387,8 @@
 			children = (
 				DD2BECDC2B1DF05C001F55CE /* Views */,
 				DD2BECD72B1DEE15001F55CE /* RecordScreenViewController.swift */,
+				DD2BED092B1F2FA6001F55CE /* RecordScreenTableManager.swift */,
+				DD2BED0D2B1F3C48001F55CE /* RecordingsFirebaseManager.swift */,
 			);
 			path = RecordScreen;
 			sourceTree = "<group>";
@@ -384,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				DD2BECD92B1DEE2A001F55CE /* RecordScreenView.swift */,
+				DD2BED072B1F2653001F55CE /* RecordingTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -491,6 +505,7 @@
 				DD2BEC9C2B1872AE001F55CE /* FirebaseAuth */,
 				DD2BEC9E2B1895EE001F55CE /* FirebaseFirestore */,
 				DD2BECA02B1895EE001F55CE /* FirebaseFirestoreSwift */,
+				DD2BED0F2B1F40F9001F55CE /* FirebaseStorage */,
 			);
 			productName = finalproject;
 			productReference = 28F50EEE2B0A448B00D59A40 /* finalproject.app */;
@@ -567,6 +582,7 @@
 				DD2BED002B1EF94D001F55CE /* Snippet.swift in Sources */,
 				DD2BECBB2B1C8509001F55CE /* UserHomeViewButtonManager.swift in Sources */,
 				DD2BECA32B189761001F55CE /* LoginFirebaseManager.swift in Sources */,
+				DD2BED082B1F2653001F55CE /* RecordingTableViewCell.swift in Sources */,
 				28F50F1A2B0A489400D59A40 /* LoginView.swift in Sources */,
 				28F50F252B0AA48500D59A40 /* UserHomeViewController.swift in Sources */,
 				DD2BECC82B1C920B001F55CE /* NewJournalView.swift in Sources */,
@@ -580,6 +596,7 @@
 				DD2BECBE2B1C8AEA001F55CE /* TableIdentifiers.swift in Sources */,
 				DD2BECAC2B1C6C2C001F55CE /* StoriesMainViewController.swift in Sources */,
 				DD2BECC02B1C8B7B001F55CE /* JournalTableViewCell.swift in Sources */,
+				DD2BED0E2B1F3C48001F55CE /* RecordingsFirebaseManager.swift in Sources */,
 				DD2BECEB2B1EE250001F55CE /* StoriesUIPickerManager.swift in Sources */,
 				DD2BECD22B1CABE5001F55CE /* FirebaseConfigs.swift in Sources */,
 				DD2BECCE2B1C9674001F55CE /* UserHomeViewNavigationManager.swift in Sources */,
@@ -588,11 +605,13 @@
 				28F50EF22B0A448B00D59A40 /* AppDelegate.swift in Sources */,
 				DD2BECE42B1E9EB6001F55CE /* UserDetails.swift in Sources */,
 				DD2BED042B1EFC04001F55CE /* StoryListFirebaseManager.swift in Sources */,
+				DD2BED0C2B1F3662001F55CE /* Recording.swift in Sources */,
 				28F50F2A2B0C3D6D00D59A40 /* AboutScreenViewController.swift in Sources */,
 				DD2BECD42B1CC7AC001F55CE /* UIImageExtension.swift in Sources */,
 				DD2BECC62B1C8DD6001F55CE /* JournalMainViewFirebaseManager.swift in Sources */,
 				DD2BECAE2B1C6C3D001F55CE /* JournalMainViewController.swift in Sources */,
 				DD2BECE72B1E9F44001F55CE /* ProfileScreenFirebaseManager.swift in Sources */,
+				DD2BED0A2B1F2FA6001F55CE /* RecordScreenTableManager.swift in Sources */,
 				DD2BED062B1F014D001F55CE /* StoryListTableManager.swift in Sources */,
 				DD2BECA92B1C55C7001F55CE /* MoodCategories.swift in Sources */,
 				DD2BECFA2B1EEFFE001F55CE /* StoryListView.swift in Sources */,
@@ -875,6 +894,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 28F50F072B0A458D00D59A40 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		DD2BED0F2B1F40F9001F55CE /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28F50F072B0A458D00D59A40 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 		DD7E913B2B18234800BFEB12 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

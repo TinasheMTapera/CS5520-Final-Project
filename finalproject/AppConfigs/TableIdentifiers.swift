@@ -11,4 +11,5 @@ class TableIdentifiers {
     
     static let tableViewJournals = "tableViewJournals"
     static let tableViewStories = "tableViewStories"
+    static let tableViewRecordings = "tableViewRecordings"
 }
