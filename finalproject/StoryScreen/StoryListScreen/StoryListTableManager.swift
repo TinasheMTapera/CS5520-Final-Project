@@ -11,7 +11,6 @@ import UIKit
 extension StoryListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("count -- \(snippetList.count)")
         return snippetList.count
     }
     
@@ -33,24 +32,18 @@ extension StoryListViewController: UITableViewDelegate, UITableViewDataSource {
         let snippet = snippetList[indexPath.row]
         print("snippet deets -- \(snippet.title) and \(snippet.content)")
         
-//        if let newJournalController = navigationController?.viewControllers.first(where: { $0 is NewJournalViewController }) as? NewJournalViewController {
-//            newJournalController.currentUser = self.currentUser
-//            newJournalController.newJournalView.journalTitleTextField.text = journal.title
-//            newJournalController.newJournalView.journalTextView.text = journal.content
-//            newJournalController.currentAction = .edit(journalID: journal.journalID)
-//            newJournalViewController = newJournalController
-//            navigationController?.popToViewController(newJournalController, animated: true)
-//            
-//        } else {
-//            
-//            let newJournalController = NewJournalViewController()
-//            newJournalController.currentUser = self.currentUser
-//            newJournalController.newJournalView.journalTitleTextField.text = journal.title
-//            newJournalController.newJournalView.journalTextView.text = journal.content
-//            newJournalController.currentAction = .edit(journalID: journal.journalID)
-//            newJournalViewController = newJournalController
-//            navigationController?.pushViewController(newJournalController, animated: true)
-//        }
+        if let storyDisplayController = navigationController?.viewControllers.first(where: { $0 is NewJournalViewController }) as? StoryDisplayViewController {
+            storyDisplayController.storyDisplayView.titleLabel.text = snippet.title
+            storyDisplayController.storyDisplayView.contentLabel.text = snippet.content
+            navigationController?.popToViewController(storyDisplayController, animated: true)
+            
+        } else {
+            
+            let storyDisplayController = StoryDisplayViewController()
+            storyDisplayController.storyDisplayView.titleLabel.text = snippet.title
+            storyDisplayController.storyDisplayView.contentLabel.text = snippet.content
+            navigationController?.pushViewController(storyDisplayController, animated: true)
+        }
         
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }

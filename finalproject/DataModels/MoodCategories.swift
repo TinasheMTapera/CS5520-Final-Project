@@ -9,6 +9,6 @@ import Foundation
 
 struct MoodCategories {
     
-    static let moods = ["Brave","Calm","Relaxed","Motivated","Encouraged","Energized"]
+    static let moods = ["Brave","Calm","Encouraged","Energized","Motivated","Relaxed"]
     
 }

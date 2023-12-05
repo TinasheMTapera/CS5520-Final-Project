@@ -18,8 +18,6 @@ class AboutScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        title = "Welcome to MoodMaster"
-        
     }
 }
 

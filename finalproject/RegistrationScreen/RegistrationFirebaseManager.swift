@@ -91,5 +91,4 @@ extension RegistrationViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
 }
