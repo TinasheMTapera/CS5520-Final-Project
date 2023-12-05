@@ -81,25 +81,6 @@ extension RegistrationViewController {
                                 var userEmailList = querySnapshot?.documents.compactMap { document in
                                     document.data()["email"] as? String
                                 } ?? []
-                                
-                                //create userjournal
-                                for userEmail in userEmailList {
-                                    let userDocumentRef = userCollection.document(userEmail)
-                                    let journalCollectionRef = userDocumentRef.collection("journalCollection")
-                                    
-                                    let journalData = ["entry1":"Random text"]
-                                    journalCollectionRef.addDocument(data: journalData) { error in
-                                        
-                                        if error == nil {
-                                            print("new entry in journalCollection")
-                                        }
-                                        else{
-                                            print("Failed to add new entry to the journalCollection")
-                                        }
-                                        
-                                    }
-                                    
-                                }
                             }
                         }
                     }

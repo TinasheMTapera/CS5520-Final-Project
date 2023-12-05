@@ -23,7 +23,7 @@ class JournalMainView: UIView {
     
     func setupTableViewJournals() {
         tableViewJournals = UITableView()
-        tableViewJournals.register(JournalTableViewCell.self, forCellReuseIdentifier: "journal")
+        tableViewJournals.register(JournalTableViewCell.self, forCellReuseIdentifier: TableIdentifiers.tableViewJournals)
         
         tableViewJournals.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(tableViewJournals)
