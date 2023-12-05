@@ -58,6 +58,16 @@
 		DD2BECE12B1E9E1C001F55CE /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECE02B1E9E1C001F55CE /* ProfileScreenViewController.swift */; };
 		DD2BECE42B1E9EB6001F55CE /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECE32B1E9EB6001F55CE /* UserDetails.swift */; };
 		DD2BECE72B1E9F44001F55CE /* ProfileScreenFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECE62B1E9F44001F55CE /* ProfileScreenFirebaseManager.swift */; };
+		DD2BECE92B1ECA26001F55CE /* Timeframes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECE82B1ECA26001F55CE /* Timeframes.swift */; };
+		DD2BECEB2B1EE250001F55CE /* StoriesUIPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECEA2B1EE250001F55CE /* StoriesUIPickerManager.swift */; };
+		DD2BECF32B1EEF65001F55CE /* StoryDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECF22B1EEF65001F55CE /* StoryDisplayViewController.swift */; };
+		DD2BECF52B1EEF7A001F55CE /* StoryDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECF42B1EEF79001F55CE /* StoryDisplayView.swift */; };
+		DD2BECFA2B1EEFFE001F55CE /* StoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECF92B1EEFFE001F55CE /* StoryListView.swift */; };
+		DD2BECFC2B1EF014001F55CE /* StoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECFB2B1EF014001F55CE /* StoryListViewController.swift */; };
+		DD2BED002B1EF94D001F55CE /* Snippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECFF2B1EF94D001F55CE /* Snippet.swift */; };
+		DD2BED022B1EFA10001F55CE /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED012B1EFA10001F55CE /* StoryTableViewCell.swift */; };
+		DD2BED042B1EFC04001F55CE /* StoryListFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED032B1EFC04001F55CE /* StoryListFirebaseManager.swift */; };
+		DD2BED062B1F014D001F55CE /* StoryListTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED052B1F014D001F55CE /* StoryListTableManager.swift */; };
 		DD7E913A2B18232A00BFEB12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */; };
 		DD7E913C2B18234800BFEB12 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913B2B18234800BFEB12 /* FirebaseAnalytics */; };
 		DD7E913E2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913D2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -112,6 +122,16 @@
 		DD2BECE02B1E9E1C001F55CE /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
 		DD2BECE32B1E9EB6001F55CE /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		DD2BECE62B1E9F44001F55CE /* ProfileScreenFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenFirebaseManager.swift; sourceTree = "<group>"; };
+		DD2BECE82B1ECA26001F55CE /* Timeframes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeframes.swift; sourceTree = "<group>"; };
+		DD2BECEA2B1EE250001F55CE /* StoriesUIPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesUIPickerManager.swift; sourceTree = "<group>"; };
+		DD2BECF22B1EEF65001F55CE /* StoryDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDisplayViewController.swift; sourceTree = "<group>"; };
+		DD2BECF42B1EEF79001F55CE /* StoryDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDisplayView.swift; sourceTree = "<group>"; };
+		DD2BECF92B1EEFFE001F55CE /* StoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListView.swift; sourceTree = "<group>"; };
+		DD2BECFB2B1EF014001F55CE /* StoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListViewController.swift; sourceTree = "<group>"; };
+		DD2BECFF2B1EF94D001F55CE /* Snippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippet.swift; sourceTree = "<group>"; };
+		DD2BED012B1EFA10001F55CE /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		DD2BED032B1EFC04001F55CE /* StoryListFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListFirebaseManager.swift; sourceTree = "<group>"; };
+		DD2BED052B1F014D001F55CE /* StoryListTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListTableManager.swift; sourceTree = "<group>"; };
 		DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,6 +288,8 @@
 				DD2BECA82B1C55C6001F55CE /* MoodCategories.swift */,
 				DD2BECC32B1C8C47001F55CE /* Journal.swift */,
 				DD2BECE32B1E9EB6001F55CE /* UserDetails.swift */,
+				DD2BECE82B1ECA26001F55CE /* Timeframes.swift */,
+				DD2BECFF2B1EF94D001F55CE /* Snippet.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -284,8 +306,9 @@
 		DD2BECB42B1C6C7A001F55CE /* StoryScreen */ = {
 			isa = PBXGroup;
 			children = (
-				DD2BECB52B1C7C09001F55CE /* Views */,
-				DD2BECAB2B1C6C2C001F55CE /* StoriesMainViewController.swift */,
+				DD2BECFD2B1EF01B001F55CE /* StoryListScreen */,
+				DD2BECF62B1EEF84001F55CE /* StorySelectionScreen */,
+				DD2BECF72B1EEF9D001F55CE /* StoryDisplayScreen */,
 			);
 			path = StoryScreen;
 			sourceTree = "<group>";
@@ -391,6 +414,53 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DD2BECF62B1EEF84001F55CE /* StorySelectionScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECB52B1C7C09001F55CE /* Views */,
+				DD2BECAB2B1C6C2C001F55CE /* StoriesMainViewController.swift */,
+				DD2BECEA2B1EE250001F55CE /* StoriesUIPickerManager.swift */,
+			);
+			path = StorySelectionScreen;
+			sourceTree = "<group>";
+		};
+		DD2BECF72B1EEF9D001F55CE /* StoryDisplayScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECF82B1EEFA7001F55CE /* Views */,
+				DD2BECF22B1EEF65001F55CE /* StoryDisplayViewController.swift */,
+			);
+			path = StoryDisplayScreen;
+			sourceTree = "<group>";
+		};
+		DD2BECF82B1EEFA7001F55CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECF42B1EEF79001F55CE /* StoryDisplayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD2BECFD2B1EF01B001F55CE /* StoryListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECFE2B1EF028001F55CE /* Views */,
+				DD2BECFB2B1EF014001F55CE /* StoryListViewController.swift */,
+				DD2BED032B1EFC04001F55CE /* StoryListFirebaseManager.swift */,
+				DD2BED052B1F014D001F55CE /* StoryListTableManager.swift */,
+			);
+			path = StoryListScreen;
+			sourceTree = "<group>";
+		};
+		DD2BECFE2B1EF028001F55CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECF92B1EEFFE001F55CE /* StoryListView.swift */,
+				DD2BED012B1EFA10001F55CE /* StoryTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -482,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD2BECE12B1E9E1C001F55CE /* ProfileScreenViewController.swift in Sources */,
+				DD2BECFC2B1EF014001F55CE /* StoryListViewController.swift in Sources */,
 				DD2BECCA2B1C9225001F55CE /* NewJournalViewController.swift in Sources */,
 				28F50F232B0AA38500D59A40 /* UserHomeView.swift in Sources */,
 				DD2BECB02B1C6C54001F55CE /* StoriesMainView.swift in Sources */,
@@ -493,32 +564,41 @@
 				28F50F1D2B0A53D800D59A40 /* RegistrationView.swift in Sources */,
 				28F50F282B0C3CB400D59A40 /* AboutScreenView.swift in Sources */,
 				DD2BECDF2B1E9E0F001F55CE /* ProfileScreenView.swift in Sources */,
+				DD2BED002B1EF94D001F55CE /* Snippet.swift in Sources */,
 				DD2BECBB2B1C8509001F55CE /* UserHomeViewButtonManager.swift in Sources */,
 				DD2BECA32B189761001F55CE /* LoginFirebaseManager.swift in Sources */,
 				28F50F1A2B0A489400D59A40 /* LoginView.swift in Sources */,
 				28F50F252B0AA48500D59A40 /* UserHomeViewController.swift in Sources */,
 				DD2BECC82B1C920B001F55CE /* NewJournalView.swift in Sources */,
+				DD2BECF32B1EEF65001F55CE /* StoryDisplayViewController.swift in Sources */,
 				DD2BECD02B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift in Sources */,
+				DD2BECF52B1EEF7A001F55CE /* StoryDisplayView.swift in Sources */,
 				DD2BEC982B1870B2001F55CE /* ProgressSpinnerDelegate.swift in Sources */,
+				DD2BED022B1EFA10001F55CE /* StoryTableViewCell.swift in Sources */,
 				DD2BECB22B1C6C66001F55CE /* JournalMainView.swift in Sources */,
 				DD2BEC952B187060001F55CE /* ProgressSpinnerViewController.swift in Sources */,
 				DD2BECBE2B1C8AEA001F55CE /* TableIdentifiers.swift in Sources */,
 				DD2BECAC2B1C6C2C001F55CE /* StoriesMainViewController.swift in Sources */,
 				DD2BECC02B1C8B7B001F55CE /* JournalTableViewCell.swift in Sources */,
+				DD2BECEB2B1EE250001F55CE /* StoriesUIPickerManager.swift in Sources */,
 				DD2BECD22B1CABE5001F55CE /* FirebaseConfigs.swift in Sources */,
 				DD2BECCE2B1C9674001F55CE /* UserHomeViewNavigationManager.swift in Sources */,
 				DD2BECC42B1C8C47001F55CE /* Journal.swift in Sources */,
 				DD2BECC22B1C8BE6001F55CE /* JournalMainViewTableManager.swift in Sources */,
 				28F50EF22B0A448B00D59A40 /* AppDelegate.swift in Sources */,
 				DD2BECE42B1E9EB6001F55CE /* UserDetails.swift in Sources */,
+				DD2BED042B1EFC04001F55CE /* StoryListFirebaseManager.swift in Sources */,
 				28F50F2A2B0C3D6D00D59A40 /* AboutScreenViewController.swift in Sources */,
 				DD2BECD42B1CC7AC001F55CE /* UIImageExtension.swift in Sources */,
 				DD2BECC62B1C8DD6001F55CE /* JournalMainViewFirebaseManager.swift in Sources */,
 				DD2BECAE2B1C6C3D001F55CE /* JournalMainViewController.swift in Sources */,
 				DD2BECE72B1E9F44001F55CE /* ProfileScreenFirebaseManager.swift in Sources */,
+				DD2BED062B1F014D001F55CE /* StoryListTableManager.swift in Sources */,
 				DD2BECA92B1C55C7001F55CE /* MoodCategories.swift in Sources */,
+				DD2BECFA2B1EEFFE001F55CE /* StoryListView.swift in Sources */,
 				DD2BECD62B1DD490001F55CE /* NewJournalViewAudioManager.swift in Sources */,
 				DD2BECA72B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift in Sources */,
+				DD2BECE92B1ECA26001F55CE /* Timeframes.swift in Sources */,
 				DD2BECA52B18AE01001F55CE /* RegistrationFirebaseManager.swift in Sources */,
 				28F50EF42B0A448B00D59A40 /* SceneDelegate.swift in Sources */,
 			);

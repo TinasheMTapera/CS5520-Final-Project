@@ -16,7 +16,7 @@ extension JournalMainViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "journal", for: indexPath) as! JournalTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableIdentifiers.tableViewJournals, for: indexPath) as! JournalTableViewCell
         
         let journal = journalList[indexPath.row]
         cell.titleLabel.text = journal.title

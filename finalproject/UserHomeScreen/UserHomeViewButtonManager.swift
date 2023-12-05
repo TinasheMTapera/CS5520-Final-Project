@@ -64,6 +64,7 @@ extension UserHomeViewController {
         // Handle the action for the "Read Something" button
         
         let storiesController = StoriesMainViewController()
+        storiesController.currentUser = self.currentUser
         navigationController?.pushViewController(storiesController, animated: true)
     }
     

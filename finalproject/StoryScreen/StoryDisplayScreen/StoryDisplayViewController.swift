@@ -1,24 +1,18 @@
 //
-//  StoriesMainViewController.swift
+//  StoryDisplayViewController.swift
 //  finalproject
 //
-//  Created by Diya on 12/2/23.
+//  Created by Diya on 12/4/23.
 //
 
 import UIKit
 
-class StoriesMainViewController: UIViewController {
-    
-    let storyView = StoriesMainView()
-    
-    override func loadView() {
-        view = storyView
-    }
+class StoryDisplayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Stories"
+
+        // Do any additional setup after loading the view.
     }
     
 

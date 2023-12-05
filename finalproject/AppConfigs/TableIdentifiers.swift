@@ -10,4 +10,5 @@ import Foundation
 class TableIdentifiers {
     
     static let tableViewJournals = "tableViewJournals"
+    static let tableViewStories = "tableViewStories"
 }

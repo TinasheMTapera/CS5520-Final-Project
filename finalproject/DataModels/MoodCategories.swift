@@ -7,8 +7,8 @@
 
 import Foundation
 
-class MoodCategories {
+struct MoodCategories {
     
-    let moods = ["brave","calm","relaxed","motivated","encouraged","energized"]
+    static let moods = ["Brave","Calm","Relaxed","Motivated","Encouraged","Energized"]
     
 }
