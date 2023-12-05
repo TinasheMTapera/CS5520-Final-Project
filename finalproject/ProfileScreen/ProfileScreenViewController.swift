@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class ProfileScreenViewController: UIViewController {
-
+    
     let userProfileView = ProfileScreenView()
     
     var currentUser: FirebaseAuth.User?
@@ -28,6 +28,11 @@ class ProfileScreenViewController: UIViewController {
         
         fetchUserDetailsFromFirebase()
         
+        print(self.currentUser?.photoURL)
+        if let url = self.currentUser?.photoURL{
+            userProfileView.profileImage.loadRemoteImage(from: url)
+        }
+        
     }
     
     func setUserDisplayData(userDetails: UserDetails) {
@@ -37,5 +42,6 @@ class ProfileScreenViewController: UIViewController {
         userProfileView.nameLabel.text = "Name: \(userDetails.name)"
         userProfileView.emailLabel.text = "Email: \(userDetails.email)"
     }
-
+    
 }
+
