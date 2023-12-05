@@ -54,6 +54,10 @@
 		DD2BECD62B1DD490001F55CE /* NewJournalViewAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD52B1DD490001F55CE /* NewJournalViewAudioManager.swift */; };
 		DD2BECD82B1DEE15001F55CE /* RecordScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD72B1DEE15001F55CE /* RecordScreenViewController.swift */; };
 		DD2BECDA2B1DEE2A001F55CE /* RecordScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD92B1DEE2A001F55CE /* RecordScreenView.swift */; };
+		DD2BECDF2B1E9E0F001F55CE /* ProfileScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECDE2B1E9E0F001F55CE /* ProfileScreenView.swift */; };
+		DD2BECE12B1E9E1C001F55CE /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECE02B1E9E1C001F55CE /* ProfileScreenViewController.swift */; };
+		DD2BECE42B1E9EB6001F55CE /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECE32B1E9EB6001F55CE /* UserDetails.swift */; };
+		DD2BECE72B1E9F44001F55CE /* ProfileScreenFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECE62B1E9F44001F55CE /* ProfileScreenFirebaseManager.swift */; };
 		DD7E913A2B18232A00BFEB12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */; };
 		DD7E913C2B18234800BFEB12 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913B2B18234800BFEB12 /* FirebaseAnalytics */; };
 		DD7E913E2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913D2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -104,6 +108,10 @@
 		DD2BECD52B1DD490001F55CE /* NewJournalViewAudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalViewAudioManager.swift; sourceTree = "<group>"; };
 		DD2BECD72B1DEE15001F55CE /* RecordScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordScreenViewController.swift; sourceTree = "<group>"; };
 		DD2BECD92B1DEE2A001F55CE /* RecordScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordScreenView.swift; sourceTree = "<group>"; };
+		DD2BECDE2B1E9E0F001F55CE /* ProfileScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenView.swift; sourceTree = "<group>"; };
+		DD2BECE02B1E9E1C001F55CE /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
+		DD2BECE32B1E9EB6001F55CE /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
+		DD2BECE62B1E9F44001F55CE /* ProfileScreenFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenFirebaseManager.swift; sourceTree = "<group>"; };
 		DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,10 +162,11 @@
 				DD2BECAA2B1C6BE9001F55CE /* DataModels */,
 				DD2BECB92B1C829C001F55CE /* AppConfigs */,
 				DD2BEC962B1870A1001F55CE /* ProgressIndicator */,
-				28F50F262B0C3C9D00D59A40 /* AboutScreen */,
 				28F50F182B0A485A00D59A40 /* LoginScreen */,
 				28F50F1B2B0A537B00D59A40 /* RegistrationScreen */,
 				28F50F212B0AA36200D59A40 /* UserHomeScreen */,
+				28F50F262B0C3C9D00D59A40 /* AboutScreen */,
+				DD2BECE22B1E9E24001F55CE /* ProfileScreen */,
 				DD2BECB42B1C6C7A001F55CE /* StoryScreen */,
 				DD2BECB32B1C6C6B001F55CE /* JournalScreen */,
 				DD2BECDB2B1DF04C001F55CE /* RecordScreen */,
@@ -258,6 +267,7 @@
 			children = (
 				DD2BECA82B1C55C6001F55CE /* MoodCategories.swift */,
 				DD2BECC32B1C8C47001F55CE /* Journal.swift */,
+				DD2BECE32B1E9EB6001F55CE /* UserDetails.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -363,6 +373,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DD2BECE22B1E9E24001F55CE /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECE52B1E9F33001F55CE /* Views */,
+				DD2BECE02B1E9E1C001F55CE /* ProfileScreenViewController.swift */,
+				DD2BECE62B1E9F44001F55CE /* ProfileScreenFirebaseManager.swift */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		DD2BECE52B1E9F33001F55CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD2BECDE2B1E9E0F001F55CE /* ProfileScreenView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -453,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD2BECE12B1E9E1C001F55CE /* ProfileScreenViewController.swift in Sources */,
 				DD2BECCA2B1C9225001F55CE /* NewJournalViewController.swift in Sources */,
 				28F50F232B0AA38500D59A40 /* UserHomeView.swift in Sources */,
 				DD2BECB02B1C6C54001F55CE /* StoriesMainView.swift in Sources */,
@@ -463,6 +492,7 @@
 				28F50EF62B0A448B00D59A40 /* ViewController.swift in Sources */,
 				28F50F1D2B0A53D800D59A40 /* RegistrationView.swift in Sources */,
 				28F50F282B0C3CB400D59A40 /* AboutScreenView.swift in Sources */,
+				DD2BECDF2B1E9E0F001F55CE /* ProfileScreenView.swift in Sources */,
 				DD2BECBB2B1C8509001F55CE /* UserHomeViewButtonManager.swift in Sources */,
 				DD2BECA32B189761001F55CE /* LoginFirebaseManager.swift in Sources */,
 				28F50F1A2B0A489400D59A40 /* LoginView.swift in Sources */,
@@ -480,10 +510,12 @@
 				DD2BECC42B1C8C47001F55CE /* Journal.swift in Sources */,
 				DD2BECC22B1C8BE6001F55CE /* JournalMainViewTableManager.swift in Sources */,
 				28F50EF22B0A448B00D59A40 /* AppDelegate.swift in Sources */,
+				DD2BECE42B1E9EB6001F55CE /* UserDetails.swift in Sources */,
 				28F50F2A2B0C3D6D00D59A40 /* AboutScreenViewController.swift in Sources */,
 				DD2BECD42B1CC7AC001F55CE /* UIImageExtension.swift in Sources */,
 				DD2BECC62B1C8DD6001F55CE /* JournalMainViewFirebaseManager.swift in Sources */,
 				DD2BECAE2B1C6C3D001F55CE /* JournalMainViewController.swift in Sources */,
+				DD2BECE72B1E9F44001F55CE /* ProfileScreenFirebaseManager.swift in Sources */,
 				DD2BECA92B1C55C7001F55CE /* MoodCategories.swift in Sources */,
 				DD2BECD62B1DD490001F55CE /* NewJournalViewAudioManager.swift in Sources */,
 				DD2BECA72B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift in Sources */,

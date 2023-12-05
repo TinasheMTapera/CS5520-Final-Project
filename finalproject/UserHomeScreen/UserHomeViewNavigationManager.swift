@@ -53,4 +53,29 @@ extension UserHomeViewController {
         navigationItem.rightBarButtonItems = [flexibleSpace, appLogoBarButton]
     }
     
+    func setupProfileIconInNavBar(in navigationItem: UINavigationItem) {
+        
+        let profileButton = UIButton(type: .system)
+
+        // Set the image for the button
+        profileButton.setImage(UIImage(systemName: "person.fill"), for: .normal)
+
+        // Set the tint color (change to your desired color)
+        profileButton.tintColor = UIColor.blue
+
+        // Adjust the size of the button's image (change the multiplier as needed)
+        profileButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        profileButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
+        // Add a target to the button
+        profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
+
+        // Create a UIBarButtonItem with the custom button
+        let profileBarButtonItem = UIBarButtonItem(customView: profileButton)
+
+        // Set the leftBarButtonItem
+        navigationItem.leftBarButtonItem = profileBarButtonItem
+        
+    }
+    
 }

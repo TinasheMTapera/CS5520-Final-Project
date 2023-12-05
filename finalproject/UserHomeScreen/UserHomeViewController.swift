@@ -35,24 +35,22 @@ class UserHomeViewController: UIViewController {
     
     func setupNavBar() {
         
-        let profileButton = UIBarButtonItem(
-            image: UIImage(systemName: "person.fill"),
-            style: .plain,
-            target: self,
-            action: #selector(profileButtonTapped)
-        )
-        
-        navigationItem.leftBarButtonItem = profileButton
+        self.setupProfileIconInNavBar(in: self.navigationItem)
         self.setupLogoInNavBar(in: self.navigationItem)
     }
     
     @objc func profileButtonTapped() {
         print("Profile Button Tapped")
+        
         //push profile view
+        let userProfileController = ProfileScreenViewController()
+        userProfileController.currentUser = self.currentUser
+        navigationController?.pushViewController(userProfileController, animated: true)
     }
     
     @objc func aboutButtonTapped() {
         print("About Button Tapped")
+        
         //push about view
         let aboutController = AboutScreenViewController()
         navigationController?.pushViewController(aboutController, animated: true)
