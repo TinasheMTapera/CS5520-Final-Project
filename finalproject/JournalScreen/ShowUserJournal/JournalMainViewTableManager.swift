@@ -11,7 +11,7 @@ import UIKit
 extension JournalMainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("count -- \(journalList.count)")
+        updateEmptyStateLabel()
         return journalList.count
     }
     
@@ -117,6 +117,10 @@ extension JournalMainViewController: UITableViewDelegate, UITableViewDataSource 
         buttonOptions.showsMenuAsPrimaryAction = true
         
         return buttonOptions
+    }
+    
+    func updateEmptyStateLabel() {
+        journalView.emptyStateLabel.isHidden = !journalList.isEmpty
     }
     
 }
