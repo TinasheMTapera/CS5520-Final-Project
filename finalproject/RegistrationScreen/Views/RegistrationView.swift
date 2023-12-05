@@ -9,7 +9,9 @@ import UIKit
 
 class RegistrationView: UIView {
     
-    var titleLabel: UILabel!
+    var contentWrapper: UIScrollView!
+    var profilePictureButton: UIButton!
+    var profilePicturePromptLabel: UILabel!
     var nameLabel: UILabel!
     var nameTextField: UITextField!
     var emailLabel: UILabel!
@@ -26,7 +28,9 @@ class RegistrationView: UIView {
         
         self.backgroundColor = AppColors.backgroundColor
         
-        setupTitleLabel()
+        setupContentWrapper()
+        setupProfilePictureButton()
+        setupProfilePicturePromptLabel()
         setupNameLabel()
         setupNameTextField()
         setupEmailLabel()
@@ -40,14 +44,37 @@ class RegistrationView: UIView {
         initConstraints()
     }
     
-    func setupTitleLabel() {
+    func setupContentWrapper() {
         
-        titleLabel = UILabel()
-        titleLabel.text = "Create your account with us"
-        titleLabel.font = .boldSystemFont(ofSize: 18)
+        contentWrapper = UIScrollView()
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(titleLabel)
+        contentWrapper.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(contentWrapper)
+    }
+    
+    func setupProfilePictureButton() {
+        
+        profilePictureButton = UIButton(type: .system)
+        profilePictureButton.setTitle("", for: .normal)
+        profilePictureButton.setImage(UIImage(systemName: "camera.fill")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        profilePictureButton.tintColor = AppColors.blueButton
+        profilePictureButton.contentHorizontalAlignment = .fill
+        profilePictureButton.contentVerticalAlignment = .fill
+        profilePictureButton.imageView?.contentMode = .scaleAspectFit
+        profilePictureButton.showsMenuAsPrimaryAction = true
+        profilePictureButton.translatesAutoresizingMaskIntoConstraints = false
+        contentWrapper.addSubview(profilePictureButton)
+        
+    }
+    
+    func setupProfilePicturePromptLabel() {
+        
+        profilePicturePromptLabel = UILabel()
+        profilePicturePromptLabel.text = "Profile Picture"
+        profilePicturePromptLabel.font = .boldSystemFont(ofSize: 15)
+        
+        profilePicturePromptLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentWrapper.addSubview(profilePicturePromptLabel)
     }
     
     func setupNameLabel() {
@@ -57,7 +84,7 @@ class RegistrationView: UIView {
         nameLabel.font = .boldSystemFont(ofSize: 17)
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(nameLabel)
+        contentWrapper.addSubview(nameLabel)
     }
     
     func setupNameTextField() {
@@ -67,7 +94,7 @@ class RegistrationView: UIView {
         nameTextField.borderStyle = .roundedRect
         
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(nameTextField)
+        contentWrapper.addSubview(nameTextField)
     }
     
     func setupEmailLabel() {
@@ -77,7 +104,7 @@ class RegistrationView: UIView {
         emailLabel.font = .boldSystemFont(ofSize: 17)
         
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(emailLabel)
+        contentWrapper.addSubview(emailLabel)
     }
     
     func setupEmailTextField() {
@@ -88,7 +115,7 @@ class RegistrationView: UIView {
         emailTextField.keyboardType = .emailAddress
         
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(emailTextField)
+        contentWrapper.addSubview(emailTextField)
     }
     
     func setupPasswordLabel() {
@@ -98,7 +125,7 @@ class RegistrationView: UIView {
         passwordLabel.font = .boldSystemFont(ofSize: 17)
         
         passwordLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(passwordLabel)
+        contentWrapper.addSubview(passwordLabel)
     }
     
     func setupPasswordTextField() {
@@ -109,7 +136,7 @@ class RegistrationView: UIView {
         passwordTextField.isSecureTextEntry = true
         
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(passwordTextField)
+        contentWrapper.addSubview(passwordTextField)
     }
     
     func setupReenterPasswordLabel() {
@@ -119,7 +146,7 @@ class RegistrationView: UIView {
         reenterPasswordLabel.font = .boldSystemFont(ofSize: 17)
         
         reenterPasswordLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(reenterPasswordLabel)
+        contentWrapper.addSubview(reenterPasswordLabel)
     }
     
     func setupReenterPasswordTextField() {
@@ -130,7 +157,7 @@ class RegistrationView: UIView {
         reenterPasswordTextField.isSecureTextEntry = true
         
         reenterPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(reenterPasswordTextField)
+        contentWrapper.addSubview(reenterPasswordTextField)
     }
     
     func setupCreateProfileButton() {
@@ -143,7 +170,7 @@ class RegistrationView: UIView {
         createProfileButton.layer.cornerRadius = 6
         
         createProfileButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(createProfileButton)
+        contentWrapper.addSubview(createProfileButton)
     }
     
     func initConstraints() {
@@ -151,41 +178,53 @@ class RegistrationView: UIView {
         //view constraints
         NSLayoutConstraint.activate([
             
-            titleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
-            titleLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            contentWrapper.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            contentWrapper.widthAnchor.constraint(equalToConstant: 380),
             
-            nameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 60),
-            nameLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            profilePictureButton.topAnchor.constraint(equalTo: contentWrapper.topAnchor),
+            profilePictureButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
+            profilePictureButton.widthAnchor.constraint(equalToConstant: 150),
+            profilePictureButton.heightAnchor.constraint(equalToConstant: 150),
+            
+            profilePicturePromptLabel.topAnchor.constraint(equalTo: profilePictureButton.bottomAnchor, constant: 10),
+            profilePicturePromptLabel.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
+            
+            nameLabel.topAnchor.constraint(equalTo: profilePicturePromptLabel.bottomAnchor, constant: 30),
+            nameLabel.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor),
             
             nameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
             nameTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: 10),
-            nameTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            nameTextField.widthAnchor.constraint(equalTo: contentWrapper.widthAnchor, constant: -25),
             
             emailLabel.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 30),
-            emailLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            emailLabel.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor),
             
             emailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 10),
             emailTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: 10),
-            emailTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            
+            emailTextField.widthAnchor.constraint(equalTo: contentWrapper.widthAnchor, constant: -25),
+
             passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 30),
-            passwordLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            passwordLabel.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor),
             
-            passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 15),
+            passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10),
             passwordTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: 10),
-            passwordTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            
+            passwordTextField.widthAnchor.constraint(equalTo: contentWrapper.widthAnchor, constant: -25),
+
             reenterPasswordLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
-            reenterPasswordLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            reenterPasswordLabel.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor),
             
-            reenterPasswordTextField.topAnchor.constraint(equalTo: reenterPasswordLabel.bottomAnchor, constant: 15),
+            reenterPasswordTextField.topAnchor.constraint(equalTo: reenterPasswordLabel.bottomAnchor, constant: 10),
             reenterPasswordTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: 10),
-            reenterPasswordTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            
-            createProfileButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -80),
-            createProfileButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            reenterPasswordTextField.widthAnchor.constraint(equalTo: contentWrapper.widthAnchor, constant: -25),
+
+            createProfileButton.topAnchor.constraint(equalTo: reenterPasswordTextField.bottomAnchor, constant: 50),
+            createProfileButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             createProfileButton.widthAnchor.constraint(equalToConstant: 150),
             createProfileButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            contentWrapper.heightAnchor.constraint(equalToConstant: 700),
+
         ])
     }
     

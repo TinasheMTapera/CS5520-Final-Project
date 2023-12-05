@@ -16,7 +16,7 @@ class UserHomeViewController: UIViewController {
     override func loadView() {
         view = userHomeView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,5 +74,5 @@ class UserHomeViewController: UIViewController {
         
         self.present(logoutAlert, animated: true)
     }
-   
+    
 }

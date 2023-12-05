@@ -16,11 +16,7 @@ extension ViewController {
             
             if error == nil {
                 print("user authenticated")
-                let userHomeController = UserHomeViewController()
-                print("result.user -- \(result?.user)")
-                self.currentUser = result?.user
-                userHomeController.currentUser = self.currentUser
-//                self.navigationController?.pushViewController(userHomeController, animated: true)
+//                let userHomeController = UserHomeViewController(currentUser: self.currentUser)
             }
             else {
                 print(error)

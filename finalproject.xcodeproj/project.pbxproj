@@ -73,6 +73,7 @@
 		DD2BED0C2B1F3662001F55CE /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED0B2B1F3662001F55CE /* Recording.swift */; };
 		DD2BED0E2B1F3C48001F55CE /* RecordingsFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED0D2B1F3C48001F55CE /* RecordingsFirebaseManager.swift */; };
 		DD2BED102B1F40F9001F55CE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DD2BED0F2B1F40F9001F55CE /* FirebaseStorage */; };
+		DD2BED142B1F5071001F55CE /* RegistrationPhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BED132B1F5071001F55CE /* RegistrationPhotosManager.swift */; };
 		DD7E913A2B18232A00BFEB12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */; };
 		DD7E913C2B18234800BFEB12 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913B2B18234800BFEB12 /* FirebaseAnalytics */; };
 		DD7E913E2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E913D2B18234800BFEB12 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -141,6 +142,7 @@
 		DD2BED092B1F2FA6001F55CE /* RecordScreenTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordScreenTableManager.swift; sourceTree = "<group>"; };
 		DD2BED0B2B1F3662001F55CE /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		DD2BED0D2B1F3C48001F55CE /* RecordingsFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsFirebaseManager.swift; sourceTree = "<group>"; };
+		DD2BED132B1F5071001F55CE /* RegistrationPhotosManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPhotosManager.swift; sourceTree = "<group>"; };
 		DD7E91392B18232A00BFEB12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,6 +230,7 @@
 				28F50F1E2B0A54C800D59A40 /* RegistrationViewController.swift */,
 				DD2BECA42B18AE01001F55CE /* RegistrationFirebaseManager.swift */,
 				DD2BECA62B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift */,
+				DD2BED132B1F5071001F55CE /* RegistrationPhotosManager.swift */,
 			);
 			path = RegistrationScreen;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				DD2BED0E2B1F3C48001F55CE /* RecordingsFirebaseManager.swift in Sources */,
 				DD2BECEB2B1EE250001F55CE /* StoriesUIPickerManager.swift in Sources */,
 				DD2BECD22B1CABE5001F55CE /* FirebaseConfigs.swift in Sources */,
+				DD2BED142B1F5071001F55CE /* RegistrationPhotosManager.swift in Sources */,
 				DD2BECCE2B1C9674001F55CE /* UserHomeViewNavigationManager.swift in Sources */,
 				DD2BECC42B1C8C47001F55CE /* Journal.swift in Sources */,
 				DD2BECC22B1C8BE6001F55CE /* JournalMainViewTableManager.swift in Sources */,

@@ -8,11 +8,41 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
 import CryptoKit
 
 extension RegistrationViewController {
     
-    func registerNewAccount(_ name: String, _ email: String, _ password: String) {
+    func uploadProfilePhotoToStorage(_ name: String, _ email: String, _ password: String){
+        
+        var profilePhotoURL:URL?
+        
+        //MARK: Upload the profile photo if there is any...
+        if let image = pickedImage{
+            if let jpegData = image.jpegData(compressionQuality: 80){
+                let storageRef = storage.reference()
+                let imagesRepo = storageRef.child(FirebaseConfigs.listOfProfilePictures)
+                let imageRef = imagesRepo.child("\(NSUUID().uuidString).jpg")
+                
+                let uploadTask = imageRef.putData(jpegData, completion: {(metadata, error) in
+                    if error == nil{
+                        imageRef.downloadURL(completion: {(url, error) in
+                            if error == nil{
+                                profilePhotoURL = url
+                                self.registerNewAccount(name, email, password, profilePhotoURL)
+                            }
+                        })
+                    }
+                })
+            }
+        }else{
+            registerNewAccount(name, email, password, profilePhotoURL)
+        }
+    }
+    
+    func registerNewAccount(_ name: String, _ email: String, _ password: String, _ photoURL: URL?) {
+        
+        print("registerNewAccount")
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
             
@@ -22,7 +52,7 @@ extension RegistrationViewController {
                 let userID = self.currentUser!.uid
                 
                 //update userName
-                self.setUserNameInFirebaseAuth(name: name)
+                self.setUserNameAndPhotoOfUserInFirebaseAuth(name: name, email: email, photoURL: photoURL)
             }
             else {
                 print(error)
@@ -31,17 +61,20 @@ extension RegistrationViewController {
         })
     }
     
-    func setUserNameInFirebaseAuth(name: String) {
+    func setUserNameAndPhotoOfUserInFirebaseAuth(name: String, email: String, photoURL: URL?) {
+        
+        print("setting username and photo")
         
         showActivityIndicator()
         
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
+        changeRequest?.photoURL = photoURL
         
         changeRequest?.commitChanges(completion: {(error) in
             
             if error == nil {
-                self.createFirestoreUserDocument()
+                self.createFirestoreUserDocument(photoURL: photoURL)
             }
             else {
                 print(error)
@@ -50,13 +83,30 @@ extension RegistrationViewController {
         })
     }
     
-    func createFirestoreUserDocument() {
+    func createFirestoreUserDocument(photoURL: URL?) {
+        
+        print("creating firestore user document")
         
         var userCollectionCount = -1
         
-        if let userEmail = currentUser?.email {
+        print(photoURL)
+        
+        if let userEmail = currentUser?.email{
             
-            let data = ["name": currentUser?.displayName ?? "", "email": userEmail]
+            print("creating userdata")
+            var data: [String: Any] = [
+                "name": currentUser?.displayName ?? "",
+                "email": userEmail
+            ]
+
+            if let profileURL = photoURL {
+                // The profilePictureURL is not nil, include it in the data dictionary
+                data["profilePictureURL"] = profileURL.absoluteString
+            } else {
+                // The profilePictureURL is nil
+                data["profilePictureURL"] = ""
+            }
+            
             let userCollection = database.collection("users")
             
             userCollection.document(userEmail).setData(data) { error in
@@ -88,7 +138,27 @@ extension RegistrationViewController {
             }
             
             hideActivityIndicator()
-            self.navigationController?.popViewController(animated: true)
         }
+        else {
+            print("failed to convert url to string")
+        }
+    }
+    
+    func userLogout() {
+        
+        do {
+            try Auth.auth().signOut()
+        }
+        catch {
+            print("Error signing out!")
+        }
+    }
+    
+    func showAccountCreationAlert() {
+        
+        let alert = UIAlertController(title: "Success", message: "Successfully created account. Please login", preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
 }

@@ -14,4 +14,6 @@ class FirebaseConfigs {
     static let listOfStories = "stories"
     static let listOfTimeframes = "timeframes"
     static let listOfSnippets = "snippets"
+    
+    static let listOfProfilePictures = "profilePictures"
 }

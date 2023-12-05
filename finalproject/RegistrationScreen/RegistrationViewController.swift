@@ -6,16 +6,22 @@
 //
 
 import UIKit
+import PhotosUI
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseStorage
 
 class RegistrationViewController: UIViewController {
     
     let registerView = RegistrationView()
     let childProgressView = ProgressSpinnerViewController()
+    
     var currentUser: FirebaseAuth.User?
     let database = Firestore.firestore()
+    let storage = Storage.storage()
+    
+    var pickedImage: UIImage?
     
     override func loadView() {
         view = registerView
@@ -24,12 +30,13 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Register"
+        title = "Create an account"
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         
+        registerView.profilePictureButton.menu = getMenuImagePicker()
         //button-click for profile creation
         registerView.createProfileButton.addTarget(self, action: #selector(attemptUserRegistration), for: .touchUpInside)
         
@@ -53,7 +60,7 @@ class RegistrationViewController: UIViewController {
                                     if let uwReenterPassword = reenteredPasswordInput {
                                         if !uwReenterPassword.isEmpty {
                                             if(validatePassword(uwPassword, uwReenterPassword)){
-                                                registerNewAccount(uwName, uwEmail, uwPassword)
+                                                uploadProfilePhotoToStorage(uwName, uwEmail, uwPassword)
                                             }
                                             else {
                                                 showErrorAlert(message: "Passwords do not match")
