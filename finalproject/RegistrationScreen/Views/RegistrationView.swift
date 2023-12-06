@@ -180,7 +180,8 @@ class RegistrationView: UIView {
             
             contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             contentWrapper.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            contentWrapper.widthAnchor.constraint(equalToConstant: 380),
+            contentWrapper.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            contentWrapper.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
             
             profilePictureButton.topAnchor.constraint(equalTo: contentWrapper.topAnchor),
             profilePictureButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
@@ -203,28 +204,29 @@ class RegistrationView: UIView {
             emailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 10),
             emailTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: 10),
             emailTextField.widthAnchor.constraint(equalTo: contentWrapper.widthAnchor, constant: -25),
-
+            
             passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 30),
             passwordLabel.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor),
             
             passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10),
             passwordTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: 10),
             passwordTextField.widthAnchor.constraint(equalTo: contentWrapper.widthAnchor, constant: -25),
-
+            
             reenterPasswordLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
             reenterPasswordLabel.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor),
             
             reenterPasswordTextField.topAnchor.constraint(equalTo: reenterPasswordLabel.bottomAnchor, constant: 10),
             reenterPasswordTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: 10),
             reenterPasswordTextField.widthAnchor.constraint(equalTo: contentWrapper.widthAnchor, constant: -25),
-
+            
             createProfileButton.topAnchor.constraint(equalTo: reenterPasswordTextField.bottomAnchor, constant: 50),
             createProfileButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             createProfileButton.widthAnchor.constraint(equalToConstant: 150),
             createProfileButton.heightAnchor.constraint(equalToConstant: 50),
+            createProfileButton.bottomAnchor.constraint(equalTo: contentWrapper.bottomAnchor, constant: -10),
             
-            contentWrapper.heightAnchor.constraint(equalToConstant: 700),
-
+            //            contentWrapper.heightAnchor.constraint(equalToConstant: 700),
+            
         ])
     }
     

@@ -21,6 +21,8 @@ class RegistrationViewController: UIViewController {
     let database = Firestore.firestore()
     let storage = Storage.storage()
     
+    let notificationCenter = NotificationCenter.default
+    
     var pickedImage: UIImage?
     
     override func loadView() {
