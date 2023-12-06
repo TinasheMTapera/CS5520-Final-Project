@@ -9,13 +9,16 @@ import Foundation
 
 class UserDetails {
     
-    let name: String
-    let email: String
+    var name: String
+    var email: String
+    var journalCount: Int
+    var audioCount: Int
     
-    init(name: String, email: String) {
-        
+    init(name: String, email: String, journalCount: Int, audioCount: Int) {
         self.name = name
         self.email = email
+        self.journalCount = journalCount
+        self.audioCount = audioCount
     }
     
 }

@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseStorage
 
 class ProfileScreenViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class ProfileScreenViewController: UIViewController {
     
     var currentUser: FirebaseAuth.User?
     let database = Firestore.firestore()
+    let storageRef = Storage.storage().reference()
     
     override func loadView() {
         view = userProfileView
@@ -28,7 +30,6 @@ class ProfileScreenViewController: UIViewController {
         
         fetchUserDetailsFromFirebase()
         
-        print(self.currentUser?.photoURL)
         if let url = self.currentUser?.photoURL{
             userProfileView.profileImage.loadRemoteImage(from: url)
         }
@@ -41,6 +42,7 @@ class ProfileScreenViewController: UIViewController {
         
         userProfileView.nameLabel.text = "Name: \(userDetails.name)"
         userProfileView.emailLabel.text = "Email: \(userDetails.email)"
+        userProfileView.journalCountLabel.text = "You have \(userDetails.journalCount) written journal(s) and \(userDetails.audioCount) audio(s)"
     }
     
 }

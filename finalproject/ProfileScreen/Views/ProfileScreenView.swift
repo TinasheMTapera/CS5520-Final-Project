@@ -89,8 +89,7 @@ class ProfileScreenView: UIView {
     func setupJournalContentLabel() {
         
         journalCountLabel = UILabel()
-        journalCountLabel.font = .boldSystemFont(ofSize: 17)
-        journalCountLabel.text = "Sample text here"
+        journalCountLabel.font = .boldSystemFont(ofSize: 15)
         
         journalCountLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(journalCountLabel)
@@ -122,7 +121,7 @@ class ProfileScreenView: UIView {
             emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 50),
             emailLabel.centerXAnchor.constraint(equalTo: boxView.centerXAnchor),
             
-            journalCountLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 50),
+            journalCountLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 70),
             journalCountLabel.centerXAnchor.constraint(equalTo: boxView.centerXAnchor),
             
         ])

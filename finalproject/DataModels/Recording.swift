@@ -9,10 +9,12 @@ import Foundation
 
 class Recording {
     
-    var timestamp: Date
+    var name: String
+    var downloadURL: URL
     
-    init(timestamp: Date) {
-        self.timestamp = timestamp
+    init(name: String, downloadURL: URL) {
+        self.name = name
+        self.downloadURL = downloadURL
     }
     
     

@@ -101,7 +101,7 @@ extension RegistrationViewController {
                 "name": currentUser?.displayName ?? "",
                 "email": userEmail
             ]
-
+            
             if let profileURL = photoURL {
                 // The profilePictureURL is not nil, include it in the data dictionary
                 data["profilePictureURL"] = profileURL.absoluteString
@@ -110,9 +110,11 @@ extension RegistrationViewController {
                 data["profilePictureURL"] = ""
             }
             
-            let userCollection = database.collection("users")
+            let userCollection = database.collection(FirebaseConfigs.listOfUsers)
             
-            userCollection.document(userEmail).setData(data) { error in
+            let userDoc = userCollection.document(userEmail)
+            
+            userDoc.setData(data) { error in
                 
                 if let error = error {
                     print("Error creating userCollection: \(error.localizedDescription)")
@@ -139,6 +141,8 @@ extension RegistrationViewController {
                     }
                 }
             }
+            
+            let journalCollection = userDoc.collection(FirebaseConfigs.listOfUserJournals)
             
             hideActivityIndicator()
         }

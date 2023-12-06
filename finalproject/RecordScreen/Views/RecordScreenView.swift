@@ -92,7 +92,7 @@ class RecordScreenView: UIView {
             recordPromptLabel.topAnchor.constraint(equalTo: recordButton.bottomAnchor, constant: 20),
             recordPromptLabel.centerXAnchor.constraint(equalTo: recordButton.centerXAnchor),
             
-            tableViewRecordings.topAnchor.constraint(equalTo: recordButton.bottomAnchor, constant: 50),
+            tableViewRecordings.topAnchor.constraint(equalTo: recordPromptLabel.bottomAnchor, constant: 50),
             tableViewRecordings.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             tableViewRecordings.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             tableViewRecordings.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),

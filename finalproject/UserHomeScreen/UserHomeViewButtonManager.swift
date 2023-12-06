@@ -83,7 +83,7 @@ extension UserHomeViewController {
         // Handle the action for the "Journal" button
         
         let recordController = RecordScreenViewController()
-//        journalController.currentUser = self.currentUser
+        recordController.currentUser = self.currentUser
         navigationController?.pushViewController(recordController, animated: true)
     }
 }

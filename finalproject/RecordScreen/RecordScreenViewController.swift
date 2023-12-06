@@ -7,11 +7,15 @@
 
 import UIKit
 import AVFoundation
+import FirebaseAuth
 import FirebaseStorage
 
 class RecordScreenViewController: UIViewController, AVAudioRecorderDelegate {
     
     let recordView = RecordScreenView()
+    
+    var currentUser: FirebaseAuth.User?
+    let storageRef = Storage.storage().reference()
     
     var audioRecorder: AVAudioRecorder?
     var audioFileName: URL?
@@ -41,27 +45,6 @@ class RecordScreenViewController: UIViewController, AVAudioRecorderDelegate {
     @objc private func recordButtonTapped() {
         print("Record button tapped")
 
-//        if let recorder = audioRecorder {
-//            if recorder.isRecording {
-//                // Stop recording
-//                recorder.stop()
-//                do {
-//                    try AVAudioSession.sharedInstance().setActive(false)
-//                } catch {
-//                    print("Error stopping recording: \(error.localizedDescription)")
-//                }
-//                // Save the audio file to Firestore or perform any desired actions
-//            } else {
-//                // Start recording
-//                do {
-//                    try AVAudioSession.sharedInstance().setActive(true)
-//                    recorder.record()
-//                } catch {
-//                    print("Error starting recording: \(error.localizedDescription)")
-//                }
-//            }
-//        }
-        
         if let recorder = audioRecorder {
                 if recorder.isRecording {
                     // Stop recording
@@ -131,13 +114,12 @@ class RecordScreenViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder = nil
 
         if success {
-            
-            recordView.recordButton.setTitle("Tap to Re-record", for: .normal)
+//            recordView.recordButton.setTitle("Tap to Re-record", for: .normal)
             uploadRecordingToStorage()
             
         } else {
             print("recording failed")
-            recordView.recordButton.setTitle("Tap to Record", for: .normal)
+//            recordView.recordButton.setTitle("Tap to Record", for: .normal)
         }
     }
 

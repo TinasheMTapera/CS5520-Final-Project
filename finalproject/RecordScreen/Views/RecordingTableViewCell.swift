@@ -8,15 +8,47 @@
 import UIKit
 
 class RecordingTableViewCell: UITableViewCell {
-
+    
+    var recordingNameLabel: UILabel!
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupRecordingNameLabel()
+        
+        initConstraints()
+    }
+    
+    func setupRecordingNameLabel() {
+        
+        recordingNameLabel = UILabel()
+        recordingNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(recordingNameLabel)
+    }
+    
+    func initConstraints() {
+        
+        NSLayoutConstraint.activate([
+            
+            recordingNameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+            recordingNameLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            recordingNameLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            recordingNameLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            
+        ])
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 }
