@@ -47,7 +47,8 @@ class NewJournalView: UIView {
         journalTextView.isEditable = true
         
         journalTextView.keyboardType = .default
-        journalTextView.returnKeyType = .done
+        // Done was entering newlines, so replacing with regular return key for newlines
+        journalTextView.returnKeyType = .default
         journalTextView.autocapitalizationType = .sentences
         journalTextView.dataDetectorTypes = .all
         
