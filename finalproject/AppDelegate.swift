@@ -7,11 +7,17 @@
 
 import UIKit
 import FirebaseCore
+import FirebaseAppCheck
 
 @main
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        //set up auth firebase for testing: https://stackoverflow.com/questions/70657529/how-do-i-know-if-appcheck-is-implemented-correctly
+        let providerFactory = AppCheckDebugProviderFactory()
+        AppCheck.setAppCheckProviderFactory(providerFactory)
+
         // Override point for customization after application launch.
         FirebaseApp.configure()
         return true
