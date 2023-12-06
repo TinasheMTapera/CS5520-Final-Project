@@ -11,16 +11,21 @@ import FirebaseAuth
 class UserHomeViewController: UIViewController {
     
     let userHomeView = UserHomeView()
-    var currentUser: FirebaseAuth.User?
+    var currentUser = Auth.auth().currentUser
+    
+    let notificationCenter = NotificationCenter.default
     
     override func loadView() {
         view = userHomeView
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(currentUser?.displayName)
+        notificationCenter.addObserver(self, selector: #selector(userNameUpdated), name: NSNotification.Name(rawValue: "userRegistered"), object: nil)
+        
+        print("user at viewDidload -- \(currentUser?.displayName)")
         
         title = "Hello \(currentUser?.displayName ?? "Anonymous")!"
         
@@ -31,6 +36,14 @@ class UserHomeViewController: UIViewController {
         
         userHomeView.logoutButton.addTarget(self, action: #selector(attemptUserLogout), for: .touchUpInside)
         
+    }
+    
+    @objc func userNameUpdated() {
+        
+        self.currentUser = Auth.auth().currentUser
+        print("Current user updated -- \(self.currentUser?.displayName)")
+        
+        self.title = "Hello \(currentUser?.displayName ?? "Anonymous")!"
     }
     
     func setupNavBar() {

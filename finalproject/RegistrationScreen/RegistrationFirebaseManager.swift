@@ -74,6 +74,10 @@ extension RegistrationViewController {
         changeRequest?.commitChanges(completion: {(error) in
             
             if error == nil {
+                
+                //notify userhomescreen --
+                self.notificationCenter.post(name: NSNotification.Name(rawValue: "userRegistered"), object: nil)
+                
                 self.createFirestoreUserDocument(photoURL: photoURL)
             }
             else {

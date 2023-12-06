@@ -35,19 +35,6 @@ class ViewController: UIViewController {
                 //user not signed in functionality
                 
                 self.view = self.loginView
-//                self.showLoginScreen()
-//                self.loadView()
-//                self.currentUser = nil
-//                self.navigationController?.pushViewController(self.loginController, animated: true)
-//                self.loginView.loginButton.isEnabled  = true
-//                self.loginView.registerButton.isEnabled = true
-                
-//                self.userMessageView.messageLabel.text = "Please sign in to view your inbox"
-//
-//                self.messageList.removeAll()
-//                self.userMessageView.tableViewMessages.reloadData()
-//                self.userMessageView.newMessageFloatingButton.isHidden = true
-//                self.setupRightBarButton(isLoggedIn: false)
             }
             else {
                 
@@ -55,37 +42,18 @@ class ViewController: UIViewController {
                 
                 self.currentUser = user
                 self.showUserHomeScreen()
-//                let userHomeController = UserHomeViewController()
-//                userHomeController.currentUser = user
-//                self.view = self.userHomeView
-//                self.navigationController?.pushViewController(userHomeController, animated: true)
-//                self.view = self.userHomeView
-//                self.fetchUserMessagesAtLogin()
-//                self.userMessageView.messageLabel.text = "Welcome \(user?.displayName ?? "Anonymous")!"
-//                self.userMessageView.newMessageFloatingButton.isEnabled = true
-//                self.userMessageView.newMessageFloatingButton.isHidden = false
-//                self.setupRightBarButton(isLoggedIn: true)
             }
         }
     }
     
     func showUserHomeScreen() {
         
-        if let viewControllers = navigationController?.viewControllers {
-                for viewController in viewControllers {
-                    if viewController is UserHomeViewController {
-                        navigationController?.viewControllers.removeAll(where: { $0 is UserHomeViewController })
-                        break
-                    }
-                }
-            }
-
-            // Push a new instance of UserHomeViewController
-            let userHomeController = UserHomeViewController()
-            userHomeController.currentUser = self.currentUser
-            navigationController?.pushViewController(userHomeController, animated: true)
+        // Push a new instance of UserHomeViewController
+        let userHomeController = UserHomeViewController()
+        userHomeController.currentUser = self.currentUser
+        navigationController?.pushViewController(userHomeController, animated: true)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,7 +65,7 @@ class ViewController: UIViewController {
         tapRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapRecognizer)
     }
-
+    
     @objc private func registerButtonTapped() {
         
         // Instantiate RegistrationViewController
