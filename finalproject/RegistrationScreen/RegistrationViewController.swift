@@ -42,6 +42,15 @@ class RegistrationViewController: UIViewController {
         //button-click for profile creation
         registerView.createProfileButton.addTarget(self, action: #selector(attemptUserRegistration), for: .touchUpInside)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutside))
+        tapGesture.cancelsTouchesInView = true
+        view.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    @objc func handleTapOutside(_ sender: UITapGestureRecognizer) {
+        print("Tapped outside!")
+        view.endEditing(true)
     }
     
     @objc func attemptUserRegistration() {
@@ -130,4 +139,11 @@ class RegistrationViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+}
+
+extension RegistrationViewController: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
 }

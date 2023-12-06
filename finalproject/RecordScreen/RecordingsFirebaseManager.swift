@@ -12,6 +12,7 @@ extension RecordScreenViewController {
     
     func uploadRecordingToStorage() {
         
+        print("uploading recording to storage")
         guard let audioFileName = audioFileName else {
                 return
             }

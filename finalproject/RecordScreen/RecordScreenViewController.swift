@@ -28,6 +28,8 @@ class RecordScreenViewController: UIViewController, AVAudioRecorderDelegate {
         
         title = "My Audio Moments"
         
+        setupAudioRecorder()
+        
         recordView.recordButton.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
         
         recordView.tableViewRecordings.delegate = self
@@ -39,29 +41,47 @@ class RecordScreenViewController: UIViewController, AVAudioRecorderDelegate {
     @objc private func recordButtonTapped() {
         print("Record button tapped")
 
+//        if let recorder = audioRecorder {
+//            if recorder.isRecording {
+//                // Stop recording
+//                recorder.stop()
+//                do {
+//                    try AVAudioSession.sharedInstance().setActive(false)
+//                } catch {
+//                    print("Error stopping recording: \(error.localizedDescription)")
+//                }
+//                // Save the audio file to Firestore or perform any desired actions
+//            } else {
+//                // Start recording
+//                do {
+//                    try AVAudioSession.sharedInstance().setActive(true)
+//                    recorder.record()
+//                } catch {
+//                    print("Error starting recording: \(error.localizedDescription)")
+//                }
+//            }
+//        }
+        
         if let recorder = audioRecorder {
-            if recorder.isRecording {
-                // Stop recording
-                recorder.stop()
-                do {
-                    try AVAudioSession.sharedInstance().setActive(false)
-                } catch {
-                    print("Error stopping recording: \(error.localizedDescription)")
-                }
-                // Save the audio file to Firestore or perform any desired actions
-            } else {
-                // Start recording
-                do {
-                    try AVAudioSession.sharedInstance().setActive(true)
-                    recorder.record()
-                } catch {
-                    print("Error starting recording: \(error.localizedDescription)")
+                if recorder.isRecording {
+                    // Stop recording
+                    recorder.stop()
+                    finishRecording(success: true) // Assuming it's a success if stopped
+                } else {
+                    // Start recording
+                    do {
+                        try AVAudioSession.sharedInstance().setActive(true)
+                        recorder.record()
+                        recordView.recordButton.setTitle("Recording...", for: .normal)
+                    } catch {
+                        print("Error starting recording: \(error.localizedDescription)")
+                    }
                 }
             }
-        }
     }
     
     func setupAudioRecorder() {
+        print("setup audio recorder")
         // Create and configure the recording session
         recordingSession = AVAudioSession.sharedInstance()
 
@@ -106,6 +126,7 @@ class RecordScreenViewController: UIViewController, AVAudioRecorderDelegate {
 
     func finishRecording(success: Bool) {
         
+        print("finish recording")
         audioRecorder?.stop()
         audioRecorder = nil
 

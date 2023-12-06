@@ -15,6 +15,7 @@ class ProfileScreenView: UIView {
     var profileImage: UIImageView!
     var nameLabel: UILabel!
     var emailLabel: UILabel!
+    var journalCountLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,6 +27,7 @@ class ProfileScreenView: UIView {
         setupProfileImage()
         setupNameLabel()
         setupEmailLabel()
+        setupJournalContentLabel()
         
         initConstraints()
     }
@@ -84,6 +86,17 @@ class ProfileScreenView: UIView {
         boxView.addSubview(emailLabel)
     }
     
+    func setupJournalContentLabel() {
+        
+        journalCountLabel = UILabel()
+        journalCountLabel.font = .boldSystemFont(ofSize: 17)
+        journalCountLabel.text = "Sample text here"
+        
+        journalCountLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(journalCountLabel)
+        
+    }
+    
     func initConstraints() {
         
         NSLayoutConstraint.activate([
@@ -108,6 +121,9 @@ class ProfileScreenView: UIView {
 
             emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 50),
             emailLabel.centerXAnchor.constraint(equalTo: boxView.centerXAnchor),
+            
+            journalCountLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 50),
+            journalCountLabel.centerXAnchor.constraint(equalTo: boxView.centerXAnchor),
             
         ])
     }

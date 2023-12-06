@@ -43,6 +43,7 @@ extension RegistrationViewController {
     func registerNewAccount(_ name: String, _ email: String, _ password: String, _ photoURL: URL?) {
         
         print("registerNewAccount")
+        showActivityIndicator()
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
             
@@ -64,8 +65,6 @@ extension RegistrationViewController {
     func setUserNameAndPhotoOfUserInFirebaseAuth(name: String, email: String, photoURL: URL?) {
         
         print("setting username and photo")
-        
-        showActivityIndicator()
         
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
