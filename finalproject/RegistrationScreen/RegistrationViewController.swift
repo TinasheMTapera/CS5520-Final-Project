@@ -50,6 +50,16 @@ class RegistrationViewController: UIViewController {
     
     @objc func handleTapOutside(_ sender: UITapGestureRecognizer) {
         print("Tapped outside!")
+        //Some code to hide the keyboard
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardOnTap))
+        tapRecognizer.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    //Hide Keyboard...
+    @objc func hideKeyboardOnTap(){
+        //MARK: removing the keyboard from screen...
         view.endEditing(true)
     }
     
