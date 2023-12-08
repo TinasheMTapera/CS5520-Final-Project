@@ -53,6 +53,7 @@ extension RecordScreenViewController {
     
     func fetchRecordings() {
         
+        recordingList.removeAll()
         if let userEmail = self.currentUser?.email {
             
             let storageRef = storageRef.child(FirebaseConfigs.listOfAudioRecordings).child(userEmail)
@@ -97,5 +98,23 @@ extension RecordScreenViewController {
             })
         }
         
+    }
+    
+    func deleteRecordingConfirmed(recordingName: String) {
+        
+        if let userEmail = self.currentUser?.email {
+            let storageRef = storageRef.child(FirebaseConfigs.listOfAudioRecordings).child(userEmail).child(recordingName)
+            
+            storageRef.delete(completion: { error in
+                
+                if error == nil {
+                    print("Successfully deleted recording with filePath -- \(recordingName)")
+                    self.showConfirmationAlert(message: "Successfully Deleted")
+                    self.fetchRecordings()
+                    self.recordView.tableViewRecordings.reloadData()
+                }
+                
+            })
+        }
     }
 }
