@@ -83,6 +83,7 @@ extension JournalMainViewController {
                     print("Document successfully deleted")
                     self.showConfirmationAlert(message: "Successfully deleted")
                     self.fetchUserJournalList()
+                    self.journalView.tableViewJournals.reloadData()
                 }
             }
         } else {
