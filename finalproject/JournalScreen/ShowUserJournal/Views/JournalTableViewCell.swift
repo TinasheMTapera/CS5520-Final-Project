@@ -11,6 +11,7 @@ class JournalTableViewCell: UITableViewCell {
     
     var onDeleteTapped: (() -> Void)?
     
+    //variables used in tableCell
     var wrapperCellView: UIView!
     var titleLabel: UILabel!
     var textPrompt: UILabel!
@@ -18,6 +19,7 @@ class JournalTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        //tableCell setup
         setupWrapperCellView()
         setupTitleLabel()
         setupTextPrompt()
@@ -52,6 +54,8 @@ class JournalTableViewCell: UITableViewCell {
     }
     
     func initConstraints() {
+        
+        //tableCell constraints and positioning
         NSLayoutConstraint.activate([
             
             wrapperCellView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
@@ -74,6 +78,7 @@ class JournalTableViewCell: UITableViewCell {
         ])
     }
     
+    //handling delete button on cell
     @objc private func deleteButtonTapped() {
         onDeleteTapped?()
     }

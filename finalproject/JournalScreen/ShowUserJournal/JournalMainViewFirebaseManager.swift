@@ -11,9 +11,11 @@ extension JournalMainViewController {
     
     func fetchUserJournalList() {
         
-        print("fetching user journal list")
+        print("Entered fetchUserJournalList")
         
+        //empty list
         self.journalList.removeAll()
+        
         if let currentUserEmail = self.currentUser?.email {
             
             let journalCollection = database
@@ -21,6 +23,7 @@ extension JournalMainViewController {
                 .document(currentUserEmail)
                 .collection(FirebaseConfigs.listOfUserJournals)
             
+            //get docs
             journalCollection.getDocuments(completion: { (querySnapshot, error) in
                 
                 if error == nil {
@@ -32,18 +35,16 @@ extension JournalMainViewController {
                         for item in collectionItems {
                             
                             let docID = item.documentID
-                            print("docID -- \(docID)")
                             let documentData = item.data()
                             
                             if let journalTitle = documentData["title"] as? String,
                                let journalContent = documentData["content"] as? String{
                                 
-                                print("title -- \(journalTitle), content -- \(journalContent)")
-                                
                                 var journalData = Journal(journalID: docID, title: journalTitle, content: journalContent)
                                 self.journalList.append(journalData)
                                 
                                 DispatchQueue.main.async {
+                                    //reload tableData
                                     self.journalView.tableViewJournals.reloadData()
                                 }
                             }
@@ -60,18 +61,24 @@ extension JournalMainViewController {
         else{
             print("Current user email is nil")
         }
+        
+        print("Exiting fetchUserJournalList")
     }
     
     func deleteJournalConfirmed(journalID: String) {
         
+        print("Entered deleteJournalConfirmed")
+        
         if let userEmail = self.currentUser?.email {
             
+            //fetching doc
             let journalDoc = database
                 .collection(FirebaseConfigs.listOfUsers)
                 .document(userEmail)
                 .collection(FirebaseConfigs.listOfUserJournals)
                 .document(journalID)
             
+            //deleting fetched doc
             journalDoc.delete { error in
                 
                 if let error = error {
@@ -90,6 +97,7 @@ extension JournalMainViewController {
             print("Current user email is nil")
         }
         
+        print("Exiting deleteJournalConfirmed")
     }
     
 }

@@ -9,14 +9,16 @@ import UIKit
 
 class JournalMainView: UIView {
     
+    //variables used in view
     var emptyStateLabel: UILabel!
     var tableViewJournals: UITableView!
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = AppColors.backgroundColor
         
+        //UISetup
         setupEmptyStateLabel()
         setupTableViewJournals()
         
@@ -43,6 +45,8 @@ class JournalMainView: UIView {
     }
     
     func initConstraints() {
+        
+        //UIConstraints and positioning
         NSLayoutConstraint.activate([
             
             tableViewJournals.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
@@ -59,5 +63,5 @@ class JournalMainView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }

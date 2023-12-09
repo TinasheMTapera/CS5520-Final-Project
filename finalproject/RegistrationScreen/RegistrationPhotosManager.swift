@@ -9,9 +9,14 @@ import Foundation
 import UIKit
 import PhotosUI
 
+//implementation for user profilePicture
 extension RegistrationViewController: PHPickerViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    //show menu on clicking photo icon/button on registration screen
     func getMenuImagePicker() -> UIMenu{
+        
+        print("Entering getMenuImagePicker")
+        
         let menuItems = [
             UIAction(title: "Camera",handler: {(_) in
                 self.pickUsingCamera()
@@ -21,21 +26,29 @@ extension RegistrationViewController: PHPickerViewControllerDelegate, UINavigati
             })
         ]
         
+        print("Exiting getMenuImagePicker")
         return UIMenu(title: "Select source", children: menuItems)
     }
     
-    //MARK: take Photo using Camera...
+    //take a photo using Camera
     func pickUsingCamera(){
+        
+        print("Entered pickUsingCamera")
+        
         let cameraController = UIImagePickerController()
         cameraController.sourceType = .camera
         cameraController.allowsEditing = true
         cameraController.delegate = self
         present(cameraController, animated: true)
+        
+        print("Exiting pickUsingCamera")
     }
     
-    //MARK: pick Photo using Gallery...
+    //pick a photo using Gallery
     func pickPhotoFromGallery(){
-        //MARK: Photo from Gallery...
+        
+        print("Entered pickPhotoFromGallery")
+        
         var configuration = PHPickerConfiguration()
         configuration.filter = PHPickerFilter.any(of: [.images])
         configuration.selectionLimit = 1
@@ -44,12 +57,13 @@ extension RegistrationViewController: PHPickerViewControllerDelegate, UINavigati
         
         photoPicker.delegate = self
         present(photoPicker, animated: true, completion: nil)
+        
+        print("Exiting pickPhotoFromGallery")
     }
     
+    //picker functionality
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismiss(animated: true)
-        
-        print(results)
         
         let itemprovider = results.map(\.itemProvider)
         
@@ -82,8 +96,9 @@ extension RegistrationViewController: PHPickerViewControllerDelegate, UINavigati
                 for: .normal
             )
             self.pickedImage = image
+            
         }else{
-            // Do your thing for No image loaded...
+            print("Unable to select an image")
         }
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//pickerButton configs
 extension StoriesMainViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -18,10 +19,11 @@ extension StoriesMainViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         
         if pickerView == storyView.moodPickerButton {
             return MoodCategories.moods.count
-        } 
+        }
         else if pickerView == storyView.timeframePickerButton {
             return Timeframes.timeframes.count
         }
+        
         return 0
     }
     
@@ -29,14 +31,13 @@ extension StoriesMainViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         
         if pickerView == storyView.moodPickerButton {
             selectedMood = MoodCategories.moods[row].lowercased()
-            print("SelectedMood -- \(selectedMood)")
             return MoodCategories.moods[row]
-        } 
+        }
         else if pickerView == storyView.timeframePickerButton {
             selectedTimeframe = Timeframes.timeframes[row]
-            print("SelectedTime -- \(selectedTimeframe)")
             return Timeframes.timeframes[row]
         }
+        
         return nil
     }
 }

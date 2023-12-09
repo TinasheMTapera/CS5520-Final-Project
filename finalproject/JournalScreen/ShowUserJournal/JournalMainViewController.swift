@@ -23,14 +23,15 @@ class JournalMainViewController: UIViewController {
     override func loadView() {
         view = journalView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //setting navBar title and tiles
         title = "My Journal"
-        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
+        //customizing navBar button
         let newJournalIcon = UIImage(systemName: "square.and.pencil")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 30, weight: .regular))
         let newJournalBarButton = UIBarButtonItem(
             image: newJournalIcon,
@@ -38,21 +39,26 @@ class JournalMainViewController: UIViewController {
             target: self,
             action: #selector(addNewJournal)
         )
-        
         navigationItem.rightBarButtonItem = newJournalBarButton
         
+        //configuring tableView in view
         journalView.tableViewJournals.delegate = self
         journalView.tableViewJournals.dataSource = self
         
-        self.fetchUserJournalList()
+        //fetching list of userJournals
+        fetchUserJournalList()
         
     }
     
     @objc func addNewJournal() {
         
+        print("Entered addNewJournal")
+        
         let newJournalController = NewJournalViewController()
         newJournalController.currentUser = self.currentUser
         navigationController?.pushViewController(newJournalController, animated: true)
+        
+        print("Exiting addNewJournal")
         
     }
     

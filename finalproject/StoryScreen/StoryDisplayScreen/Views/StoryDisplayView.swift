@@ -9,6 +9,7 @@ import UIKit
 
 class StoryDisplayView: UIView {
     
+    //variables used in view
     var contentWrapper: UIScrollView!
     var titleLabel: UILabel!
     var contentLabel: UILabel!
@@ -18,6 +19,7 @@ class StoryDisplayView: UIView {
         
         self.backgroundColor = AppColors.backgroundColor
         
+        //UISetup
         setupContentWrapper()
         setupTitleLabel()
         setupContentLabel()
@@ -47,10 +49,10 @@ class StoryDisplayView: UIView {
         contentLabel.numberOfLines = 0
         contentLabel.lineBreakMode = .byWordWrapping
         
+        //used for linespacing of the story
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 8 // Adjust the value as needed
+        paragraphStyle.lineSpacing = 8
         
-        // Set up attributed text with line spacing
         let attributedString = NSAttributedString(
             string: "Your text goes here.",
             attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle]
@@ -64,6 +66,7 @@ class StoryDisplayView: UIView {
     
     func initConstraints() {
         
+        //UIConstraints and positioning
         NSLayoutConstraint.activate([
             
             contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),

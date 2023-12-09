@@ -9,14 +9,16 @@ import UIKit
 
 class StoryListView: UIView {
     
+    //variables used in view
     var titleLabel: UILabel!
     var tableViewStories: UITableView!
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = AppColors.backgroundColor
         
+        //UISetup
         setupTitleLabel()
         setupTableViewStories()
         
@@ -44,6 +46,7 @@ class StoryListView: UIView {
     
     func initConstraints() {
         
+        //UIConstraints and positioning
         NSLayoutConstraint.activate([
             
             titleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),

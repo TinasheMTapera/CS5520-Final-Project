@@ -26,101 +26,111 @@ class RecordScreenViewController: UIViewController, AVAudioRecorderDelegate {
     override func loadView() {
         view = recordView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "My Audio Moments"
         
+        //setup audio functionality
         setupAudioRecorder()
         
+        //setting view button targets
         recordView.recordButton.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
         
+        //configuring table in view
         recordView.tableViewRecordings.delegate = self
         recordView.tableViewRecordings.dataSource = self
         
+        //fetching existing user recordings
         fetchRecordings()
     }
     
     @objc private func recordButtonTapped() {
-        print("Record button tapped")
-
+        
+        print("Entered recordButtonTapped")
+        
         if let recorder = audioRecorder {
-                if recorder.isRecording {
-                    // Stop recording
-                    recorder.stop()
-                    finishRecording(success: true) // Assuming it's a success if stopped
-                } else {
-                    // Start recording
-                    do {
-                        try AVAudioSession.sharedInstance().setActive(true)
-                        recorder.record()
-                        recordView.recordButton.setTitle("Recording...", for: .normal)
-                    } catch {
-                        print("Error starting recording: \(error.localizedDescription)")
-                    }
+            
+            if recorder.isRecording {
+                
+                //stop recording
+                recorder.stop()
+                finishRecording(success: true)
+                
+            } else {
+                
+                //start recording
+                do {
+                    try AVAudioSession.sharedInstance().setActive(true)
+                    recorder.record()
+                    //indicating recording
+                    recordView.recordButton.tintColor = AppColors.redButton
+                    
+                } catch {
+                    print("Error starting recording: \(error.localizedDescription)")
                 }
             }
+        }
     }
     
     func setupAudioRecorder() {
-        print("setup audio recorder")
+        print("Entered setupAudioRecorder")
+        
         // Create and configure the recording session
         recordingSession = AVAudioSession.sharedInstance()
-
+        
         do {
             try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setActive(true)
             recordingSession.requestRecordPermission { [unowned self] allowed in
                 DispatchQueue.main.async {
-                    if allowed {
-                        // No need to load recording UI here
-                    } else {
-                        // Handle the case where recording permission is denied
-                        // You might want to show an alert or take appropriate action
-                    }
+                    //handled permissions
                 }
             }
-
-            // Set up audio recorder
+            
+            //setup audio recorder
             let audioSettings: [String: Any] = [
                 AVFormatIDKey: kAudioFormatMPEG4AAC,
                 AVSampleRateKey: 44100.0,
                 AVNumberOfChannelsKey: 2,
                 AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
             ]
-
+            
+            //configuring audio settings
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             audioFileName = documentsDirectory.appendingPathComponent("audioRecording.m4a")
-
+            
             audioRecorder = try AVAudioRecorder(url: audioFileName!, settings: audioSettings)
             audioRecorder?.delegate = self
             audioRecorder?.prepareToRecord()
+            
         } catch {
             print("Error setting up audio recorder: \(error.localizedDescription)")
         }
+        
+        print("Exiting setupAudioRecorder")
     }
-
+    
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
             finishRecording(success: false)
         }
     }
-
+    
     func finishRecording(success: Bool) {
         
         print("finish recording")
         audioRecorder?.stop()
         audioRecorder = nil
-
+        
         if success {
-//            recordView.recordButton.setTitle("Tap to Re-record", for: .normal)
+            //upload recording
             uploadRecordingToStorage()
             
         } else {
             print("recording failed")
-//            recordView.recordButton.setTitle("Tap to Record", for: .normal)
         }
     }
-
+    
 }

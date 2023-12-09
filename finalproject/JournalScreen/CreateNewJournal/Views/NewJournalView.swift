@@ -9,6 +9,7 @@ import UIKit
 
 class NewJournalView: UIView {
     
+    //variables used in view
     var journalTitleTextField: UITextField!
     var journalTextView: UITextView!
     
@@ -17,6 +18,7 @@ class NewJournalView: UIView {
         
         self.backgroundColor = AppColors.backgroundColor
         
+        //UISetup
         setupJournalTitleTextField()
         setupJournalTextView()
         
@@ -47,7 +49,6 @@ class NewJournalView: UIView {
         journalTextView.isEditable = true
         
         journalTextView.keyboardType = .default
-        // Done was entering newlines, so replacing with regular return key for newlines
         journalTextView.returnKeyType = .default
         journalTextView.autocapitalizationType = .sentences
         journalTextView.dataDetectorTypes = .all
@@ -55,13 +56,14 @@ class NewJournalView: UIView {
         journalTextView.autocorrectionType = UITextAutocorrectionType.yes
         journalTextView.spellCheckingType = UITextSpellCheckingType.yes
         
-        
         journalTextView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(journalTextView)
     }
     
     
     func initConstraints() {
+        
+        //UIConstraints and positioning
         NSLayoutConstraint.activate([
             
             journalTitleTextField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),

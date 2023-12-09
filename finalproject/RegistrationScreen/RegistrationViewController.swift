@@ -34,36 +34,33 @@ class RegistrationViewController: UIViewController {
         
         title = "Create an account"
         
+        //navbar tile preference
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        //setting navbar left button target
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         
+        //setting view button targets
         registerView.profilePictureButton.menu = getMenuImagePicker()
-        //button-click for profile creation
         registerView.createProfileButton.addTarget(self, action: #selector(attemptUserRegistration), for: .touchUpInside)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutside))
+        //hide keyboard
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardOnTap))
         tapGesture.cancelsTouchesInView = true
         view.addGestureRecognizer(tapGesture)
         
     }
     
-    @objc func handleTapOutside(_ sender: UITapGestureRecognizer) {
-        print("Tapped outside!")
-        //Some code to hide the keyboard
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardOnTap))
-        tapRecognizer.cancelsTouchesInView = false
-        view.addGestureRecognizer(tapRecognizer)
-        
-    }
-    
-    //Hide Keyboard...
+    //hide Keyboard
     @objc func hideKeyboardOnTap(){
-        //MARK: removing the keyboard from screen...
+        
+        //removing the keyboard from screen
         view.endEditing(true)
     }
     
     @objc func attemptUserRegistration() {
+        
+        print("Entered attemptUserRegistration")
         
         let nameInput = registerView.nameTextField.text
         let emailInput = registerView.emailTextField.text
@@ -110,27 +107,40 @@ class RegistrationViewController: UIViewController {
                 showErrorAlert(message: "Please enter a Name")
             }
         }
+        
+        print("Exiting attemptUserRegistration")
     }
     
     //email validation
     func validateEmail(_ email:String) -> Bool {
         
+        print("Entering validateEmail")
+        
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
+        
+        print("Exiting validateEmail")
     }
     
     //password confirmation
     func validatePassword(_ password1:String, _ password2:String) -> Bool {
+        
+        print("Entering validatePassword")
+        
         if(password2==password1){
             return true
         }
         else {
             return false
         }
+        
+        print("Exiting validatePassword")
     }
     
     @objc func cancelButtonTapped() {
+        
+        print("Entered cancelButtonTapped")
         
         let discardAlert = UIAlertAction(title: "Discard", style: .destructive) { (action) in
             self.navigationController?.popViewController(animated: true)
@@ -140,6 +150,8 @@ class RegistrationViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .default))
         alert.addAction(discardAlert)
         self.present(alert, animated: true)
+        
+        print("Exiting cancelButtonTapped")
     }
     
     func showErrorAlert(message: String) {

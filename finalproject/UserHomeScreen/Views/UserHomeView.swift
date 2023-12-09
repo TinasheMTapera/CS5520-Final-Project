@@ -8,6 +8,7 @@ import UIKit
 
 class UserHomeView : UIView {
     
+    //variables used in view
     var contentWrapper: UIScrollView!
     var textLabel: UILabel!
     var readStoriesButton: UIButton!
@@ -20,6 +21,7 @@ class UserHomeView : UIView {
         
         self.backgroundColor = AppColors.backgroundColor
         
+        //UISetup
         setupContentWrapper()
         setupTextLabel()
         setupReadStoriesButton()
@@ -124,6 +126,7 @@ class UserHomeView : UIView {
     
     func initConstraints() {
         
+        //UIConstraints and positioning
         NSLayoutConstraint.activate([
             
             contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),

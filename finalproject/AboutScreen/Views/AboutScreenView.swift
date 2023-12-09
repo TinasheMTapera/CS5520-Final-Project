@@ -11,6 +11,7 @@ import UIKit
 
 class AboutScreenView: UIView {
     
+    //variables used in view
     var scrollView: UIScrollView!
     var contentView: UIView!
     var titleLabel: UILabel!
@@ -21,6 +22,7 @@ class AboutScreenView: UIView {
         
         self.backgroundColor = AppColors.backgroundColor
         
+        //UISetup
         setupScrollView()
         setupContentView()
         setupTitleLabel()
@@ -74,7 +76,7 @@ class AboutScreenView: UIView {
             contentView.addSubview(descriptionLabel)
             descriptionLabels.append(descriptionLabel)
             
-            // Add constraints for each description label
+            //UIConstraints for each label
             if index == 0 {
                 descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30).isActive = true
             } else {
@@ -85,7 +87,7 @@ class AboutScreenView: UIView {
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         }
         
-        // Set bottom constraint for the last descriptionLabel outside the loop
+        //UIConstraint for the last label
         if let lastDescriptionLabel = descriptionLabels.last {
             lastDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
         }
@@ -93,6 +95,7 @@ class AboutScreenView: UIView {
     
     func initConstraints() {
         
+        //UISetup and positioning
         NSLayoutConstraint.activate([
             
             scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),

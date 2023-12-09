@@ -24,22 +24,17 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("View will appear")
-        
+        //checking auth status - is user logged in?
         handleAuth = Auth.auth().addStateDidChangeListener{ auth, user in
-            
-            print("user -- \(user)")
             
             if user == nil {
                 
                 //user not signed in functionality
-                
                 self.view = self.loginView
             }
             else {
                 
                 //user signed in functionality
-                
                 self.currentUser = user
                 self.showUserHomeScreen()
             }
@@ -48,21 +43,26 @@ class ViewController: UIViewController {
     
     func showUserHomeScreen() {
         
-        // Push a new instance of UserHomeViewController
+        print("Entered showUserHomeScreen")
+        
         let userHomeController = UserHomeViewController()
         userHomeController.currentUser = self.currentUser
         navigationController?.pushViewController(userHomeController, animated: true)
+        
+        print("Exiting showUserHomeScreen")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //setting bar colour to remain same as background when a user scrolls
         navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
         
+        //setting view button targets
         loginView.registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         loginView.loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         
-        //Some code to hide the keyboard
+        //hide the keyboard
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardOnTap))
         tapRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapRecognizer)
@@ -70,15 +70,17 @@ class ViewController: UIViewController {
     
     @objc private func registerButtonTapped() {
         
-        // Instantiate RegistrationViewController
-        print("New user registration")
+        print("Entered registerButtonTapped")
+        
         let registrationController = RegistrationViewController()
         navigationController?.pushViewController(registrationController, animated: true)
+        
+        print("Exiting registerButtonTapped")
     }
     
     @objc private func loginButtonTapped() {
         
-        print("User trying to login")
+        print("Entered loginButtonTapped")
         
         if let email = loginView.emailTextField.text,
            let password = loginView.passwordTextField.text {
@@ -91,6 +93,8 @@ class ViewController: UIViewController {
                 showErrorAlert(message: "Please enter valid credentials")
             }
         }
+        
+        print("Exiting loginButtonTapped")
     }
     
     func showErrorAlert(message: String) {
@@ -98,12 +102,13 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true)
+
     }
     
-    
-    //Hide Keyboard...
-    @objc func hideKeyboardOnTap(){
-        //MARK: removing the keyboard from screen...
+    //hide keyboard
+    @objc func hideKeyboardOnTap() {
+        
+        //removing the keyboard from screen
         view.endEditing(true)
     }
 

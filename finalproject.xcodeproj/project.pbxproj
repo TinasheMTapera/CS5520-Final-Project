@@ -51,7 +51,6 @@
 		DD2BECD02B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECCF2B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift */; };
 		DD2BECD22B1CABE5001F55CE /* FirebaseConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD12B1CABE5001F55CE /* FirebaseConfigs.swift */; };
 		DD2BECD42B1CC7AC001F55CE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD32B1CC7AC001F55CE /* UIImageExtension.swift */; };
-		DD2BECD62B1DD490001F55CE /* NewJournalViewAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD52B1DD490001F55CE /* NewJournalViewAudioManager.swift */; };
 		DD2BECD82B1DEE15001F55CE /* RecordScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD72B1DEE15001F55CE /* RecordScreenViewController.swift */; };
 		DD2BECDA2B1DEE2A001F55CE /* RecordScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECD92B1DEE2A001F55CE /* RecordScreenView.swift */; };
 		DD2BECDF2B1E9E0F001F55CE /* ProfileScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2BECDE2B1E9E0F001F55CE /* ProfileScreenView.swift */; };
@@ -121,7 +120,6 @@
 		DD2BECCF2B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalViewFirebaseManager.swift; sourceTree = "<group>"; };
 		DD2BECD12B1CABE5001F55CE /* FirebaseConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConfigs.swift; sourceTree = "<group>"; };
 		DD2BECD32B1CC7AC001F55CE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
-		DD2BECD52B1DD490001F55CE /* NewJournalViewAudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalViewAudioManager.swift; sourceTree = "<group>"; };
 		DD2BECD72B1DEE15001F55CE /* RecordScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordScreenViewController.swift; sourceTree = "<group>"; };
 		DD2BECD92B1DEE2A001F55CE /* RecordScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordScreenView.swift; sourceTree = "<group>"; };
 		DD2BECDE2B1E9E0F001F55CE /* ProfileScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenView.swift; sourceTree = "<group>"; };
@@ -372,7 +370,6 @@
 				DD2BECCC2B1C92E1001F55CE /* Views */,
 				DD2BECC92B1C9225001F55CE /* NewJournalViewController.swift */,
 				DD2BECCF2B1CA90E001F55CE /* NewJournalViewFirebaseManager.swift */,
-				DD2BECD52B1DD490001F55CE /* NewJournalViewAudioManager.swift */,
 			);
 			path = CreateNewJournal;
 			sourceTree = "<group>";
@@ -619,7 +616,6 @@
 				DD2BED062B1F014D001F55CE /* StoryListTableManager.swift in Sources */,
 				DD2BECA92B1C55C7001F55CE /* MoodCategories.swift in Sources */,
 				DD2BECFA2B1EEFFE001F55CE /* StoryListView.swift in Sources */,
-				DD2BECD62B1DD490001F55CE /* NewJournalViewAudioManager.swift in Sources */,
 				DD2BECA72B18AE54001F55CE /* RegistrationProgressIndicatorManager.swift in Sources */,
 				DD2BECE92B1ECA26001F55CE /* Timeframes.swift in Sources */,
 				DD2BECA52B18AE01001F55CE /* RegistrationFirebaseManager.swift in Sources */,

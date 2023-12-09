@@ -7,6 +7,7 @@
 
 import Foundation
 
+//object used to create and fetch user audio journals - used in RecordScreen
 class Recording {
     
     var name: String

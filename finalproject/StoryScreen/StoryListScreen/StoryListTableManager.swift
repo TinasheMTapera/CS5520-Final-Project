@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//tableView configs
 extension StoryListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -17,6 +18,7 @@ extension StoryListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableIdentifiers.tableViewStories, for: indexPath) as! StoryTableViewCell
         
+        //displaying data in cell
         let snippet = snippetList[indexPath.row]
         cell.titleLabel.text = snippet.title
         cell.textPrompt.text = snippet.content
@@ -30,8 +32,8 @@ extension StoryListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let snippet = snippetList[indexPath.row]
-        print("snippet deets -- \(snippet.title) and \(snippet.content)")
         
+        //checking for existing view instance in stack
         if let storyDisplayController = navigationController?.viewControllers.first(where: { $0 is NewJournalViewController }) as? StoryDisplayViewController {
             storyDisplayController.storyDisplayView.titleLabel.text = snippet.title
             storyDisplayController.storyDisplayView.contentLabel.text = snippet.content
@@ -39,6 +41,7 @@ extension StoryListViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else {
             
+            //new view instance
             let storyDisplayController = StoryDisplayViewController()
             storyDisplayController.storyDisplayView.titleLabel.text = snippet.title
             storyDisplayController.storyDisplayView.contentLabel.text = snippet.content

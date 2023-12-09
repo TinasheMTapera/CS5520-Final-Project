@@ -8,9 +8,11 @@
 import Foundation
 import UIKit
 
+//tableView configs
 extension JournalMainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //showLabel
         updateEmptyStateLabel()
         return journalList.count
     }
@@ -25,7 +27,7 @@ extension JournalMainViewController: UITableViewDelegate, UITableViewDataSource 
         cell.backgroundColor = AppColors.backgroundColor
         tableView.backgroundColor = AppColors.backgroundColor
         
-        
+        //customizing cell - adding delete option
         let deleteButton = setupDeleteButton()
         deleteButton.addAction(UIAction(title: "Delete", handler: { [weak self] _ in
             guard let self = self else { return }
@@ -39,8 +41,10 @@ extension JournalMainViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let journal = journalList[indexPath.row]
-        print("journal deets -- \(journal.title) and \(journal.content)")
         
+        //handling edit
+        
+        //checking for existing view instance in stack
         if let newJournalController = navigationController?.viewControllers.first(where: { $0 is NewJournalViewController }) as? NewJournalViewController {
             newJournalController.currentUser = self.currentUser
             newJournalController.newJournalView.journalTitleTextField.text = journal.title
@@ -51,6 +55,7 @@ extension JournalMainViewController: UITableViewDelegate, UITableViewDataSource 
             
         } else {
             
+            //new view instance
             let newJournalController = NewJournalViewController()
             newJournalController.currentUser = self.currentUser
             newJournalController.newJournalView.journalTitleTextField.text = journal.title
@@ -65,9 +70,10 @@ extension JournalMainViewController: UITableViewDelegate, UITableViewDataSource 
     
     
     func deleteSelectedFor(journalID: String){
+        
         print("Entered deleteSelectedFor")
-        print(journalID)
         showDeleteAlert(journalID: journalID)
+        print("Exiting deleteSelectedFor")
     }
     
     func showDeleteAlert(journalID: String) {
@@ -95,20 +101,16 @@ extension JournalMainViewController: UITableViewDelegate, UITableViewDataSource 
         let buttonOptions = UIButton(type: .system)
         let buttonSize = CGSize(width: 40, height: 40)
         buttonOptions.frame.size = buttonSize
-
-        // Customize the appearance
+        
+        //customizing button
         buttonOptions.tintColor = AppColors.redButton
-
-        // Set a fixed size for the image
+        
+        //setting size of image on button
         let imageSize = CGSize(width: 24, height: 24)
-
-        // Create a resizable image with rendering mode set to template to apply tint color
         let iconImage = UIImage(systemName: "trash.fill")?.withRenderingMode(.alwaysTemplate)
         let scaledImage = iconImage?.resize(targetSize: imageSize)
-
-        // Set the scaled image for the button
         buttonOptions.setImage(scaledImage, for: .normal)
-
+        
         buttonOptions.backgroundColor = .clear
         buttonOptions.layer.cornerRadius = buttonSize.width / 2
         buttonOptions.layer.borderWidth = 1

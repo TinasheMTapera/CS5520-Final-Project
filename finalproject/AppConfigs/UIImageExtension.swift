@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//used to fetch the profile photo uploaded by a user and render it to display in ProfileScreen
 extension UIImage {
     
     func resize(targetSize: CGSize) -> UIImage {

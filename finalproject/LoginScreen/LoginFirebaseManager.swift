@@ -10,19 +10,23 @@ import FirebaseAuth
 
 extension ViewController {
     
+    //signIn user
     func signInToFirebase(email: String, password: String) {
+        
+        print("Entered signInToFirebase")
         
         Auth.auth().signIn(withEmail: email, password: password, completion: { (result, error) in
             
             if error == nil {
-                print("user authenticated")
-//                let userHomeController = UserHomeViewController(currentUser: self.currentUser)
+                print("User Authenticated successfully")
             }
             else {
                 print(error)
                 self.showErrorAlert(message: "Invalid Username or Password. Please try again")
             }
         })
+        
+        print("Exiting signInToFirebase")
     }
 }
 

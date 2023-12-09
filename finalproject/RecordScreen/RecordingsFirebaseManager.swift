@@ -12,52 +12,62 @@ extension RecordScreenViewController {
     
     func uploadRecordingToStorage() {
         
-        print("uploading recording to storage")
+        print("Entered uploadRecordingToStorage")
+        
         guard let audioFileName = audioFileName, let userEmail = self.currentUser?.email else {
             return
         }
         
+        //creating ref to file
         let storageRef = storageRef.child(FirebaseConfigs.listOfAudioRecordings).child(userEmail).child(UUID().uuidString + ".m4a")
         
+        //uploading recording to storage
         let uploadTask = storageRef.putFile(from: audioFileName, metadata: nil) { metadata, error in
             guard error == nil else {
                 print("Error uploading file: \(error!.localizedDescription)")
                 return
             }
             
-            // Upload succeeded, now get the download URL
+            //fetching downloadURL
             storageRef.downloadURL { url, error in
                 guard let downloadURL = url else {
                     print("Error getting download URL: \(error!.localizedDescription)")
                     return
                 }
                 
-                // Use the downloadURL as needed (e.g., save it to Firebase Database)
                 print("Download URL: \(downloadURL.absoluteString)")
             }
         }
         
-        // You can also observe the progress of the upload if needed
+        //updates on upload
         uploadTask.observe(.progress) { snapshot in
-            // Handle progress updates
+            print("Uploading file to storage")
         }
         
         uploadTask.observe(.success) { snapshot in
-            // Handle successful completion
+            print("Uploaded file successfully")
         }
         
         uploadTask.observe(.failure) { snapshot in
-            // Handle failure
+            print("Failed to upload file to storage")
         }
+        
+        print("Exiting uploadRecordingToStorage")
     }
     
     func fetchRecordings() {
         
+        print("Entered fetchRecordings")
+        
+        //empty list
         recordingList.removeAll()
+        
         if let userEmail = self.currentUser?.email {
             
+            //creating reference to file
             let storageRef = storageRef.child(FirebaseConfigs.listOfAudioRecordings).child(userEmail)
             
+            //listing files in storage
             storageRef.listAll(completion: { (result, error) in
                 
                 if error == nil {
@@ -65,18 +75,17 @@ extension RecordScreenViewController {
                     if let userRecordings = result {
                         for recording in userRecordings.items {
                             
-                            print("recording name -- \(recording.name)")
                             recording.downloadURL(completion: { (url, error) in
                                 
                                 if error == nil {
                                     if let downloadURL = url {
-                                        print("downloadURL -- \(downloadURL)")
                                         
                                         let userRecording = Recording(name: recording.name, downloadURL: downloadURL)
                                         self.recordingList.append(userRecording)
                                     }
                                     
                                     DispatchQueue.main.async {
+                                        //reload table data
                                         self.recordView.tableViewRecordings.reloadData()
                                     }
                                 }
@@ -98,13 +107,17 @@ extension RecordScreenViewController {
             })
         }
         
+        print("Exiting fetchRecordings")
     }
     
     func deleteRecordingConfirmed(recordingName: String) {
         
+        print("Entered deleteRecordingConfirmed")
+        
         if let userEmail = self.currentUser?.email {
             let storageRef = storageRef.child(FirebaseConfigs.listOfAudioRecordings).child(userEmail).child(recordingName)
             
+            //deleting selected recording
             storageRef.delete(completion: { error in
                 
                 if error == nil {
@@ -116,5 +129,7 @@ extension RecordScreenViewController {
                 
             })
         }
+        
+        print("Exiting deleteRecordingConfirmed")
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+//firebase collection and storage names - generalzed to use over the app
 class FirebaseConfigs {
     
     static let listOfUsers = "users"

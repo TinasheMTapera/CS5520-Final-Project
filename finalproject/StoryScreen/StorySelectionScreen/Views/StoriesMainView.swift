@@ -9,6 +9,7 @@ import UIKit
 
 class StoriesMainView: UIView {
     
+    //variables used in view
     var contentWrapper: UIScrollView!
     
     var moodCategoriesBoxView : UIView!
@@ -26,6 +27,7 @@ class StoriesMainView: UIView {
         
         self.backgroundColor = AppColors.whiteBackground
         
+        //UISetup
         setupContentWrapper()
         
         setupMoodCategoriesBoxView()
@@ -127,6 +129,7 @@ class StoriesMainView: UIView {
         goArrowButton = UIButton(type: .system)
         goArrowButton.setTitle("", for: .normal)
         
+        //customizing image on button
         if let boldArrowImage = UIImage(systemName: "arrow.forward")?.withTintColor(AppColors.whiteBackground).withRenderingMode(.alwaysOriginal) {
             
             let boldConfiguration = UIImage.SymbolConfiguration(weight: .bold)
@@ -148,6 +151,7 @@ class StoriesMainView: UIView {
     
     func initConstraints() {
         
+        //UIConstraints and positioning
         NSLayoutConstraint.activate([
             
             contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -191,5 +195,5 @@ class StoriesMainView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }

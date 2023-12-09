@@ -9,6 +9,7 @@ import UIKit
 
 class RegistrationView: UIView {
     
+    //variables used in view
     var contentWrapper: UIScrollView!
     var profilePictureButton: UIButton!
     var profilePicturePromptLabel: UILabel!
@@ -28,6 +29,7 @@ class RegistrationView: UIView {
         
         self.backgroundColor = AppColors.backgroundColor
         
+        //UISetup
         setupContentWrapper()
         setupProfilePictureButton()
         setupProfilePicturePromptLabel()
@@ -175,7 +177,7 @@ class RegistrationView: UIView {
     
     func initConstraints() {
         
-        //view constraints
+        //UIConstraints and positioning
         NSLayoutConstraint.activate([
             
             contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),

@@ -7,6 +7,7 @@
 
 import Foundation
 
+//loading symbol implementation
 extension RegistrationViewController: ProgressSpinnerDelegate {
     
     func showActivityIndicator() {

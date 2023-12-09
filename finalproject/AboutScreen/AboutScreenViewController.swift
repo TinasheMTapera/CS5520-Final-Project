@@ -19,8 +19,8 @@ class AboutScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //right button navBar
         setupRightNavBar()
-        
     }
     
     func setupRightNavBar() {
@@ -28,7 +28,7 @@ class AboutScreenViewController: UIViewController {
         let emailIcon = UIImage(systemName: "envelope.fill")
         let emailButton = UIBarButtonItem(image: emailIcon, style: .plain, target: self, action: #selector(emailButtonTapped))
         
-        // Set a custom size for the bar button item
+        //customizing button
         emailButton.image = emailIcon?.withRenderingMode(.alwaysOriginal).withTintColor(AppColors.greenButton)
         emailButton.width = 40
         
@@ -37,6 +37,8 @@ class AboutScreenViewController: UIViewController {
     }
     
     @objc private func emailButtonTapped() {
+        
+        print("Entered emailButtonTapped")
         // Open email option
         if MFMailComposeViewController.canSendMail() {
             let mailComposeViewController = MFMailComposeViewController()
@@ -48,10 +50,14 @@ class AboutScreenViewController: UIViewController {
             // Handle the case where the device is not configured for email
             print("Device not configured for email")
         }
+        
+        print("Exiting emailButtonTapped")
     }
 }
 
 extension AboutScreenViewController: MFMailComposeViewControllerDelegate {
+    
+    //composingEmail
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }

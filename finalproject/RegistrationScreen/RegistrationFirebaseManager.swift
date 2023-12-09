@@ -13,12 +13,19 @@ import CryptoKit
 
 extension RegistrationViewController {
     
+    //uploadProfilePhoto to firebase storage if exists
     func uploadProfilePhotoToStorage(_ name: String, _ email: String, _ password: String){
+        
+        print("Entering uploadProfilePhotoToStorage")
+        
+        //show loading symbol
+        showActivityIndicator()
         
         var profilePhotoURL:URL?
         
-        //MARK: Upload the profile photo if there is any...
         if let image = pickedImage{
+            
+            //user added a profilePicture
             if let jpegData = image.jpegData(compressionQuality: 80){
                 let storageRef = storage.reference()
                 let imagesRepo = storageRef.child(FirebaseConfigs.listOfProfilePictures)
@@ -36,14 +43,17 @@ extension RegistrationViewController {
                 })
             }
         }else{
+            //registerAccount without profilePicture
             registerNewAccount(name, email, password, profilePhotoURL)
         }
+        
+        print("Exiting uploadProfilePhotoToStorage")
     }
     
+    //register user in firebase
     func registerNewAccount(_ name: String, _ email: String, _ password: String, _ photoURL: URL?) {
         
-        print("registerNewAccount")
-        showActivityIndicator()
+        print("Entered registerNewAccount")
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
             
@@ -52,7 +62,6 @@ extension RegistrationViewController {
                 self.currentUser = result?.user
                 let userID = self.currentUser!.uid
                 
-                //update userName
                 self.setUserNameAndPhotoOfUserInFirebaseAuth(name: name, email: email, photoURL: photoURL)
             }
             else {
@@ -60,11 +69,14 @@ extension RegistrationViewController {
                 self.showErrorAlert(message: (error?.localizedDescription.description)!)
             }
         })
+        
+        print("Exiting registerNewAccount")
     }
     
+    //update userName and profilePhoto(if any)
     func setUserNameAndPhotoOfUserInFirebaseAuth(name: String, email: String, photoURL: URL?) {
         
-        print("setting username and photo")
+        print("Entered setUserNameAndPhotoOfUserInFirebaseAuth")
         
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
@@ -76,7 +88,6 @@ extension RegistrationViewController {
                 
                 //notify userhomescreen --
                 self.notificationCenter.post(name: NSNotification.Name(rawValue: "userRegistered"), object: nil)
-                
                 self.createFirestoreUserDocument(photoURL: photoURL)
             }
             else {
@@ -84,19 +95,19 @@ extension RegistrationViewController {
                 self.showErrorAlert(message: (error?.localizedDescription.description)!)
             }
         })
+        
+        print("Exiting setUserNameAndPhotoOfUserInFirebaseAuth")
     }
     
+    //create the user in database
     func createFirestoreUserDocument(photoURL: URL?) {
         
-        print("creating firestore user document")
+        print("Entered createFirestoreUserDocument")
         
         var userCollectionCount = -1
         
-        print(photoURL)
-        
         if let userEmail = currentUser?.email{
             
-            print("creating userdata")
             var data: [String: Any] = [
                 "name": currentUser?.displayName ?? "",
                 "email": userEmail
@@ -142,16 +153,19 @@ extension RegistrationViewController {
                 }
             }
             
-            let journalCollection = userDoc.collection(FirebaseConfigs.listOfUserJournals)
-            
+            //hide loading symbol when registration is complete
             hideActivityIndicator()
         }
         else {
-            print("failed to convert url to string")
+            print("User email is nil")
         }
+        
+        print("Exiting createFirestoreUserDocument")
     }
     
     func userLogout() {
+        
+        print("Entered userLogout")
         
         do {
             try Auth.auth().signOut()
@@ -159,6 +173,8 @@ extension RegistrationViewController {
         catch {
             print("Error signing out!")
         }
+        
+        print("Exiting userLogout")
     }
     
     func showAccountCreationAlert() {

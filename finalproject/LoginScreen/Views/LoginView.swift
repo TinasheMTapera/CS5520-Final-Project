@@ -9,6 +9,7 @@ import UIKit
 
 class LoginView: UIView {
     
+    //variables used in view
     var contentWrapper: UIScrollView!
     var logoImageView: UIImageView!
     var appNameLabel: UILabel!
@@ -23,6 +24,7 @@ class LoginView: UIView {
         
         self.backgroundColor = AppColors.backgroundColor
         
+        //UISetup
         setupContentWrapper()
         setupLogoImageView()
         setupAppNameLabel()
@@ -34,7 +36,7 @@ class LoginView: UIView {
         
         initConstraints()
     }
-
+    
     func setupContentWrapper() {
         contentWrapper = UIScrollView()
         contentWrapper.backgroundColor = .clear
@@ -120,6 +122,7 @@ class LoginView: UIView {
     
     func initConstraints() {
         
+        //UIConstraints and positioning
         NSLayoutConstraint.activate([
             
             contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),

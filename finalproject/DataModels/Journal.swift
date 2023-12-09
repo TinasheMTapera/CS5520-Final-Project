@@ -7,6 +7,7 @@
 
 import Foundation
 
+//object for writtenJournal creations - used in creation and fetching of user journals
 class Journal {
     
     var journalID: String
@@ -21,6 +22,7 @@ class Journal {
     
 }
 
+//enum to differentiate between create and update actions
 enum JournalAction {
     case create
     case edit(journalID: String)

@@ -9,6 +9,7 @@ import UIKit
 
 class RecordScreenView: UIView {
     
+    //variables used in view
     var recordButton: UIButton!
     var recordPromptLabel: UILabel!
     var emptyStateLabel: UILabel!
@@ -19,6 +20,7 @@ class RecordScreenView: UIView {
         
         self.backgroundColor = AppColors.backgroundColor
         
+        //UISetup
         setupRecordButton()
         setupRecordPromptLabel()
         setupEmptyStateLabel()
@@ -32,12 +34,12 @@ class RecordScreenView: UIView {
         
         recordButton = UIButton()
         
-        
+        //customizing button
         let boldConfiguration = UIImage.SymbolConfiguration(weight: .bold)
         let boldMicImage = UIImage(systemName: "mic.fill", withConfiguration: boldConfiguration)
         
         recordButton.setImage(boldMicImage, for: .normal)
-        recordButton.imageView?.contentMode = .scaleAspectFit // or any other content mode that fits your layout
+        recordButton.imageView?.contentMode = .scaleAspectFit
         recordButton.tintColor = AppColors.whiteBackground
         
         recordButton.backgroundColor = AppColors.greenButton
@@ -46,6 +48,7 @@ class RecordScreenView: UIView {
         recordButton.layer.shadowOpacity = 0.5
         recordButton.layer.shadowOffset = CGSize(width: 0, height: 3)
         recordButton.layer.shadowRadius = 4
+        
         recordButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(recordButton)
     }
@@ -82,6 +85,7 @@ class RecordScreenView: UIView {
     
     func initConstraints() {
         
+        //UIConstraints and positioning
         NSLayoutConstraint.activate([
             
             recordButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 40),

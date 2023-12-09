@@ -10,20 +10,24 @@ import UIKit
 
 extension UserHomeViewController {
     
+    //setting up right side of the navBar with logo
     func setupLogoInNavBar(in navigationItem: UINavigationItem) {
+        
+        print("Entered setupLogoInNavBar")
         
         let appLogoImage = UIImage(named: "transparentlogo")
         let customView = UIView()
         
-        // Create a UIImageView with the app logo
+        //creating UIImageView with app logo
         let appLogoImageView = UIImageView(image: appLogoImage)
         appLogoImageView.contentMode = .scaleAspectFit // Set content mode to .scaleAspectFit
         
-        // Add the UIImageView to the custom view
+        //adding UIImageView to the custom view-
         customView.addSubview(appLogoImageView)
         
-        // Set the frame of the UIImageView within the custom view
+        //setting frame of UIImageView in the custom view
         appLogoImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             appLogoImageView.topAnchor.constraint(equalTo: customView.topAnchor),
             appLogoImageView.bottomAnchor.constraint(equalTo: customView.bottomAnchor),
@@ -31,49 +35,47 @@ extension UserHomeViewController {
             appLogoImageView.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: 80)
         ])
         
+        //adding tap gesture to detect user taps
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(aboutButtonTapped))
-
-        // Set the number of taps required
         tapGesture.numberOfTapsRequired = 1
-
-        // Add the gesture recognizer to the custom view
         customView.addGestureRecognizer(tapGesture)
         
-        // Create a UIBarButtonItem with the custom view
+        //creating UIBarButtonItem with custom view
         let appLogoBarButton = UIBarButtonItem(customView: customView)
         
-        // Create a flexible space item to push the logo to the right
+        //flexible space item to push logo to the right
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
+        //setting action target of the button
         appLogoBarButton.action = #selector(aboutButtonTapped)
-
-        // Set the target of the UIBarButtonItem to self
         appLogoBarButton.target = self
         
+        //setting flexible space and logo as right button items
         navigationItem.rightBarButtonItems = [flexibleSpace, appLogoBarButton]
+        
+        print("Exiting setupLogoInNavBar")
     }
     
+    //setting up left side of the navBar with logo
     func setupProfileIconInNavBar(in navigationItem: UINavigationItem) {
         
         let profileButton = UIButton(type: .system)
-
-        // Set the image for the button
+        
+        //customizing button
         profileButton.setImage(UIImage(systemName: "person.fill"), for: .normal)
-
-        // Set the tint color (change to your desired color)
         profileButton.tintColor = UIColor.blue
-
-        // Adjust the size of the button's image (change the multiplier as needed)
+        
+        //size of the button's image (change the multiplier as needed)
         profileButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         profileButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-
-        // Add a target to the button
+        
+        //setting button target
         profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
-
-        // Create a UIBarButtonItem with the custom button
+        
+        //creating UIBarButtonItem with custom button
         let profileBarButtonItem = UIBarButtonItem(customView: profileButton)
-
-        // Set the leftBarButtonItem
+        
+        //setting left button item
         navigationItem.leftBarButtonItem = profileBarButtonItem
         
     }

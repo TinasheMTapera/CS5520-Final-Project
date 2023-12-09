@@ -7,6 +7,7 @@
 
 import Foundation
 
+//object for user details - used in ProfileScreen
 class UserDetails {
     
     var name: String

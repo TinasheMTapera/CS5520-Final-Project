@@ -26,9 +26,10 @@ class NewJournalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //navBar right button config
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
         
-        //Some code to hide the keyboard
+        //hide the keyboard
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardOnTap))
         tapRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapRecognizer)
@@ -41,26 +42,22 @@ class NewJournalViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    //Hide Keyboard...
+    //hide Keyboard
     @objc func hideKeyboardOnTap(){
-        //MARK: removing the keyboard from screen...
+        //removing the keyboard from screen
         view.endEditing(true)
     }
     
+    //checking
     @objc func doneButtonTapped() {
         
         if case let .edit(journalID) = currentAction {
-            
-            // Call the update function with the journalID
+            //updating an existing journal
             updateJournal(journalID: journalID)
-            
-            
         } else {
-            
-            // Handle the action for creating a new journal
+            //creation of a new journal
             createNewJournal()
         }
-        
     }
     
 }

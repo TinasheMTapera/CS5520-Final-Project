@@ -8,7 +8,8 @@
 import UIKit
 
 class ProfileScreenView: UIView {
-
+    
+    //variables used in view
     var contentWrapper: UIScrollView!
     var boxView: UIView!
     
@@ -22,6 +23,7 @@ class ProfileScreenView: UIView {
         
         self.backgroundColor = AppColors.whiteBackground
         
+        //UISetup
         setupContentWrapper()
         setupBoxView()
         setupProfileImage()
@@ -98,6 +100,7 @@ class ProfileScreenView: UIView {
     
     func initConstraints() {
         
+        //UIConstraints and positioning
         NSLayoutConstraint.activate([
             
             contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
@@ -117,7 +120,7 @@ class ProfileScreenView: UIView {
             
             nameLabel.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 80),
             nameLabel.centerXAnchor.constraint(equalTo: boxView.centerXAnchor),
-
+            
             emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 50),
             emailLabel.centerXAnchor.constraint(equalTo: boxView.centerXAnchor),
             
@@ -130,5 +133,5 @@ class ProfileScreenView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }

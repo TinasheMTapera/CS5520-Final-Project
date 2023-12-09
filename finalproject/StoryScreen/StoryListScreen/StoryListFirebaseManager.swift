@@ -11,8 +11,11 @@ extension StoryListViewController {
     
     func fetchSnippetsFromFirebase() {
         
+        print("Entered fetchSnippetsFromFirebase")
+        
         print("fetching snippet for mood -- \(selectedMood) and timeframe -- \(selectedTimeframe)")
         
+        //clear list
         self.snippetList.removeAll()
         
         let fetchedSnippets = database.collection(FirebaseConfigs.listOfStories)
@@ -21,6 +24,7 @@ extension StoryListViewController {
             .document(selectedTimeframe)
             .collection(FirebaseConfigs.listOfSnippets)
         
+        //get docs
         fetchedSnippets.getDocuments(completion: { (querySnapshot, error) in
             
             if error == nil {
@@ -31,31 +35,28 @@ extension StoryListViewController {
                 }
                 
                 let storyCount = querySnapshot.documents.count
-                print("Number of snippets -- \(storyCount)")
                 
                 for snippetDocument in querySnapshot.documents {
-                        // Safely attempt to extract data from the document
-                        do {
+                    
+                    do {
+                        if let snippetData = try? snippetDocument.data(as: Snippet.self) {
+                            self.snippetList.append(snippetData)
                             
-                            if let snippetData = try? snippetDocument.data(as: Snippet.self) {
-                                print("Title: \(snippetData.title), Content: \(snippetData.content)")
-                                self.snippetList.append(snippetData)
-                                
-                                DispatchQueue.main.async {
-                                    self.storyListView.tableViewStories.reloadData()
-                                }
+                            DispatchQueue.main.async {
+                                //reload data in table
+                                self.storyListView.tableViewStories.reloadData()
                             }
-                        } catch {
-                            print("Error decoding snippet data: \(error)")
                         }
+                    } catch {
+                        print("Error decoding snippet data: \(error)")
                     }
+                }
             }
             else {
                 print("Failed to load stories for the selected mood and timeframe")
             }
             
         })
-        
+        print("Exiting fetchSnippetsFromFirebase")
     }
-    
 }

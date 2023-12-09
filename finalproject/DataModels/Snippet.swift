@@ -7,6 +7,7 @@
 
 import Foundation
 
+//object to fetch snippets based on moods and timeframes - used in StoryList
 class Snippet: Decodable {
     
     var title: String

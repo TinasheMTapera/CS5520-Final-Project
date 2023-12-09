@@ -28,8 +28,10 @@ class ProfileScreenViewController: UIViewController {
         
         title = "Profile"
         
+        //fetch user details to display
         fetchUserDetailsFromFirebase()
         
+        //set profilePicture if exists
         if let url = self.currentUser?.photoURL{
             userProfileView.profileImage.loadRemoteImage(from: url)
         }
@@ -43,6 +45,8 @@ class ProfileScreenViewController: UIViewController {
         userProfileView.nameLabel.text = "Name: \(userDetails.name)"
         userProfileView.emailLabel.text = "Email: \(userDetails.email)"
         userProfileView.journalCountLabel.text = "You have \(userDetails.journalCount) written journal(s) and \(userDetails.audioCount) audio(s)"
+        
+        print("Exiting setUserDisplayData")
     }
     
 }

@@ -23,22 +23,28 @@ class StoriesMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //configuring picker buttons in view
         storyView.moodPickerButton.delegate = self
         storyView.moodPickerButton.dataSource = self
-
+        
         storyView.timeframePickerButton.delegate = self
         storyView.timeframePickerButton.dataSource = self
         
+        //setting button targets
         storyView.goArrowButton.addTarget(self, action: #selector(displayStoryList), for: .touchUpInside)
         
     }
     
     @objc func displayStoryList() {
         
+        print("Entered displayStoryList")
+        
         let storyListController = StoryListViewController()
         storyListController.selectedMood = self.selectedMood
         storyListController.selectedTimeframe = self.selectedTimeframe
         navigationController?.pushViewController(storyListController, animated: true)
+        
+        print("Exiting displayStoryList")
         
     }
     

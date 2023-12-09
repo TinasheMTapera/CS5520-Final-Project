@@ -8,15 +8,17 @@
 import Foundation
 import UIKit
 
+//tableView configs
 extension RecordScreenViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //show Label
         updateEmptyStateLabel()
         return recordingList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: TableIdentifiers.tableViewRecordings, for: indexPath) as! RecordingTableViewCell
         
         let recording = recordingList[indexPath.row]
@@ -25,6 +27,7 @@ extension RecordScreenViewController: UITableViewDelegate, UITableViewDataSource
         cell.backgroundColor = AppColors.backgroundColor
         tableView.backgroundColor = AppColors.backgroundColor
         
+        //configuring cell button options - delete/download
         let buttonOptions = UIButton(type: .system)
         buttonOptions.sizeToFit()
         buttonOptions.showsMenuAsPrimaryAction = true
@@ -41,8 +44,6 @@ extension RecordScreenViewController: UITableViewDelegate, UITableViewDataSource
         
         cell.accessoryView = buttonOptions
         
-//        tableView.reloadData()
-        
         return cell
     }
     
@@ -51,7 +52,9 @@ extension RecordScreenViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func downloadSelectedFor(recording: Recording) {
+        print("Entered downloadSelectedFor")
         downloadRecording(recording: recording)
+        print("Exiting downloadSelectedFor")
     }
     
     func deleteSelectedFor(recordingName: String){
@@ -82,41 +85,47 @@ extension RecordScreenViewController: UITableViewDelegate, UITableViewDataSource
     
     func downloadRecording(recording: Recording) {
         
-        print("Downloading selected recording")
+        print("Entered downloadRecording")
+        
         let url = recording.downloadURL
-
+        
         let downloadTask = URLSession.shared.downloadTask(with: url) { (location, response, error) in
             
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Error downloading recording: \(error!.localizedDescription)")
-                    // Handle the error appropriately, e.g., show an alert to the user
+                    self.showErrorAlert(message: "Error downloading your recording")
                     return
                 }
-
+                
                 guard let location = location else {
                     print("Error: Downloaded file location is nil.")
-                    // Handle the error appropriately, e.g., show an alert to the user
                     return
                 }
-
+                
                 do {
                     let documentsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
                     let destinationURL = documentsURL.appendingPathComponent(recording.name)
-
-                    // Move the downloaded file to the desired location
+                    
+                    //move downloaded file to desired location
                     try FileManager.default.moveItem(at: location, to: destinationURL)
-
-                    // Optionally, you can notify your UI or perform further actions with the downloaded file URL
                     print("Recording downloaded successfully. File saved at: \(destinationURL)")
-
+                    
                 } catch {
                     print("Error moving downloaded file: \(error.localizedDescription)")
-                    // Handle the error appropriately, e.g., show an alert to the user
                 }
             }
         }
-
+        
         downloadTask.resume()
+        
+        print("Exiting downloadRecording")
+    }
+    
+    func showErrorAlert(message: String) {
+        
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
 }

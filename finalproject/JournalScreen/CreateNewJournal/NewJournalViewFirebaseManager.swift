@@ -11,12 +11,13 @@ extension NewJournalViewController {
     
     @objc func createNewJournal() {
         
-        print("create new journal")
+        print("Entered createNewJournal")
         
         if let userEmail = self.currentUser?.email{
             if let uwTitle = newJournalView.journalTitleTextField.text,
                let uwContent = newJournalView.journalTextView.text {
                 
+                //fetching collection
                 let journalCollection = database
                     .collection(FirebaseConfigs.listOfUsers)
                     .document(userEmail)
@@ -27,11 +28,11 @@ extension NewJournalViewController {
                 
                 let journalData = ["title": uwTitle, "content": uwContent, "timestamp": Date()] as [String : Any]
                 
+                //fetch docs
                 journalCollection.getDocuments(completion: { (querySnapshot, error) in
                     
                     if error == nil {
                         
-                        print("New journal ID -- \(newJournalDocumentID)")
                         journalCollection.document(newJournalDocumentID).setData(journalData) { error in
                             
                             if error == nil {
@@ -39,7 +40,7 @@ extension NewJournalViewController {
                                 
                                 if let journalMainController = self.navigationController?.viewControllers.first(where: { $0 is JournalMainViewController }) as? JournalMainViewController {
                                     
-                                    // Update the data using the existing instance
+                                    //updating data using existing instance
                                     journalMainController.currentUser = self.currentUser
                                     journalMainController.fetchUserJournalList()
                                 }
@@ -63,19 +64,20 @@ extension NewJournalViewController {
         else {
             print("Current user email is nil")
         }
+        
+        print("Exiting createNewJournal")
     }
     
     @objc func updateJournal(journalID: String) {
         
-        print("update journal")
+        print("Entered updateJournal")
         
         if let userEmail = self.currentUser?.email{
             
             if let uwTitle = newJournalView.journalTitleTextField.text,
                let uwContent = newJournalView.journalTextView.text {
                 
-                print("title -- \(uwTitle), content -- \(uwContent)")
-                
+                //fetching collection
                 let journalDoc = database
                     .collection(FirebaseConfigs.listOfUsers)
                     .document(userEmail)
@@ -84,8 +86,7 @@ extension NewJournalViewController {
                 
                 let updatedJournalData = ["title": uwTitle, "content": uwContent, "timestamp": Date()] as [String: Any]
                 
-                print("updatedData -- \(updatedJournalData)")
-                
+                //updating data in doc
                 journalDoc.updateData(updatedJournalData) { error in
                     
                     if error == nil {
@@ -93,7 +94,7 @@ extension NewJournalViewController {
                         
                         if let journalMainController = self.navigationController?.viewControllers.first(where: { $0 is JournalMainViewController }) as? JournalMainViewController {
                             
-                            // Update the data using the existing instance
+                            //updating data using existing instance
                             journalMainController.currentUser = self.currentUser
                             journalMainController.fetchUserJournalList()
                         }
@@ -112,6 +113,8 @@ extension NewJournalViewController {
         else {
             print("Current user email is nil")
         }
+        
+        print("Exiting updateJournal")
     }
     
 }

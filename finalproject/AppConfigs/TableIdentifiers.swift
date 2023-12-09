@@ -7,6 +7,7 @@
 
 import Foundation
 
+//object used to maintain table identifiers over the app
 class TableIdentifiers {
     
     static let tableViewJournals = "tableViewJournals"

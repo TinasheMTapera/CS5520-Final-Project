@@ -8,7 +8,8 @@
 import UIKit
 
 class StoryTableViewCell: UITableViewCell {
-
+    
+    //variables used in tableCell
     var wrapperCellView: UIView!
     var titleLabel: UILabel!
     var textPrompt: UILabel!
@@ -16,6 +17,7 @@ class StoryTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        //tableCell setup
         setupWrapperCellView()
         setupTitleLabel()
         setupTextPrompt()
@@ -50,6 +52,8 @@ class StoryTableViewCell: UITableViewCell {
     }
     
     func initConstraints() {
+        
+        //tableCell constraints and positioning
         NSLayoutConstraint.activate([
             
             wrapperCellView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),

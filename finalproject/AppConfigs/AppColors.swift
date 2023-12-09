@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//object used to generalize colors used over the entire app
 class AppColors {
     
     static let whiteBackground = UIColor.white
