@@ -7,14 +7,9 @@
 
 import UIKit
 
+import UIKit
+
 class AboutScreenView: UIView {
-    
-    //    var contentWrapper: UIScrollView!
-    //    var titleLabel: UILabel!
-    //    var descriptionLabel1: UILabel!
-    //    var descriptionLabel2: UILabel!
-    //    var descriptionLabel3: UILabel!
-    //    var descriptionLabel4: UILabel!
     
     var scrollView: UIScrollView!
     var contentView: UIView!
@@ -25,13 +20,6 @@ class AboutScreenView: UIView {
         super.init(frame: frame)
         
         self.backgroundColor = AppColors.backgroundColor
-        
-        //        setupContentWrapper()
-        //        setupTitleLabel()
-        //        setupDescriptionLabel1()
-        //        setupDescriptionLabel2()
-        //        setupDescriptionLabel3()
-        //        setupDescriptionLabel4()
         
         setupScrollView()
         setupContentView()
@@ -81,8 +69,8 @@ class AboutScreenView: UIView {
             descriptionLabel.text = description
             descriptionLabel.numberOfLines = 0
             descriptionLabel.font = .systemFont(ofSize: 15)
-            descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
             
+            descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(descriptionLabel)
             descriptionLabels.append(descriptionLabel)
             
@@ -95,7 +83,11 @@ class AboutScreenView: UIView {
             
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-            
+        }
+        
+        // Set bottom constraint for the last descriptionLabel outside the loop
+        if let lastDescriptionLabel = descriptionLabels.last {
+            lastDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
         }
     }
     
@@ -112,7 +104,13 @@ class AboutScreenView: UIView {
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, constant: -40),
+            
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            
         ])
     }
     
@@ -121,4 +119,3 @@ class AboutScreenView: UIView {
     }
     
 }
-

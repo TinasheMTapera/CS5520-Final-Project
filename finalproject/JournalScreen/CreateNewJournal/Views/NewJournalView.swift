@@ -64,7 +64,7 @@ class NewJournalView: UIView {
     func initConstraints() {
         NSLayoutConstraint.activate([
             
-            journalTitleTextField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: -20),
+            journalTitleTextField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             journalTitleTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             journalTitleTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             journalTitleTextField.heightAnchor.constraint(equalToConstant: 40),

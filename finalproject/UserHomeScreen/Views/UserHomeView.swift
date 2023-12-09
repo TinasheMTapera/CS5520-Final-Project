@@ -8,6 +8,7 @@ import UIKit
 
 class UserHomeView : UIView {
     
+    var contentWrapper: UIScrollView!
     var textLabel: UILabel!
     var readStoriesButton: UIButton!
     var writeJournalButton: UIButton!
@@ -19,6 +20,7 @@ class UserHomeView : UIView {
         
         self.backgroundColor = AppColors.backgroundColor
         
+        setupContentWrapper()
         setupTextLabel()
         setupReadStoriesButton()
         setupWriteJournalButton()
@@ -28,13 +30,21 @@ class UserHomeView : UIView {
         initConstraints()
     }
     
+    func setupContentWrapper() {
+        contentWrapper = UIScrollView()
+        contentWrapper.backgroundColor = .clear
+        
+        contentWrapper.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(contentWrapper)
+    }
+    
     func setupTextLabel() {
         textLabel = UILabel()
         textLabel.text = "How do you wish to handle your mood today?"
         textLabel.font = .boldSystemFont(ofSize: 16)
         
         textLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(textLabel)
+        contentWrapper.addSubview(textLabel)
     }
     
     func setupReadStoriesButton() {
@@ -52,7 +62,7 @@ class UserHomeView : UIView {
         readStoriesButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         
         readStoriesButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(readStoriesButton)
+        contentWrapper.addSubview(readStoriesButton)
     }
     
     func setupWriteJournalButton() {
@@ -71,7 +81,7 @@ class UserHomeView : UIView {
         
         
         writeJournalButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(writeJournalButton)
+        contentWrapper.addSubview(writeJournalButton)
     }
     
     func setupRecordMomentsButton() {
@@ -90,7 +100,7 @@ class UserHomeView : UIView {
         
         
         recordMomentsButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(recordMomentsButton)
+        contentWrapper.addSubview(recordMomentsButton)
         
     }
     
@@ -109,35 +119,41 @@ class UserHomeView : UIView {
         logoutButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(logoutButton)
+        contentWrapper.addSubview(logoutButton)
     }
     
     func initConstraints() {
         
         NSLayoutConstraint.activate([
             
-            textLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 70),
-            textLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 30),
+            contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            contentWrapper.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            contentWrapper.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            contentWrapper.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            
+            textLabel.topAnchor.constraint(equalTo: contentWrapper.topAnchor, constant: 70),
+            textLabel.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor, constant: 30),
             
             readStoriesButton.topAnchor.constraint(equalTo: textLabel.topAnchor, constant: 80),
-            readStoriesButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            readStoriesButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             readStoriesButton.widthAnchor.constraint(equalToConstant: 200),
             readStoriesButton.heightAnchor.constraint(equalToConstant: 70),
             
             writeJournalButton.topAnchor.constraint(equalTo: readStoriesButton.bottomAnchor, constant: 50),
-            writeJournalButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            writeJournalButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             writeJournalButton.widthAnchor.constraint(equalToConstant: 200),
             writeJournalButton.heightAnchor.constraint(equalToConstant: 70),
             
             recordMomentsButton.topAnchor.constraint(equalTo: writeJournalButton.bottomAnchor, constant: 50),
-            recordMomentsButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            recordMomentsButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             recordMomentsButton.widthAnchor.constraint(equalToConstant: 200),
             recordMomentsButton.heightAnchor.constraint(equalToConstant: 70),
             
-            logoutButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
-            logoutButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            logoutButton.bottomAnchor.constraint(equalTo: recordMomentsButton.bottomAnchor, constant: 200),
+            logoutButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             logoutButton.widthAnchor.constraint(equalToConstant: 220),
             logoutButton.heightAnchor.constraint(equalToConstant: 50),
+            logoutButton.bottomAnchor.constraint(equalTo: contentWrapper.bottomAnchor),
             
         ])
     }

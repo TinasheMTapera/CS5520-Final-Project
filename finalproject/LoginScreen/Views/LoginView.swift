@@ -9,6 +9,7 @@ import UIKit
 
 class LoginView: UIView {
     
+    var contentWrapper: UIScrollView!
     var logoImageView: UIImageView!
     var appNameLabel: UILabel!
     var emailTextField: UITextField!
@@ -22,6 +23,7 @@ class LoginView: UIView {
         
         self.backgroundColor = AppColors.backgroundColor
         
+        setupContentWrapper()
         setupLogoImageView()
         setupAppNameLabel()
         setupEmailTextField()
@@ -33,6 +35,13 @@ class LoginView: UIView {
         initConstraints()
     }
 
+    func setupContentWrapper() {
+        contentWrapper = UIScrollView()
+        contentWrapper.backgroundColor = .clear
+        
+        contentWrapper.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(contentWrapper)
+    }
     
     func setupLogoImageView() {
         logoImageView = UIImageView()
@@ -40,7 +49,7 @@ class LoginView: UIView {
         logoImageView.contentMode = .scaleAspectFit
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(logoImageView)
+        contentWrapper.addSubview(logoImageView)
     }
     
     func setupAppNameLabel() {
@@ -51,7 +60,7 @@ class LoginView: UIView {
         appNameLabel.textColor = UIColor(named: "AppNameColor")
         
         appNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(appNameLabel)
+        contentWrapper.addSubview(appNameLabel)
     }
     
     func setupEmailTextField() {
@@ -61,7 +70,7 @@ class LoginView: UIView {
         emailTextField.keyboardType = .emailAddress
         
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(emailTextField)
+        contentWrapper.addSubview(emailTextField)
     }
     
     func setupPasswordTextField() {
@@ -71,7 +80,7 @@ class LoginView: UIView {
         passwordTextField.borderStyle = .roundedRect
         
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(passwordTextField)
+        contentWrapper.addSubview(passwordTextField)
     }
     
     func setupLoginButton() {
@@ -83,7 +92,7 @@ class LoginView: UIView {
         loginButton.layer.cornerRadius = 8
         
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(loginButton)
+        contentWrapper.addSubview(loginButton)
     }
     
     func setupRegisterPromptLabel() {
@@ -94,7 +103,7 @@ class LoginView: UIView {
         registerPromptLabel.numberOfLines = 0
         
         registerPromptLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(registerPromptLabel)
+        contentWrapper.addSubview(registerPromptLabel)
     }
     
     func setupRegisterButton() {
@@ -106,44 +115,50 @@ class LoginView: UIView {
         registerButton.layer.cornerRadius = 8
         
         registerButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(registerButton)
+        contentWrapper.addSubview(registerButton)
     }
     
     func initConstraints() {
         
         NSLayoutConstraint.activate([
             
-            logoImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            contentWrapper.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            contentWrapper.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            contentWrapper.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            
+            logoImageView.topAnchor.constraint(equalTo: contentWrapper.topAnchor),
+            logoImageView.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             logoImageView.widthAnchor.constraint(equalToConstant: 150),
             logoImageView.heightAnchor.constraint(equalToConstant: 150),
             
             appNameLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor),
-            appNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            appNameLabel.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             
             emailTextField.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor, constant: 60),
-            emailTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
+            emailTextField.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             emailTextField.widthAnchor.constraint(equalToConstant: 300),
             emailTextField.heightAnchor.constraint(equalToConstant: 40),
             
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20),
-            passwordTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
+            passwordTextField.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             passwordTextField.widthAnchor.constraint(equalToConstant: 300),
             passwordTextField.heightAnchor.constraint(equalToConstant: 40),
             
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 60),
-            loginButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loginButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             loginButton.widthAnchor.constraint(equalToConstant: 120),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
             
             registerPromptLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 70),
-            registerPromptLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            registerPromptLabel.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             registerPromptLabel.widthAnchor.constraint(equalToConstant: 250),
             
             registerButton.topAnchor.constraint(equalTo: registerPromptLabel.bottomAnchor, constant: 30),
-            registerButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            registerButton.centerXAnchor.constraint(equalTo: contentWrapper.centerXAnchor),
             registerButton.widthAnchor.constraint(equalToConstant: 120),
             registerButton.heightAnchor.constraint(equalToConstant: 50),
+            registerButton.bottomAnchor.constraint(equalTo: contentWrapper.bottomAnchor),
             
         ])
         
